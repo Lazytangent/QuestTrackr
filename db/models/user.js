@@ -22,7 +22,12 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   User.associate = function(models) {
-    // associations can be defined here
+    let questAssociation = {
+      through: 'UserQuests',
+      foreignKey: 'userId',
+      otherKey: 'questId',
+    }
+    User.belongsToMany(models.Quest, questAssociation)
   };
   return User;
 };
