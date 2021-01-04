@@ -1,0 +1,7 @@
+mixin formField(type, name, label, placeholder='', required=false)
+  div
+    label(for=name)= label
+    if required
+      input(type=type name=name required placeholder=placeholder)
+    else
+      input(type=type name=name placeholder=placeholder)

@@ -1,0 +1,12 @@
+extends layout.pug
+
+include includes/utils.pug
+
+block content
+  form(action="/register" method="post")
+    input(type="hidden" name="_csrf" value=csrfToken)
+    +formField('text', 'username', 'Username', 'Username', true)
+    +formField('email', 'email', 'Email', 'Email (optional)', false)
+    +formField('password', 'password', 'Password', 'Password', true)
+    +formField('password', 'confirmedPassword', 'Confirm Password', 'Confirm Password', true)
+    button(type="submit") Start My Adventure
