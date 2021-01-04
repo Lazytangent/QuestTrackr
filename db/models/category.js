@@ -11,7 +11,12 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   Category.associate = function(models) {
-    // associations can be defined here
+    let categoryAssociation = {
+      through: 'QuestCategories',
+      foreignKey: 'categoryId',
+      otherKey: 'questId',
+    }
+    Category.belongsToMany(models.Quest, categoryAssociation);
   };
   return Category;
 };

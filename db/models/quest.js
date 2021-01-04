@@ -37,7 +37,19 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'questId',
       otherKey: 'userId',
     }
-    Quest.belongsToMany(models.User, questAssociation)
+    let categoryAssociation = {
+      through: 'QuestCategories',
+      foreignKey: 'questId',
+      otherKey: 'categoryId',
+    }
+    let subQuestAssociation = {
+      through: 'QuestSubQuests',
+      foreignKey: 'questId',
+      otherKey: 'subQuestId',
+    }
+    Quest.belongsToMany(models.User, questAssociation);
+    Quest.belongsToMany(models.Category, categoryAssociation);
+    Quest.belongsToMany(models.SubQuest, subQuestAssociation);
   };
   return Quest;
 };
