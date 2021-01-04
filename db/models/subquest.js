@@ -11,7 +11,12 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   SubQuest.associate = function(models) {
-    // associations can be defined here
+    let subQuestAssociation = {
+      through: 'QuestSubQuests',
+      foreignKey: 'subQuestId',
+      otherKey: 'questId',
+    }
+    SubQuest.belongsToMany(models.Quest, subQuestAssociation);
   };
   return SubQuest;
 };
