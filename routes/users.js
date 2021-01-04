@@ -4,13 +4,13 @@ const bcrypt = require('bcryptjs');
 
 const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
-const { loginUser, logoutUser } = require('../auth');
+const { loginUser } = require('../authorization');
 
 const router = express.Router();
 
-router.get('/user/register', csrfProtection, (req, res) => {
+router.get('/register', csrfProtection, (req, res) => {
   const user = db.User.build();
-  res.render('user-register', {
+  res.render('register', {
     title: 'Register',
     user,
     csrfToken: req.csrfToken(),
@@ -18,56 +18,40 @@ router.get('/user/register', csrfProtection, (req, res) => {
 });
 
 const userValidators = [
-  check('firstName')
+  check('userName')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for First Name')
-    .isLength({ max: 50 })
-    .withMessage('First Name must not be more than 50 characters long'),
-  check('lastName')
-    .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Last Name')
-    .isLength({ max: 50 })
-    .withMessage('Last Name must not be more than 50 characters long'),
-  check('emailAddress')
-    .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Email Address')
-    .isLength({ max: 255 })
-    .withMessage('Email Address must not be more than 255 characters long')
-    .isEmail()
-    .withMessage('Email Address is not a valid email'),
+    .withMessage('Please provide a value for First Name, quest-taker')
+    .isLength({ max: 20 })
+    .withMessage('First Name must not be more than 20 characters long'),
   check('password')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Password')
-    .isLength({ max: 50 })
-    .withMessage('Password must not be more than 50 characters long')
-    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, 'g')
-    .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")'),
+    .withMessage('Please provide a value for Password, quest-taker')
+    .isLength({ max: 20 })
+    .withMessage('Password must not be more than 20 characters long')
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/, 'g')
+    .withMessage('Password must contain at least 1 lowercase letter, uppercase letter and a number, quest-taker'),
   check('confirmPassword')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Confirm Password')
-    .isLength({ max: 50 })
-    .withMessage('Confirm Password must not be more than 50 characters long')
+    .withMessage('Please provide a value for Confirm Password, quest-taker')
+    .isLength({ max: 20 })
+    .withMessage('Confirm Password must not be more than 20 characters long')
     .custom((value, { req }) => {
       if (value !== req.body.password) {
-        throw new Error('Confirm Password does not match Password');
+        throw new Error('Confirm Password does not match Password, quest-taker');
       }
       return true;
     }),
 ];
 
-router.post('/user/register', csrfProtection, userValidators,
+router.post('/register', csrfProtection, userValidators,
   asyncHandler(async (req, res) => {
     const {
-      emailAddress,
-      firstName,
-      lastName,
+      userName,
       password,
     } = req.body;
 
     const user = db.User.build({
-      emailAddress,
-      firstName,
-      lastName,
+      userName
     });
 
     const validatorErrors = validationResult(req);
@@ -80,7 +64,7 @@ router.post('/user/register', csrfProtection, userValidators,
       res.redirect('/');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
-      res.render('user-register', {
+      res.render('register', {
         title: 'Register',
         user,
         errors,
@@ -90,25 +74,25 @@ router.post('/user/register', csrfProtection, userValidators,
   }));
 
 router.get('/login', csrfProtection, (req, res) => {
-  res.render('user-login', {
+  res.render('login', {
     title: 'Login',
     csrfToken: req.csrfToken(),
   });
 });
 
 const loginValidators = [
-  check('emailAddress')
+  check('userName')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Email Address'),
+    .withMessage('Please provide a value for a username, quest-taker'),
   check('password')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Password'),
+    .withMessage('Please provide a value for Password, quest-taker'),
 ];
 
 router.post('/login', csrfProtection, loginValidators,
   asyncHandler(async (req, res) => {
     const {
-      emailAddress,
+      userName,
       password,
     } = req.body;
 
@@ -116,39 +100,36 @@ router.post('/login', csrfProtection, loginValidators,
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-      // Attempt to get the user by their email address.
-      const user = await db.User.findOne({ where: { emailAddress } });
+      // Attempt to get the user by their user name!
+      const user = await db.User.findOne({ where: { userName } });
 
       if (user !== null) {
         // If the user exists then compare their password
-        // to the provided password.
+        // to the provided password(quest taker)!
         const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
 
         if (passwordMatch) {
-          // If the password hashes match, then login the user
-          // and redirect them to the default route.
+          // If the password hashes match, then login the user name!
+          // and redirect them to the home route.
           loginUser(req, res, user);
           return res.redirect('/');
         }
       }
 
       // Otherwise display an error message to the user.
-      errors.push('Login failed for the provided email address and password');
+      errors.push('Login failed for the provided user name and password, quest taker');
     } else {
       errors = validatorErrors.array().map((error) => error.msg);
     }
 
-    res.render('user-login', {
+    res.render('login', {
       title: 'Login',
-      emailAddress,
+      userName,
       errors,
       csrfToken: req.csrfToken(),
     });
   }));
 
-router.post('/logout', (req, res) => {
-  logoutUser(req, res);
-  res.redirect('/user/login');
-});
+
 
 module.exports = router;
