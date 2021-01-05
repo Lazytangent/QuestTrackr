@@ -31,7 +31,7 @@ const userValidators = [
     .withMessage('Please provide a value for Password, quest-taker')
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/, 'g')
     .withMessage('Password must contain at least 1 lowercase letter, uppercase letter and a number, quest-taker'),
-  check('confirmPassword')
+  check('confirmedPassword')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Confirm Password, quest-taker')
     .custom((value, { req }) => value === req.body.password)
@@ -45,22 +45,25 @@ router.post('/register', csrfProtection, userValidators,
       password,
       email //this is in database schema
     } = req.body;
-
+console.log("hello on line 48, before the build")
     const user = db.User.build({
       username,
       email //this is in database schema
     });
-
+    console.log("hello on line 53 after the build")
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
+      console.log("hello on line 59, before the user save")
       await user.save();
       loginUser(req, res, user);
+      console.log("hello on line 62, did we get this far?")
       res.redirect('/');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
+      console.log(errors)
       res.render('register', {
         title: 'Register',
         user,
