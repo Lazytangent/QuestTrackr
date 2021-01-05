@@ -6,22 +6,23 @@ html
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href="/stylesheets/navbar.css")
   body
-    nav
+    .navbar
       .logo-container
-      .nav-container
-        a(href="#") Profile
-        a(href="#") Make a Quest
-        .nav-container__xp-container
-          .nav-container__xp-fill
-        input(type="text" placeholder="Search..." id="searchbar")
-        .nav-container__auth-buttons
-          if locals.authenticated
-            span Questing as #{user.username}
-            form(action="/logout" method="post")
-              button(type="submit") Logout
-          else
-            span
-              a(href="/login") Login
-              a(href="/register") Register
+      nav
+        .nav-container
+          a(href="#") Profile
+          a(href="#") Make a Quest
+          .nav-container__xp-container
+            .nav-container__xp-fill
+          input(type="text" placeholder="Search..." id="searchbar")
+          .nav-container__auth-buttons
+            if locals.authenticated
+              span Questing as #{user.username}
+              form(action="/logout" method="post")
+                button(type="submit") Logout
+            else
+              span
+                a(href="/login") Login
+                a(href="/register") Register
 
     block content
