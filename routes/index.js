@@ -21,7 +21,7 @@ router.get('/register', csrfProtection, (req, res) => {
 });
 
 const userValidators = [
-  check('userName')
+  check('username')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for First Name, quest-taker')
     .isLength({ max: 30, min: 2 })
@@ -41,13 +41,13 @@ const userValidators = [
 router.post('/register', csrfProtection, userValidators,
   asyncHandler(async (req, res) => {
     const {
-      userName,
+      username,
       password,
       email //this is in database schema
     } = req.body;
 
     const user = db.User.build({
-      userName,
+      username,
       email //this is in database schema
     });
 
@@ -78,7 +78,7 @@ router.get('/login', csrfProtection, (req, res) => {
 });
 
 const loginValidators = [
-  check('userName')
+  check('username')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for a username, quest-taker'),
   check('password')
@@ -89,7 +89,7 @@ const loginValidators = [
 router.post('/login', csrfProtection, loginValidators,
   asyncHandler(async (req, res) => {
     const {
-      userName,
+      username,
       password,
     } = req.body;
 
@@ -98,7 +98,7 @@ router.post('/login', csrfProtection, loginValidators,
 
     if (validatorErrors.isEmpty()) {
       // Attempt to get the user by their user name!
-      const user = await db.User.findOne({ where: { userName } });
+      const user = await db.User.findOne({ where: { username } });
 
       if (user !== null) {
         // If the user exists then compare their password
@@ -121,7 +121,7 @@ router.post('/login', csrfProtection, loginValidators,
 
     res.render('login', {
       title: 'Login',
-      userName,
+      username,
       errors,
       csrfToken: req.csrfToken(),
     });

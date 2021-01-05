@@ -13,7 +13,7 @@ block content
   .form-container
     form(action="/login" method="post")
       input(type="hidden" name="_csrf" value=csrfToken)
-      +formField('text', 'userName', 'Username', 'Username', true)
+      +formField('text', 'username', 'Username', 'Username', true)
       +formField('password', 'password', 'Password', 'Password', true)
       .form-container__field--button
         button(type="submit" id="submit") Resume My Adventure
