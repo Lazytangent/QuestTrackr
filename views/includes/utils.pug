@@ -1,5 +1,5 @@
 mixin formField(type, name, label, placeholder='', required=false)
-  div
+  div.form-container__field
     label(for=name)= label
     if required
       input(type=type name=name required placeholder=placeholder)
