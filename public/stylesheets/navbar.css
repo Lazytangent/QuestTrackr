@@ -14,6 +14,7 @@ nav {
     height: 50%;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     background-color: #747474;
 }
 
@@ -31,17 +32,18 @@ nav {
 }
 
 .user_auth {
-    width: 300px;
-    height: 50%;
+    /* width: 300px; */
+    height: 100%;
     display: flex;
     justify-content: space-around;
+    /* align-items: center; */
 }
 
 .nav-container__xp-container {
     background-color: whitesmoke;
     width: 200px;
     height: 15px;
-    margin: 5px 0;
+    /* margin: 5px 0; */
     border-radius: 10px;
     overflow: hidden;
 }
@@ -50,4 +52,17 @@ nav {
     background-color: #ffd034;
     width: 75%;
     height: 100%;
+}
+
+.level {
+    font-weight: bold;
+    /* margin: 4px 0; */
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav-container__auth-buttons--links {
+    padding-right: 8px;
 }

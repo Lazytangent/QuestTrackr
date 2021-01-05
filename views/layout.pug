@@ -12,8 +12,10 @@ html
         .nav-container
           a(href="#") Profile
           a(href="#") Make a Quest
+          span.level 6
           .nav-container__xp-container
             .nav-container__xp-fill
+          span.level 7
           input(type="text" placeholder="Search..." id="searchbar")
           .nav-container__auth-buttons
             if locals.authenticated
@@ -22,7 +24,7 @@ html
                 button(type="submit") Logout
             else
               div.user_auth
-                a(href="/login") Login
-                a(href="/register") Register
+                a(href="/login" class="nav-container__auth-buttons--links") Login
+                a(href="/register" class="nav-container__auth-buttons--links") Register
 
     block content
