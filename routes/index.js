@@ -39,7 +39,7 @@ const userValidators = [
 ];
 
 router.post('/register', csrfProtection, userValidators,
-  asyncHandler(async (req, res) => {
+  asyncHandler(async (req, res, next) => {
     const {
       username,
       password,
@@ -58,7 +58,7 @@ console.log("hello on line 48, before the build")
       user.hashedPassword = hashedPassword;
       console.log("hello on line 59, before the user save")
       await user.save();
-      loginUser(req, res, user);
+      loginUser(req, res, user, next, );
       console.log("hello on line 62, did we get this far?")
       res.redirect('/');
     } else {
@@ -90,7 +90,7 @@ const loginValidators = [
 ];
 
 router.post('/login', csrfProtection, loginValidators,
-  asyncHandler(async (req, res) => {
+  asyncHandler(async (req, res, next) => {
     const {
       username,
       password,
@@ -111,7 +111,7 @@ router.post('/login', csrfProtection, loginValidators,
         if (passwordMatch) {
           // If the password hashes match, then login the user name!
           // and redirect them to the home route.
-          loginUser(req, user);
+          loginUser(req, res, user, next);
           return res.redirect('/');
         }
       }
