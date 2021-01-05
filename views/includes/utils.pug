@@ -5,3 +5,10 @@ mixin formField(type, name, label, placeholder='', required=false)
       input(type=type name=name required placeholder=placeholder)
     else
       input(type=type name=name placeholder=placeholder)
+
+mixin errors(errors)
+  div
+    if errors
+      ul
+        each error in errors
+          li #{error}

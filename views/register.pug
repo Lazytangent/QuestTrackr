@@ -3,6 +3,7 @@ extends layout.pug
 include includes/utils.pug
 
 block content
+  +errors(errors)
   form(action="/register" method="post")
     input(type="hidden" name="_csrf" value=csrfToken)
     +formField('text', 'username', 'Username', 'Username', true)
