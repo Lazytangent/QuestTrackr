@@ -3,4 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // submitButton.setAttribute('disabled', true);
   // Select required input fields
+
+  const logoContainer = document.querySelector('.logo-container');
+  logoContainer.addEventListener('click', () => {
+    window.location.href = '/';
+  });
 });
