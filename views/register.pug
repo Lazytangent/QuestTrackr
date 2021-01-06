@@ -20,3 +20,6 @@ block content
       +formField('password', 'confirmedPassword', 'Confirm Password', 'Confirm Password', true)
       .form-container__field--button
         button(type="submit" id="submit") Start My Adventure
+    form(action="/login-demo" method="post")
+      input(type="hidden" name="_csrf" value=csrfToken)
+      button(type='submit' id='demo-submit') Login as Demo

@@ -125,9 +125,9 @@ router.post('/login', csrfProtection, loginValidators,
     });
   }));
 
-router.post('/login-guest', csrfProtection,
+router.post('/login-demo', csrfProtection,
   asyncHandler(async (req, res, next) => {
-    const username = 'demo';
+    const username = 'Demo';
     const password = 'Password11235';
 
     const user = await db.User.findOne({ where: { username } });
