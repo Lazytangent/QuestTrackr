@@ -1,0 +1,21 @@
+.quest-container {
+  background-color: #747474;
+  height: 800px;
+  width: 800px;
+  position: relative;
+  margin: auto;
+  border-radius: 5px;
+  top: 4rem;
+  padding: 0.25rem;
+  box-sizing: border-box;
+  display: flex;
+
+}
+
+.quest-description {
+  background-color: #272727;
+  border-radius: 0.25rem;
+  color: whitesmoke;
+  height: 25rem;
+  overflow: scroll;
+}

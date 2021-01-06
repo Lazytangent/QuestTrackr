@@ -5,4 +5,14 @@ append head
   script(src="/javascripts/quest-detail.js")
 
 block content
-  p Testing from the quest detail page
+  .quest-container
+    .quest-name: h3= quest.name
+    .quest-description
+      p= quest.description
+    .quest-startDate: p= quest.startDate
+    .quest-deadline: p= quest.deadline
+    .quest-xpValue: p= quest.xpValue
+    .quest-solo: p= quest.solo
+    if quest.completedDate
+      .quest-completedDate: p= quest.completedDate
+
