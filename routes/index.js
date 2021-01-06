@@ -45,7 +45,7 @@ router.post('/register', csrfProtection, userValidators,
       password,
       email //this is in database schema
     } = req.body;
-console.log("hello on line 48, before the build")
+    console.log("hello on line 48, before the build")
     const user = db.User.build({
       username,
       email //this is in database schema
@@ -60,7 +60,7 @@ console.log("hello on line 48, before the build")
       await user.save();
       loginUser(req, res, user, next, );
       console.log("hello on line 62, did we get this far?")
-      res.redirect('/');
+      // res.redirect('/');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       console.log(errors)
