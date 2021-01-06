@@ -8,7 +8,7 @@ const { loginUser, logoutUser } = require('../authorization');
 
 const router = express.Router();
 router.get('/', (req, res) => {
-  res.render('index', {title: "QuestTrackr"})
+  res.render('index', { title: "QuestTrackr" })
 })
 
 router.get('/register', csrfProtection, (req, res) => {
@@ -45,21 +45,17 @@ router.post('/register', csrfProtection, userValidators,
       password,
       email //this is in database schema
     } = req.body;
-    console.log("hello on line 48, before the build")
     const user = db.User.build({
       username,
       email //this is in database schema
     });
-    console.log("hello on line 53 after the build")
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
-      console.log("hello on line 59, before the user save")
       await user.save();
-      loginUser(req, res, user, next, );
-      console.log("hello on line 62, did we get this far?")
+      loginUser(req, res, user, next,);
       // res.redirect('/');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
@@ -112,8 +108,6 @@ router.post('/login', csrfProtection, loginValidators,
           // If the password hashes match, then login the user name!
           // and redirect them to the home route.
           loginUser(req, res, user, next);
-
-
         }
       }
 
@@ -131,9 +125,19 @@ router.post('/login', csrfProtection, loginValidators,
     });
   }));
 
-  router.post('/logout', (req, res)=>{
-    logoutUser(req, res);
-  });
+router.post('/login-guest', csrfProtection,
+  asyncHandler(async (req, res, next) => {
+    const username = 'demo';
+    const password = 'Password11235';
+
+    const user = await db.User.findOne({ where: { username } });
+
+    loginUser(req, res, user, next);
+  }));
+
+router.post('/logout', (req, res) => {
+  logoutUser(req, res);
+});
 
 
 
