@@ -42,6 +42,7 @@ body {
 }
 
 .form-container__field {
+  align-items: center;
   padding-bottom: 10px;
   display: flex;
   justify-content: space-between;
@@ -74,3 +75,20 @@ body {
   color: red;
   padding-bottom: 10px;
 }
+
+#demo-submit {
+  background-color: #009900;
+  border-radius: 5px;
+}
+
+.asterisk {
+  color: red;
+}
+
+.input {
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+}
+
+

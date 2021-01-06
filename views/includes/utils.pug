@@ -1,10 +1,12 @@
 mixin formField(type, name, label, placeholder='', required=false)
   div.form-container__field
-    label(for=name)= label
     if required
-      input(type=type name=name required placeholder=placeholder)
+      label(for=name class="form-container__field--label")= label
+        span(class="asterisk")  *
+      input(type=type name=name required placeholder=placeholder class="input")
     else
-      input(type=type name=name placeholder=placeholder)
+      label(for=name class="form-container__field--label")= label
+      input(type=type name=name placeholder=placeholder class="input")
 
 mixin errors(errors)
   div
