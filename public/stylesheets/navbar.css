@@ -1,6 +1,5 @@
 body {
     background-color: #272727;
-
 }
 
 nav {
@@ -13,7 +12,7 @@ nav {
     width: 100%;
     height: 50%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: #747474;
 }
@@ -41,12 +40,13 @@ nav {
 
 .nav-container__xp-section {
     display: flex;
+    align-items: center;
 }
 
 .nav-container__xp-section--container {
     background-color: whitesmoke;
-    width: 200px;
-    height: 15px;
+    width: 300px;
+    height: 12px;
     /* margin: 5px 0; */
     border-radius: 10px;
     overflow: hidden;
@@ -68,13 +68,25 @@ a {
     color: #ffffff;
 }
 
+.nav-container__action-buttons {
+    display: flex;
+    justify-content: space-between;
+}
 .nav-container__auth-buttons {
     display: flex;
     align-items: center;
 }
 
+.nav-container__action-buttons a {
+    padding: 0 3px;
+}
+
 .nav-container__auth-buttons--links {
     padding-right: 8px;
+}
+
+#currentXp {
+    visibility: hidden;
 }
 
 #logout {
