@@ -11,7 +11,7 @@ const { sessionSecret } = require('./config');
 const { restoreUser } = require('./authorization');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const questsRouter = require('./routes/quests')
+const questsRouter = require('./routes/quests');
 
 const app = express();
 
