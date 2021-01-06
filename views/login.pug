@@ -20,3 +20,6 @@ block content
     form(action="/login-demo" method="post")
       input(type="hidden" name="_csrf" value=csrfToken)
       button(type='submit' id='demo-submit') Login as Demo
+      //- changes below
+    .form-container__field--button
+      a(href="/register" type="submit" id="rerouteRegister") new in town?
