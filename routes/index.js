@@ -113,13 +113,7 @@ router.post('/login', csrfProtection, loginValidators,
           // and redirect them to the home route.
           loginUser(req, res, user, next);
 
-          return req.session.save(error => {
-            if (error) {
-              next(error);
-            } else {
-             return res.redirect('/');
-            }
-          });
+
         }
       }
 
