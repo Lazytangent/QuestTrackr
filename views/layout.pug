@@ -12,16 +12,17 @@ html
         .nav-container
           a(href="#") Profile
           a(href="#") Make a Quest
-          span.level 6
-          .nav-container__xp-container
-            .nav-container__xp-fill
-          span.level 7
+          .nav-container__xp-section
+            span.level 6
+            .nav-container__xp-section--container
+              .nav-container__xp-section--fill
+            span.level 7
           input(type="text" placeholder="Search..." id="searchbar")
           .nav-container__auth-buttons
             if locals.authenticated
               span Questing as #{user.username}
               form(action="/logout" method="post")
-                button(type="submit") Logout
+                button(type="submit" id="logout") Logout
             else
               div.user_auth
                 a(href="/login" class="nav-container__auth-buttons--links") Login

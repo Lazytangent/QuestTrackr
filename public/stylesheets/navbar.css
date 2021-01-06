@@ -39,7 +39,11 @@ nav {
     /* align-items: center; */
 }
 
-.nav-container__xp-container {
+.nav-container__xp-section {
+    display: flex;
+}
+
+.nav-container__xp-section--container {
     background-color: whitesmoke;
     width: 200px;
     height: 15px;
@@ -48,7 +52,7 @@ nav {
     overflow: hidden;
 }
 
-.nav-container__xp-fill {
+.nav-container__xp-section--fill {
     background-color: #ffd034;
     width: 75%;
     height: 100%;
@@ -56,13 +60,23 @@ nav {
 
 .level {
     font-weight: bold;
-    /* margin: 4px 0; */
+    margin: 0 2px;
 }
 
 a {
     text-decoration: none;
+    color: #ffffff;
+}
+
+.nav-container__auth-buttons {
+    display: flex;
+    align-items: center;
 }
 
 .nav-container__auth-buttons--links {
     padding-right: 8px;
+}
+
+#logout {
+    margin-left: 5px;
 }
