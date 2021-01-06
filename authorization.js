@@ -1,21 +1,6 @@
 
 const db = require('./db/models');
 
-
-const createQuest = (req, res, quest, next) => {
-  req.session.auth = {
-    questId: quest.id,
-  };
-  return req.session.save(error => {
-    if (error) {
-      next(error);
-    } else {
-     return res.redirect('/');
-    }
-  });
-};
-
-
 const loginUser = (req, res, user, next) => {
   req.session.auth = {
     userId: user.id,
@@ -68,7 +53,6 @@ const requireAuth = (req, res, next) => {
 };
 
 module.exports = {
-  createQuest,
   loginUser,
   logoutUser,
   requireAuth,

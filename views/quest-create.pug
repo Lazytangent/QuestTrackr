@@ -12,7 +12,7 @@ block content
     +errors(errors)
   .form-container
     .info-container Required *
-    form(action="/quest-create" method="post")
+    form(action="/quests/quest-create" method="post")
       input(type="hidden" name="_csrf" value=csrfToken)
       +formField('text', 'name', 'Name', 'Name', true)
       +formField('datetime-local', 'startDate', 'Start Date', 'Start Date', true)
