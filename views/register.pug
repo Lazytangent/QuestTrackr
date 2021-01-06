@@ -23,3 +23,6 @@ block content
     form(action="/login-demo" method="post")
       input(type="hidden" name="_csrf" value=csrfToken)
       button(type='submit' id='demo-submit') Login as Demo
+      //- my changes below
+    .form-container__field--button
+      a( href="/login" type="submit" id="rerouteLogin" ) existing Adventurer?
