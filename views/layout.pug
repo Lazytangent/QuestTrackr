@@ -8,30 +8,31 @@ html
         script(src="/javascripts/xp.js")
   body
     .navbar
+      .spacer
       .logo-container
       nav
         .nav-container
           if locals.authenticated
             .nav-container__action-buttons
               a(href="#") Profile
-              a(href="#") Make a Quest
+              a(href="/quest/quest-create") Make a Quest
             .nav-container__xp-section
-              span(class="level" id="currentLevel") 6
+              span(class="level" id="currentLevel") #
               .nav-container__xp-section--container
                 .nav-container__xp-section--fill
-                  span(id="currentXp")= locals.user.totalXp
-              span(class="level" id="nextLevel") 7
+                  div(id="currentXp")= locals.user.totalXp
+              span(class="level" id="nextLevel") #
             input(type="text" placeholder="Search..." id="searchbar")
           else
             span QuestTrackr
-          .nav-container__auth-buttons
-            if locals.authenticated
-              span Questing as #{user.username}
-              form(action="/logout" method="post")
-                button(type="submit" id="logout") Logout
-            else
-              div.user_auth
-                a(href="/login" class="nav-container__auth-buttons--links") Login
-                a(href="/register" class="nav-container__auth-buttons--links") Register
+        .nav-container__auth-buttons
+          if locals.authenticated
+            span Questing as #{user.username}
+            form(action="/logout" method="post")
+              button(type="submit" id="logout") Logout
+          else
+            div.user_auth
+              a(href="/login" class="nav-container__auth-buttons--links") Login
+              a(href="/register" class="nav-container__auth-buttons--links") Register
 
     block content
