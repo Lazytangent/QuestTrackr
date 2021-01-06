@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     completedDate: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     xpValue: {
       type: DataTypes.INTEGER,
