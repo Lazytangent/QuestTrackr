@@ -1,3 +1,25 @@
 extends user-layout.pug
 
+include includes/utils.pug
+
+append head
+  link(rel="stylesheet" href="/stylesheets/quest-create.css")
+  script(src="/javascripts/quest-create.js")
+
 block content
+  .logo-container
+  .errors-div
+    +errors(errors)
+  .form-container
+    .info-container Required *
+    form(action="/quest-create" method="post")
+      input(type="hidden" name="_csrf" value=csrfToken)
+      +formField('text', 'name', 'Name', 'Name', true)
+      +formField('datetime-local', 'startDate', 'Start Date', 'Start Date', true)
+      +formField('datetime-local', 'deadline', 'Deadline', 'Deadline', true)
+      +formField('datetime-local', 'completedDate', 'Completed Date', 'Completed Date', true)
+      +formField('number', 'xpValue', 'XP Value', 'XP Value', true)
+      +formField('checkbox', 'solo', 'Solo', 'Solo', true)
+      textarea(name="description", cols="30", rows="10", placeholder="Description")
+      .form-container__field--button
+        button(type="submit" id="submit") Start My Quest
