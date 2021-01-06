@@ -32,8 +32,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   currLevel.innerText = actualLevel
   nextLevel.innerText = getNextLevelFromXP(currentXP);
-  progressBar.style.width = progress + '%'; //'45%'
-
-  //submitButton.setAttribute('disabled', true);
-  // Select required input fields
+  progressBar.style.width = progress + '%';
 });
