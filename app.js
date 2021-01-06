@@ -6,6 +6,7 @@ const logger = require('morgan');
 const { sequelize } = require('./db/models');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const { sessionSecret } = require('./config');
 
 const { restoreUser } = require('./authorization');
 const indexRouter = require('./routes/index');
@@ -27,7 +28,7 @@ const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
-    secret: 'superSecret',
+    secret: sessionSecret,
     store,
     saveUninitialized: false,
     resave: false,
