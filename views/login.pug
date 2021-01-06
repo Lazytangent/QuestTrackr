@@ -1,0 +1,22 @@
+extends user-layout.pug
+
+include includes/utils.pug
+
+append head
+  link(rel="stylesheet" href="/stylesheets/login.css")
+  script(src="/javascripts/login.js")
+
+block content
+  .logo-container
+  .errors-div
+    +errors(errors)
+  .form-container
+    form(action="/login" method="post")
+      input(type="hidden" name="_csrf" value=csrfToken)
+      +formField('text', 'username', 'Username', 'Username', true)
+      +formField('password', 'password', 'Password', 'Password', true)
+      .form-container__field--button
+        button(type="submit" id="submit") Resume My Adventure
+    form(action="/login-demo" method="post")
+      input(type="hidden" name="_csrf" value=csrfToken)
+      button(type='submit' id='demo-submit') Login as Demo

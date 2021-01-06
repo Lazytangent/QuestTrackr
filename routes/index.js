@@ -8,7 +8,7 @@ const { loginUser, logoutUser } = require('../authorization');
 
 const router = express.Router();
 router.get('/', (req, res) => {
-  res.render('index', {title: "QuestTrackr"})
+  res.render('index', { title: "QuestTrackr" })
 })
 
 router.get('/register', csrfProtection, (req, res) => {
@@ -21,7 +21,7 @@ router.get('/register', csrfProtection, (req, res) => {
 });
 
 const userValidators = [
-  check('userName')
+  check('username')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for First Name, quest-taker')
     .isLength({ max: 30, min: 2 })
@@ -31,7 +31,7 @@ const userValidators = [
     .withMessage('Please provide a value for Password, quest-taker')
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/, 'g')
     .withMessage('Password must contain at least 1 lowercase letter, uppercase letter and a number, quest-taker'),
-  check('confirmPassword')
+  check('confirmedPassword')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Confirm Password, quest-taker')
     .custom((value, { req }) => value === req.body.password)
@@ -39,28 +39,27 @@ const userValidators = [
 ];
 
 router.post('/register', csrfProtection, userValidators,
-  asyncHandler(async (req, res) => {
+  asyncHandler(async (req, res, next) => {
     const {
-      userName,
+      username,
       password,
       email //this is in database schema
     } = req.body;
-
     const user = db.User.build({
-      userName,
+      username,
       email //this is in database schema
     });
-
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
       await user.save();
-      loginUser(req, res, user);
-      res.redirect('/');
+      loginUser(req, res, user, next,);
+      // res.redirect('/');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
+      console.log(errors)
       res.render('register', {
         title: 'Register',
         user,
@@ -78,7 +77,7 @@ router.get('/login', csrfProtection, (req, res) => {
 });
 
 const loginValidators = [
-  check('userName')
+  check('username')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for a username, quest-taker'),
   check('password')
@@ -87,9 +86,9 @@ const loginValidators = [
 ];
 
 router.post('/login', csrfProtection, loginValidators,
-  asyncHandler(async (req, res) => {
+  asyncHandler(async (req, res, next) => {
     const {
-      userName,
+      username,
       password,
     } = req.body;
 
@@ -98,7 +97,7 @@ router.post('/login', csrfProtection, loginValidators,
 
     if (validatorErrors.isEmpty()) {
       // Attempt to get the user by their user name!
-      const user = await db.User.findOne({ where: { userName } });
+      const user = await db.User.findOne({ where: { username } });
 
       if (user !== null) {
         // If the user exists then compare their password
@@ -108,8 +107,7 @@ router.post('/login', csrfProtection, loginValidators,
         if (passwordMatch) {
           // If the password hashes match, then login the user name!
           // and redirect them to the home route.
-          loginUser(req, user);
-          return res.redirect('/');
+          loginUser(req, res, user, next);
         }
       }
 
@@ -121,15 +119,25 @@ router.post('/login', csrfProtection, loginValidators,
 
     res.render('login', {
       title: 'Login',
-      userName,
+      username,
       errors,
       csrfToken: req.csrfToken(),
     });
   }));
 
-  router.post('/logout', (req, res)=>{
-    logoutUser(req, res);
-  });
+router.post('/login-demo', csrfProtection,
+  asyncHandler(async (req, res, next) => {
+    const username = 'Demo';
+    const password = 'Password11235';
+
+    const user = await db.User.findOne({ where: { username } });
+
+    loginUser(req, res, user, next);
+  }));
+
+router.post('/logout', (req, res) => {
+  logoutUser(req, res);
+});
 
 
 

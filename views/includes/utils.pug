@@ -1,0 +1,14 @@
+mixin formField(type, name, label, placeholder='', required=false)
+  div.form-container__field
+    label(for=name)= label
+    if required
+      input(type=type name=name required placeholder=placeholder)
+    else
+      input(type=type name=name placeholder=placeholder)
+
+mixin errors(errors)
+  div
+    if errors
+      ul
+        each error in errors
+          li #{error}
