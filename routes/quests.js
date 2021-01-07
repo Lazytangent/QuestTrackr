@@ -7,6 +7,11 @@ const { csrfProtection, asyncHandler } = require('./utils');
 
 const router = express.Router();
 
+router.get('/', asyncHandler(async (req, res) => {
+  const quests = await Quest.findAll({ include: Category });
+  res.render('quests', { title: 'Quests Home Page', quests });
+}));
+
 router.get('/quest-create', csrfProtection, (req, res) => {
     const quest = db.Quest.build();
     res.render('quest-create', {
@@ -40,10 +45,10 @@ router.post('/quest-create', csrfProtection, questValidators,
             deadline,
             xpValue,
             solo,
-            description 
+            description
         } = req.body;
-        console.log(solo);
-        if(solo == undefined){
+
+        if (solo == undefined) {
             solo = false;
         };
 
@@ -53,7 +58,7 @@ router.post('/quest-create', csrfProtection, questValidators,
             deadline,
             xpValue,
             solo,
-            description 
+            description
         });
         const validatorErrors = validationResult(req);
 
@@ -62,7 +67,6 @@ router.post('/quest-create', csrfProtection, questValidators,
             res.redirect('/')
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
-            console.log(errors)
             res.render('quest-create', {
                 title: 'Create a Quest',
                 quest,

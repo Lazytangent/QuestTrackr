@@ -1,0 +1,25 @@
+.quests-header {
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.quests-header h2 {
+  color: whitesmoke;
+  font-size: 3rem;
+}
+
+.quests-container__quest-container {
+  background-color: #747474;
+  width: fit-content;
+  padding: 2rem;
+  margin: auto;
+  border-radius: 1rem;
+}
+
+.quest-container {
+  background-color: #272727;
+  color: whitesmoke;
+  padding: 1rem;
+  margin: 0.5rem;
+}

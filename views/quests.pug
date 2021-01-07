@@ -1,0 +1,24 @@
+extends layout.pug
+
+append head
+  link(rel="stylesheet" href="/stylesheets/quests.css")
+  script(src="/javascripts/quests.js")
+
+block content
+  .quests-header
+    h2 Quests
+  .quests-container
+    each quest in quests
+      .quests-container__quest-container
+        .quests-container__quest-container--name.quest-container
+          h4 Quest Name
+          p= quest.name
+        .quests-container__quest-container--deadline.quest-container
+          h4 Deadline
+          p= quest.deadline
+        .quests-container__quest-container--xpValue.quest-container
+          h4 XP Value
+          p= quest.xpValue
+        .quests-container__quest-container--solo.quest-container
+          h4 Solo?
+          p= quest.solo
