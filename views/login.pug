@@ -8,9 +8,11 @@ append head
 
 block content
   .logo-container
+    a(href="/"): img(src="/images/first-png.jpg")
   .errors-div
     +errors(errors)
   .form-container
+    .info-container Required *
     form(action="/login" method="post")
       input(type="hidden" name="_csrf" value=csrfToken)
       +formField('text', 'username', 'Username', 'Username', true)
@@ -19,7 +21,8 @@ block content
         button(type="submit" id="submit") Resume My Adventure
     form(action="/login-demo" method="post")
       input(type="hidden" name="_csrf" value=csrfToken)
-      button(type='submit' id='demo-submit') Login as Demo
+      .form-container__field--button
+        button(type='submit' id='demo-submit') Login as Demo
       //- changes below
     .form-container__field--button
       a(href="/register" type="submit" id="rerouteRegister") new in town?

@@ -11,8 +11,6 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   QuestSubQuest.associate = function(models) {
-    QuestSubQuest.belongsTo(models.Quest, { foreignKey: 'questId' });
-    QuestSubQuest.belongsTo(models.SubQuest, { foreignKey: 'subQuestId' });
   };
   return QuestSubQuest;
 };

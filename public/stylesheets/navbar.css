@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
+
 body {
     background-color: #272727;
-
+    font-family: 'Texturina', serif;
 }
 
 nav {
@@ -8,47 +10,52 @@ nav {
     width: 100%;
 
 }
+
 .nav-container {
     margin-top: 10px;
     width: 100%;
     height: 50%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: #747474;
 }
 
 .logo-container {
     display: inline-block;
-    width: 100px;
+    width: 200px;
     height: 50px;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-image: url('../images/first-png.jpg');
 }
 
 .navbar {
     display: flex;
+    height: 4rem;
 }
 
 .user_auth {
-    /* width: 300px; */
     height: 100%;
     display: flex;
-    justify-content: space-around;
-    /* align-items: center; */
+    justify-content: center;
+    align-items: center;
 }
 
-.nav-container__xp-container {
+.nav-container__xp-section {
+    display: flex;
+    align-items:center;
+}
+
+.nav-container__xp-section--container {
     background-color: whitesmoke;
-    width: 200px;
-    height: 15px;
-    /* margin: 5px 0; */
+    width: 300px;
+    height: 12px;
     border-radius: 10px;
     overflow: hidden;
 }
 
-.nav-container__xp-fill {
+.nav-container__xp-section--fill {
     background-color: #ffd034;
     width: 75%;
     height: 100%;
@@ -56,13 +63,56 @@ nav {
 
 .level {
     font-weight: bold;
-    /* margin: 4px 0; */
+    margin: 0 2px;
 }
 
 a {
     text-decoration: none;
+    color: #ffffff;
+}
+
+.nav-container__action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5px;
+}
+.nav-container__auth-buttons {
+    display: flex;
+    align-items: center;
+    background-color: #747474;
+    height: 50%;
+    width: fit-content;
+    margin-top: 10px;
+    padding-left: 5px;
+}
+
+.spacer {
+    width: 40px;
+    height: 50%;
+    margin-top: 10px;
+    background-color: #747474;
+}
+span {
+    white-space: pre;
+}
+
+.nav-container__action-buttons a {
+    padding: 0 3px;
 }
 
 .nav-container__auth-buttons--links {
     padding-right: 8px;
+}
+
+#currentXp {
+    visibility: hidden;
+    width: 100%;
+}
+
+#logout {
+    margin-left: 5px;
+}
+
+#searchbar {
+    justify-self: flex-end;
 }

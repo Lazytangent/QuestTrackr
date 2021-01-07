@@ -8,6 +8,7 @@ append head
 
 block content
   .logo-container
+    a(href="/"): img(src="/images/first-png.jpg")
   .errors-div
     +errors(errors)
   .form-container
@@ -15,14 +16,14 @@ block content
     form(action="/register" method="post")
       input(type="hidden" name="_csrf" value=csrfToken)
       +formField('text', 'username', 'Username', 'Username', true)
-      +formField('email', 'email', 'Email', 'Email (optional)', false)
+      +formField('email', 'email', 'Email', 'Email', true)
       +formField('password', 'password', 'Password', 'Password', true)
       +formField('password', 'confirmedPassword', 'Confirm Password', 'Confirm Password', true)
       .form-container__field--button
         button(type="submit" id="submit") Start My Adventure
     form(action="/login-demo" method="post")
       input(type="hidden" name="_csrf" value=csrfToken)
-      button(type='submit' id='demo-submit') Login as Demo
-      //- my changes below
+      .form-container__field--button
+        button(type='submit' id='demo-submit') Login as Demo
     .form-container__field--button
       a( href="/login" type="submit" id="reroute-login" ) existing Adventurer?

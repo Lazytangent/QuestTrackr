@@ -1,0 +1,26 @@
+extends layout.pug
+
+include includes/utils.pug
+
+append head
+  link(rel="stylesheet" href="/stylesheets/quest-create.css")
+  script(src="/javascripts/quest-create.js")
+
+block content
+  .errors-div
+    +errors(errors)
+  .create-quest-title Embark on Your Quest!
+  .form-container
+    .info-container All Fields Required
+    form(action="/quests/" method="post")
+      input(type="hidden" name="_csrf" value=csrfToken)
+      +formField('text', 'name', 'Name', 'Name', true)
+      +formField('datetime-local', 'startDate', 'Start Date', 'Start Date', true)
+      +formField('datetime-local', 'deadline', 'Deadline', 'Deadline', true)
+      +formField('number', 'xpValue', 'XP Value', 'XP Value', true)
+      +formField('checkbox', 'solo', 'Solo', 'Solo', false)
+      .form-textarea
+        label(for="description") Description
+        textarea(name="description", cols="30", rows="10", placeholder="Description")
+      .form-container__field--button
+        button(type="submit" id="submit") Start My Quest

@@ -11,8 +11,6 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   UserQuest.associate = function(models) {
-    UserQuest.belongsTo(models.User, { foreignKey: 'userId' });
-    UserQuest.belongsTo(models.Quest, { foreignKey: 'questId' });
   };
   return UserQuest;
 };

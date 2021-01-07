@@ -61,7 +61,7 @@ router.post('/register', csrfProtection, userValidators,
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
       await user.save();
-      loginUser(req, res, user, next,);
+      loginUser(req, res, user, next);
       // res.redirect('/');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
@@ -114,6 +114,7 @@ router.post('/login', csrfProtection, loginValidators,
           // If the password hashes match, then login the user name!
           // and redirect them to the home route.
           loginUser(req, res, user, next);
+          return;
         }
       }
 
