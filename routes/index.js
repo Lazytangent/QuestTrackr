@@ -11,6 +11,12 @@ router.get('/', (req, res) => {
   res.render('index', { title: "QuestTrackr" })
 })
 
+router.get('/main', (req, res) => {
+  res.render('main', {
+    title: 'main',
+  });
+});
+
 router.get('/register', csrfProtection, (req, res) => {
   const user = db.User.build();
   res.render('register', {

@@ -54,12 +54,12 @@ body {
   display: none;
 }
 
-#submit {
+#reroute-login {
   background-color: #ff652f;
   border-radius: 5px;
 }
 
-#submit:disabled {
+#reroute-login:disabled {
   background-color: rgb(155, 155, 155);
 }
 
