@@ -12,7 +12,7 @@ block content
   .create-quest-title Embark on Your Quest!
   .form-container
     .info-container All Fields Required
-    form(action="/quests/quest-create" method="post")
+    form(action="/quests/" method="post")
       input(type="hidden" name="_csrf" value=csrfToken)
       +formField('text', 'name', 'Name', 'Name', true)
       +formField('datetime-local', 'startDate', 'Start Date', 'Start Date', true)

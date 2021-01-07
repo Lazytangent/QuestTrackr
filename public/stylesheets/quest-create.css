@@ -23,24 +23,6 @@ body {
   font-size: xx-large;
 }
 
-.logo-container {
-  display: flex;
-  justify-content: center;
-  top: 150px;
-  background-color: #747474;
-  text-align: center;
-  align-items: center;
-  padding: 20px;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  width: 332px;
-  font-size: 2em;
-  background-image: url('../images/first-png.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 140px;
-}
-
 .form-container__field, .form-textarea {
   padding-bottom: 10px;
   display: flex;
