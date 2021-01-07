@@ -73,9 +73,9 @@ router.post('/quest-create', csrfProtection, questValidators,
     }));
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
-    const questId = parseInt(req.params.id, 10);
-    const quests = await Quest.findByPk(questId, { include: User })
-    res.render('quest-detail', { title: `Quest #${questId}`, quests });
+  const questId = parseInt(req.params.id, 10);
+  const quest = await Quest.findByPk(questId, { include: User })
+  res.render('quest-detail', { title: `Quest #${questId}`, quest });
 }));
 
 
