@@ -1,0 +1,11 @@
+extends layout.pug
+
+append head
+  link(rel="stylesheet" href="/stylesheets/questlist.css")
+
+block content
+  h3 Hello adventurer. Witness your quests.
+  br
+  ul
+    each quest in testQuests
+      li #{quest.title}
