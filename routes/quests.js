@@ -1,6 +1,6 @@
 const express = require('express');
 const { check, validationResult } = require('express-validator');
-const { Quest, User, Category } = require('../db/models');
+const { Quest, User, UserQuest } = require('../db/models');
 
 const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
@@ -12,7 +12,7 @@ router.get('/', asyncHandler(async (req, res) => {
   res.render('quests', { title: 'Quests Home Page', quests });
 }));
 
-router.get('/quest-create', csrfProtection, (req, res) => {
+router.get('/new', csrfProtection, (req, res) => {
     const quest = db.Quest.build();
     res.render('quest-create', {
         title: 'Create a Quest',
@@ -37,7 +37,7 @@ const questValidators = [
         .withMessage('Description must not be more than 1000 characters long, quest-taker')
 ];
 
-router.post('/quest-create', csrfProtection, questValidators,
+router.post('/', csrfProtection, questValidators,
     asyncHandler(async (req, res, next) => {
         let {
             name,
@@ -47,8 +47,13 @@ router.post('/quest-create', csrfProtection, questValidators,
             solo,
             description
         } = req.body;
+<<<<<<< HEAD
 
         if (solo == undefined) {
+=======
+        let { id } = res.locals.user;
+        if(solo == undefined){
+>>>>>>> origin/master
             solo = false;
         };
 
@@ -64,7 +69,8 @@ router.post('/quest-create', csrfProtection, questValidators,
 
         if (validatorErrors.isEmpty()) {
             await quest.save();
-            res.redirect('/')
+            await UserQuest.create({ userId: id, questId: quest.id })
+            res.redirect('/');
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
             res.render('quest-create', {

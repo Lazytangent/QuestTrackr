@@ -9,4 +9,5 @@ block content
   h4 [Active]
   ul
     each quest in quests
-      li #{quest.name}
+      a(href=`/quests/${quest.id}`)
+        li #{quest.name}
