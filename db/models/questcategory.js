@@ -11,8 +11,6 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   QuestCategory.associate = function(models) {
-    QuestCategory.belongsTo(models.Category, { foreignKey: 'categoryId' });
-    QuestCategory.belongsTo(models.Quest, { foreignKey: 'questId' });
   };
   return QuestCategory;
 };
