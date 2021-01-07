@@ -7,17 +7,6 @@ const { csrfProtection, asyncHandler } = require('./utils');
 
 const router = express.Router();
 
-router.get('/', asyncHandler(async (req, res) => {
-  const username = 'Demo'
-  // const testQuests = {
-  //   quest1: { title: 'Slay the dragon'},
-  //   quest2: { title: 'Collect the loot'},
-  //   quest3: { title: 'Save the princess if there is time'},
-  // }
-  const quests = await Quest.findAll();
-  res.render('quest-list', { title: `${username}'s Active Quests`, quests });
-}));
-
 router.get('/quest-create', csrfProtection, (req, res) => {
     const quest = db.Quest.build();
     res.render('quest-create', {

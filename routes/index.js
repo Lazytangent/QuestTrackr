@@ -108,6 +108,7 @@ router.post('/login', csrfProtection, loginValidators,
           // If the password hashes match, then login the user name!
           // and redirect them to the home route.
           loginUser(req, res, user, next);
+          return;
         }
       }
 
