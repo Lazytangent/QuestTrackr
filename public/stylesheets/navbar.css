@@ -32,7 +32,7 @@ nav {
 
 .navbar {
     display: flex;
-    height: 4em;
+    height: 4rem;
 }
 
 .user_auth {
