@@ -99,6 +99,10 @@ router.post('/login', csrfProtection, loginValidators,
       // Attempt to get the user by their user name!
       const user = await db.User.findOne({ where: { username } });
 
+      if(user){
+        errors.push('Username')
+      }
+
       if (user !== null) {
         // If the user exists then compare their password
         // to the provided password(quest taker)!
@@ -108,6 +112,9 @@ router.post('/login', csrfProtection, loginValidators,
           // If the password hashes match, then login the user name!
           // and redirect them to the home route.
           loginUser(req, res, user, next);
+        }else{
+          // Otherwise display an error message to the user.
+          errors.push('Login failed for the provided user name and password, quest taker');
         }
       }
 
