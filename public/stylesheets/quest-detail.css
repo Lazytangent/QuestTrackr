@@ -1,21 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
+
+body {
+  font-family: 'Texturina', serif;
+  font-size: 1.25rem;
+}
+
+.quest-data {
+  background-color: #272727;
+  border-radius: 0.25rem;
+  color: whitesmoke;
+  height: fit-content;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
+
 .quest-container {
   background-color: #747474;
-  height: 800px;
+  height: fit-content;
   width: 800px;
   position: relative;
   margin: auto;
   border-radius: 5px;
   top: 4rem;
-  padding: 0.25rem;
+  padding: 1rem;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
+.quest-name h3 {
+  font-size: 3rem;
+  font-weight: bold;
 }
 
 .quest-description {
-  background-color: #272727;
-  border-radius: 0.25rem;
-  color: whitesmoke;
   height: 25rem;
   overflow: scroll;
+  padding: 1rem;
+}
+
+.quest-data h5 {
+  font-size: 2rem;
 }

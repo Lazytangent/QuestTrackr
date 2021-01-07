@@ -6,13 +6,27 @@ append head
 
 block content
   .quest-container
-    .quest-name: h3= quest.name
-    .quest-description
+    .quest-name.quest-data
+      h3 Quest: #{quest.name}
+    .quest-description.quest-data
+      h5 Description:
       p= quest.description
-    .quest-startDate: p= quest.startDate
-    .quest-deadline: p= quest.deadline
-    .quest-xpValue: p= quest.xpValue
-    .quest-solo: p= quest.solo
+    .quest-startDate.quest-data
+      h5 Started On:
+      p= quest.startDate
+    .quest-deadline.quest-data
+      h5 Deadline:
+      p= quest.deadline
+    .quest-xpValue.quest-data
+      h5 XP Value:
+      p #{quest.xpValue} Points
+    .quest-solo.quest-data
+      h5 Is this quest meant to be done in a group as a Raid or by oneself?
+      if quest.solo
+        p This is meant to be done by oneself.
+      else
+        p This is meant to be done in a group as a Raid.
     if quest.completedDate
-      .quest-completedDate: p= quest.completedDate
+      .quest-completedDate.quest-data
+        p= quest.completedDate
 
