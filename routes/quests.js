@@ -40,7 +40,7 @@ router.post('/quest-create', csrfProtection, questValidators,
             deadline,
             xpValue,
             solo,
-            description 
+            description
         } = req.body;
         console.log(solo);
         if(solo == undefined){
@@ -53,7 +53,7 @@ router.post('/quest-create', csrfProtection, questValidators,
             deadline,
             xpValue,
             solo,
-            description 
+            description
         });
         const validatorErrors = validationResult(req);
 
