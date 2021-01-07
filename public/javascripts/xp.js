@@ -1,11 +1,3 @@
-/*
- 1: 0 - 1000,
- 2: 1000 - 3000,
- 3: 3000 - 6000,
- 4: 6000 - 10000,
- etc...
-*/
-
 function getCurrentLevelFromXP(xp) {
   return Math.floor(0.5 + Math.sqrt(0.25 + (xp / 500)));
 }
@@ -32,5 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   currLevel.innerText = actualLevel
   nextLevel.innerText = getNextLevelFromXP(currentXP);
-  progressBar.style.width = progress + '%';
+  progressBar.style.width = `#{progress}%`;
 });
