@@ -55,7 +55,7 @@ router.post('/register', csrfProtection, userValidators,
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
       await user.save();
-      loginUser(req, res, user, next,);
+      loginUser(req, res, user, next);
       // res.redirect('/');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
