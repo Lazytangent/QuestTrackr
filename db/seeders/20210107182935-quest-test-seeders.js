@@ -21,7 +21,7 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         }, {
-          name: "Rescue the princess, if there's time.",
+          name: "Rescue the princess, if there's time",
           description: "We're busy adventurers. Some sacrifices must be made to get the loot, and find the glory.",
           startDate: new Date(),
           deadline: new Date('2021-03-21'),
