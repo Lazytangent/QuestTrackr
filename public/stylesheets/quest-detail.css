@@ -5,6 +5,17 @@ body {
   font-size: 1.25rem;
 }
 
+.page-heading {
+  margin: auto;
+  width: fit-content;
+  padding: 1rem;
+}
+
+.page-heading h2 {
+  font-size: 3rem;
+  color: whitesmoke;
+}
+
 .quest-data {
   background-color: #272727;
   border-radius: 0.25rem;
@@ -21,7 +32,7 @@ body {
   position: relative;
   margin: auto;
   border-radius: 5px;
-  top: 4rem;
+  top: 1rem;
   padding: 1rem;
   box-sizing: border-box;
   display: flex;

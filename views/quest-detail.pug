@@ -5,6 +5,8 @@ append head
   script(src="/javascripts/quest-detail.js")
 
 block content
+  .page-heading
+    h2 Quest No. #{quest.id} Details
   .quest-container
     .quest-name.quest-data
       h3 Quest: #{quest.name}
@@ -21,11 +23,11 @@ block content
       h5 XP Value:
       p #{quest.xpValue} Points
     .quest-solo.quest-data
-      h5 Is this quest meant to be done in a group as a Raid or by oneself?
+      h5 Solo or group?
       if quest.solo
-        p This is meant to be done by oneself.
+        p This quest is meant to be done solo.
       else
-        p This is meant to be done in a group as a Raid.
+        p This quest is meant to be done in a group as a Raid.
     if quest.completedDate
       .quest-completedDate.quest-data
         p= quest.completedDate
