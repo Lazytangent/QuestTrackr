@@ -34,7 +34,7 @@ const questValidators = [
 
 router.post('/quest-create', csrfProtection, questValidators,
     asyncHandler(async (req, res, next) => {
-        const {
+        let {
             name,
             startDate,
             deadline,
@@ -42,6 +42,11 @@ router.post('/quest-create', csrfProtection, questValidators,
             solo,
             description 
         } = req.body;
+        console.log(solo);
+        if(solo == undefined){
+            solo = false;
+        };
+
         const quest = db.Quest.build({
             name,
             startDate,
