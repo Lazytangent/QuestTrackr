@@ -1,6 +1,6 @@
 const express = require('express');
 const { check, validationResult } = require('express-validator');
-const { Quest, User, UserQuest } = require('../db/models');
+const { Quest, User, UserQuest, Category } = require('../db/models');
 
 const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
@@ -47,13 +47,8 @@ router.post('/', csrfProtection, questValidators,
             solo,
             description
         } = req.body;
-<<<<<<< HEAD
-
-        if (solo == undefined) {
-=======
         let { id } = res.locals.user;
         if(solo == undefined){
->>>>>>> origin/master
             solo = false;
         };
 

@@ -18,7 +18,11 @@ block content
           p= quest.deadline
         .quests-container__quest-container--xpValue.quest-container
           h4 XP Value
-          p= quest.xpValue
+          p #{quest.xpValue} Points
         .quests-container__quest-container--solo.quest-container
           h4 Solo?
           p= quest.solo
+        if quest.Category
+          .quests-container__quest-container--category.quest-container
+            h4 Category
+            p= quest.Category.name
