@@ -9,7 +9,6 @@ body {
   position: relative;
   top: 150px;
   background-color: #747474;
-  /* text-align: center; */
   align-items: center;
   padding: 20px;
   border-radius: 5px;
@@ -20,18 +19,12 @@ body {
 .logo-container {
   position: relative;
   top: 150px;
-  /* background-color: #747474; */
-  /* text-align: center; */
-  /* align-items: center; */
   padding: 20px;
   border-radius: 5px;
   margin-bottom: 5px;
   width: 332px;
   font-size: 2em;
   background: no-repeat url('../images/first-png.jpg') 50% / 100%;
-  /* background-image: url('../images/first-png.jpg'); */
-  /* background-repeat: no-repeat; */
-  /* background-position: center; */
   height: 140px;
 }
 
