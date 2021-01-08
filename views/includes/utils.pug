@@ -8,9 +8,4 @@ mixin formField(type, name, label, placeholder='', required=false)
       label(for=name class="form-container__field--label")= label
       input(type=type name=name placeholder=placeholder class="input")
 
-mixin errors(errors)
-  div
-    if errors
-      ul
-        each error in errors
-          li #{error}
+
