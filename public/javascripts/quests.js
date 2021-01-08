@@ -31,7 +31,7 @@ async function createQuestDivs(category = 'all') {
 
     nameDiv.innerHTML = `
       <h4> Quest Name </h4>
-      <p>${quest.name}</p>
+      <a href="/quests/${quest.id}"><p>${quest.name}</p></a>
     `;
     outerDiv.appendChild(nameDiv);
 
