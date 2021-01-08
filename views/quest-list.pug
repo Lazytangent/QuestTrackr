@@ -10,3 +10,4 @@ block content
   ul
     each quest in quests
       li #{quest.name}
+        button(class=`complete-quest-${quest.id}`) Mark as Complete
