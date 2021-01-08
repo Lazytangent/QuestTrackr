@@ -1,0 +1,16 @@
+extends layout.pug
+
+append head
+  link(rel="stylesheet" href="/stylesheets/quests.css")
+  script(src="/javascripts/quests.js")
+
+block content
+  .quests-header
+    h2 Quests
+  .categories-dropdown
+    h4 Category
+    select(name="category" id="category-select")
+      option(value='all' selected) All
+      each category in categories
+        option(value=category.tag)= category.tag
+  .quests-container

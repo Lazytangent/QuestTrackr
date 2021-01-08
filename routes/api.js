@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { asyncHandler } = require('./utils');
-const { Quest, User, Category } = require('../db/models');
+const { UserQuest, Quest, User, Category } = require('../db/models');
 
 router.put('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
   const questId = parseInt(req.params.id, 10);
@@ -26,7 +26,7 @@ router.get('/quests/:category(\\w+)', asyncHandler(async (req, res) => {
   if (category === 'all') {
     quests = await Quest.findAll();
   } else {
-    const quests = await Quest.findAll({ include: { model: Category, where: { name: category } } });
+    const quests = await Quest.findAll({ include: { model: Category, where: { tag: category } } });
   }
   res.json({ quests });
 }));
