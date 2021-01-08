@@ -5,6 +5,17 @@ body {
   font-family: 'Texturina', serif;
 }
 
+/* .container1, .container2, .container3 {
+  width: fit-content;
+  margin: auto;
+} */
+
+.big-container {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
 .container1 {
   margin: 10px;
   display: flex;
@@ -25,22 +36,22 @@ body {
 
 .theAdolescent1 {
   margin: 20px;
-  background-color: #00cc00;
-  flex-basis: 40%;
-}
-
-.theAdolescent3 {
-  margin: 20px;
-  background-color: #00cc00;
   flex-basis: 40%;
 }
 
 .theAdolescent2 {
   margin: 20px;
-  background-color: #00cc00;
-  flex-basis: 100%;
+  background-color: #669900;
+  flex-basis: 50%;
   width: 95%;
 }
+
+.theAdolescent3 {
+  margin: 20px;
+  flex-basis: 40%;
+  width: 40%;
+}
+
 
 .container2 {
   margin: 10px;
@@ -48,6 +59,31 @@ body {
   background-color: gray;
   width: 1000px;
   height: 450px;
+}
+
+.child1 {
+  background-image: url('/images/complete.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 20px;
+  background-color: #EDE8E7;
+  flex-basis: 33%;
+}
+.child2 {
+  background-image: url('/images/leper 1.png');
+  background-repeat: no-repeat;
+  background-size:contain;
+  margin: 20px;
+  flex-basis: 33%;
+  background-color: #EDE8E7;
+}
+.child3 {
+  background-image: url('/images/leper complete.png');
+  background-repeat: no-repeat;
+  background-size:contain;
+  margin: 20px;
+  flex-basis: 33%;
+  background-color: #EDE8E7;
 }
 
 .container3 {
@@ -58,40 +94,13 @@ body {
   height: 350px;
 }
 
-
-
-
-
 .juvenile {
   margin: 20px;
   background-color: #EDE8E7;
   flex-basis: 100%;
 }
 
-.child1 {
-  background-image: url('/images/complete.png');
-  background-repeat: no-repeat;
-  background-size: auto;
-  margin: 20px;
-  background-color: #EDE8E7;
-  flex-basis: 33%;
-}
-.child2 {
-  background-image: url('/images/leper 1.png');
-  background-repeat: no-repeat;
-  background-size: auto;
-  margin: 20px;
-  flex-basis: 33%;
-  background-color: #EDE8E7;
-}
-.child3 {
-  background-image: url('/images/leper complete.png');
-  background-repeat: no-repeat;
-  background-size: auto;
-  margin: 20px;
-  flex-basis: 33%;
-  background-color: #EDE8E7;
-}
+
 
 #reroute-login {
   box-shadow:inset 0px 1px 0px 0px #d49e28;
