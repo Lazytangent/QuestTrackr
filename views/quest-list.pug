@@ -2,12 +2,25 @@ extends layout.pug
 
 append head
   link(rel="stylesheet" href="/stylesheets/questlist.css")
+  script(src="/javascripts/quest-list.js")
 
 block content
-  h3 Hello #{locals.user.username} the adventurer. Witness your quests.
-  hr
-  h4 [Active]
-  ul
-    each quest in quests
-      a(href=`/quests/${quest.id}`)
-        li #{quest.name}
+  .container
+    .sub
+      h3 Hello #{locals.user.username} the adventurer. Witness your quests.
+      hr
+      h4 [Active]
+      ul#active-quests
+        each quest in active
+          .quest-row
+            a(href=`/quests/${quest.id}`)
+              li #{quest.name}
+            button(class=`complete-quest-button` id=`complete-${quest.id}`) Mark as Complete
+      br
+      hr
+      h4 [Completed]
+      ul#completed-quests
+        each quest in completed
+          .quest-row
+            a(href=`/quests/${quest.id}`)
+              li #{quest.name}

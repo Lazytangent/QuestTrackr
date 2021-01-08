@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
+
 body {
   background-color: #272727;
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-family: 'Texturina', serif;
 }
 
 .form-container {
@@ -51,10 +54,6 @@ body {
   justify-content: center;
 }
 
-.errors-div {
-  display: none;
-}
-
 #submit {
   background-color: #ff652f;
   border-radius: 5px;
@@ -90,3 +89,17 @@ body {
   border: 1px solid black;
   border-radius: 0.25rem;
 }
+
+.error {
+  font-size: 1rem;
+  position: relative;
+  top: 150px;
+  background-color: #747474;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding-left: 25px;
+  width: 450px;
+}
+
