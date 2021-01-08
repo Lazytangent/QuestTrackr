@@ -26,7 +26,7 @@ router.get('/quests/:category(\\w+)', asyncHandler(async (req, res) => {
   if (category === 'all') {
     quests = await Quest.findAll();
   } else {
-    const quests = await Quest.findAll({ include: { model: Category, where: { name: category } } });
+    const quests = await Quest.findAll({ include: { model: Category, where: { tag: category } } });
   }
   res.json({ quests });
 }));

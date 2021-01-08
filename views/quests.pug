@@ -9,8 +9,8 @@ block content
     h2 Quests
   .categories-dropdown
     h4 Category
-    select(name="category")
+    select(name="category" id="category-select")
       option(value='all' selected) All
       each category in categories
-        option(value=category.id)= category.tag
+        option(value=category.tag)= category.tag
   .quests-container

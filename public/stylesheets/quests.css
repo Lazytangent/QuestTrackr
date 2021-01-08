@@ -12,10 +12,15 @@
 .categories-dropdown {
   width: fit-content;
   margin: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .categories-dropdown > h4 {
-
+  color: whitesmoke;
+  font-size: 2rem;
 }
 
 .quests-container {
@@ -30,13 +35,31 @@
   margin: auto;
   border-radius: 5px;
   margin-bottom: 1rem;
-  /* display: flex; */
+  display: flex;
+  flex-direction: column;
 }
 
 .quest-container {
   background-color: #272727;
   color: whitesmoke;
-  padding: 0.5rem;
+  padding: 0.25rem;
   margin: 0.5rem;
   border-radius: 5px;
+}
+
+.errorDiv {
+  background-color: #747474;
+  border-radius: 0.35rem;
+  width: fit-content;
+  margin: auto;
+  padding: 2rem;
+}
+
+.errorDiv > h3 {
+  font-size: 2rem;
+}
+
+.quests-container__quest-container--button {
+  display: flex;
+  justify-content: center;
 }

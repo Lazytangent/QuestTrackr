@@ -1,7 +1,17 @@
-const createQuestDivs = async function createDivsForQuests (category = 'all') {
+async function createQuestDivs(category = 'all') {
   const questsContainer = document.querySelector('.quests-container');
   const res = await fetch(`/api/quests/${category}`);
   const { quests } = await res.json();
+  questsContainer.innerHTML = '';
+
+  if (!quests) {
+    questsContainer.innerHTML = `
+      <div class="errorDiv">
+        <h3>No quests found in this category of ${category}</h3>
+      </div>
+    `;
+    return;
+  }
 
   for (let quest of quests) {
     const outerDiv = document.createElement('div');
@@ -53,7 +63,7 @@ const createQuestDivs = async function createDivsForQuests (category = 'all') {
     }
 
     buttonDiv.innerHTML = `
-      <button> Join Quest </button>
+      <button class="join-quest-btn" id="quest-${quest.id}"> Join Quest </button>
     `;
     outerDiv.appendChild(buttonDiv);
 
@@ -64,5 +74,12 @@ const createQuestDivs = async function createDivsForQuests (category = 'all') {
 document.addEventListener('DOMContentLoaded', async () => {
   await createQuestDivs();
 
+  const categorySelect = document.querySelector('#category-select');
+  const currentCategory = categorySelect.value;
+  categorySelect.addEventListener('change', async () => {
+    const newValue = categorySelect.value;
+    await createQuestDivs(newValue);
+  });
 
+  const joinQuestButtons = document.querySelectorAll('.join-quest-btn');
 });
