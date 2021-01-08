@@ -22,10 +22,8 @@ nav {
 }
 
 .logo-container {
-    /* display: inline-block; */
     width: 200px;
     height: 80px;
-    /* background-repeat: no-repeat; */
     background-position: center;
     background-size: 100%;
     background-image: url('../images/first-png.jpg');
