@@ -5,11 +5,6 @@ body {
   font-family: 'Texturina', serif;
 }
 
-/* .container1, .container2, .container3 {
-  width: fit-content;
-  margin: auto;
-} */
-
 .big-container {
   flex-direction: column;
   display: flex;
@@ -26,17 +21,45 @@ body {
 
 .adolescent {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
   margin: 20px;
   background-color: #EDE8E7;
   flex-basis: 100%;
 }
 
+.topRightAdolescent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  box-shadow:inset 0px 1px 0px 0px #d49e28;
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius:3px;
+	border:1px solid #942911;
+  width: 48%;
+  height: 48%
+}
+
+.topLeftAdolescent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  box-shadow:inset 0px 1px 0px 0px #d49e28;
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius:3px;
+  border:1px solid #942911;
+  height: 48%;
+  width: 48%;
+}
+
 .theAdolescent1 {
+  width: 100%;
   margin: 20px;
-  flex-basis: 40%;
 }
 
 .theAdolescent2 {
@@ -47,11 +70,9 @@ body {
 }
 
 .theAdolescent3 {
+  width: 100%;
   margin: 20px;
-  flex-basis: 40%;
-  width: 40%;
 }
-
 
 .container2 {
   margin: 10px;
@@ -62,22 +83,27 @@ body {
 }
 
 .child1 {
-  background-image: url('/images/complete.png');
+  max-width:100%;
+  background-image: url('/images/crusader-updated.png');
   background-repeat: no-repeat;
   background-size: cover;
   margin: 20px;
   background-color: #EDE8E7;
   flex-basis: 33%;
 }
+
 .child2 {
-  background-image: url('/images/leper 1.png');
+  max-width:100%;
+  background-image: url('/images/second-image-png.png');
   background-repeat: no-repeat;
   background-size:contain;
   margin: 20px;
   flex-basis: 33%;
   background-color: #EDE8E7;
 }
+
 .child3 {
+  max-width:100%;
   background-image: url('/images/leper complete.png');
   background-repeat: no-repeat;
   background-size:contain;
@@ -100,14 +126,12 @@ body {
   flex-basis: 100%;
 }
 
-
-
 #reroute-login {
-  box-shadow:inset 0px 1px 0px 0px #d49e28;
+  /* box-shadow:inset 0px 1px 0px 0px #d49e28;
 	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
 	background-color:#d0451b;
 	border-radius:3px;
-	border:1px solid #942911;
+	border:1px solid #942911; */
 }
 
 #reroute-login:disabled {
@@ -115,11 +139,11 @@ body {
 }
 
 #reroute-register {
-  box-shadow:inset 0px 1px 0px 0px #d49e28;
+  /* box-shadow:inset 0px 1px 0px 0px #d49e28;
 	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
 	background-color:#d0451b;
 	border-radius:3px;
-	border:1px solid #942911;
+	border:1px solid #942911; */
 }
 
 .nav-container-main__xp-container {
@@ -129,7 +153,6 @@ body {
   background-color: whitesmoke;
   width: 800px;
   height: 70px;
-  /* margin: 5px 0; */
   border-radius: 10px;
   overflow: hidden;
 }
