@@ -10,8 +10,7 @@ append head
 block content
   .logo-container
     a(href="/"): img(src="/images/first-png.jpg")
-  .errors-div
-    +errors(errors)
+  +errors(errors)
   .form-container
     .info-container Required *
     form(action="/login" method="post")
@@ -24,6 +23,5 @@ block content
       input(type="hidden" name="_csrf" value=csrfToken)
       .form-container__field--button
         button(type='submit' id='demo-submit') Login as Demo
-      //- changes below
     .form-container__field--button
-      a(href="/register" type="submit" id="rerouteRegister") new in town?
+      a(href="/register" type="submit" id="rerouteRegister") New in town?

@@ -1,6 +1,6 @@
 mixin errors(errors)
-  div
-    if errors
+  if errors
+    .error Please fix the following errors:
       ul
         each error in errors
           li #{error}

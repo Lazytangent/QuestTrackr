@@ -99,8 +99,8 @@ router.post('/login', csrfProtection, loginValidators,
       // Attempt to get the user by their user name!
       const user = await db.User.findOne({ where: { username } });
 
-      if(user){
-        errors.push('Username')
+      if(!user){
+        errors.push('Login failed for the provided user name and password, quest-taker')
       }
 
       if (user !== null) {
@@ -114,13 +114,13 @@ router.post('/login', csrfProtection, loginValidators,
           loginUser(req, res, user, next);
         }else{
           // Otherwise display an error message to the user.
-          errors.push('Login failed for the provided user name and password, quest taker');
-          return;
+          errors.push('Login failed for the provided user name and password, quest-taker');
+          // return;
         }
       }
 
       // Otherwise display an error message to the user.
-      errors.push('Login failed for the provided user name and password, quest taker');
+      // errors.push('Login failed for the provided user name and password, quest taker');
     } else {
       errors = validatorErrors.array().map((error) => error.msg);
     }
