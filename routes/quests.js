@@ -1,11 +1,18 @@
 const express = require('express');
 const { check, validationResult } = require('express-validator');
-const { Quest, User, UserQuest } = require('../db/models');
+const { requireAuth } = require('../authorization');
+const { Quest, User, UserQuest, Category } = require('../db/models');
 
 const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
 
 const router = express.Router();
+
+router.get('/', asyncHandler(async (req, res) => {
+  // const quests = await Quest.findAll({ include: Category });
+  const categories = await Category.findAll();
+  res.render('quests', { title: 'Quests Home Page', categories });
+}));
 
 router.get('/new', csrfProtection, (req, res) => {
     const quest = db.Quest.build();
@@ -63,7 +70,6 @@ router.post('/', csrfProtection, questValidators,
             res.redirect('/');
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
-            console.log(errors)
             res.render('quest-create', {
                 title: 'Create a Quest',
                 quest,
@@ -77,6 +83,13 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const questId = parseInt(req.params.id, 10);
   const quest = await Quest.findByPk(questId, { include: User })
   res.render('quest-detail', { title: `Quest #${questId}`, quest });
+}));
+
+router.post('/join/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+  const questId = parseInt(req.params.id, 10);
+  const userId = res.locals.user.id;
+  await UserQuest.create({ userId, questId });
+  res.redirect('/users');
 }));
 
 
