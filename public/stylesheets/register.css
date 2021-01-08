@@ -54,10 +54,6 @@ body {
   justify-content: center;
 }
 
-.errors-div {
-  display: none;
-}
-
 #submit {
   background-color: #ff652f;
   border-radius: 5px;
@@ -85,6 +81,19 @@ body {
   padding: 0.5rem;
   border: 1px solid black;
   border-radius: 0.25rem;
+}
+
+.error {
+  font-size: 1rem;
+  position: relative;
+  top: 150px;
+  background-color: #747474;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding-left: 25px;
+  width: 450px;
 }
 
 
