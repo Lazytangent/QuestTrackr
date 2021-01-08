@@ -43,6 +43,8 @@ body {
 .quest-name h3 {
   font-size: 3rem;
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
 }
 
 .quest-description {
@@ -54,4 +56,16 @@ body {
 
 .quest-data h5 {
   font-size: 2rem;
+}
+
+.completed-container--button {
+  display: flex;
+}
+
+button.completed {
+  color: whitesmoke;
+  background-color: #14a76c;
+  padding: 5px;
+  margin-left: 100px;
+  border-radius: 8px;
 }
