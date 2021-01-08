@@ -24,7 +24,8 @@ html
                 .nav-container__xp-section--fill
                   div(id="currentXp")= locals.user.totalXp
               span(class="level" id="nextLevel") #
-            input(type="text" placeholder="Search..." id="searchbar")
+            form(action="/quests/search" method="post")
+              input(name="search" type="text" placeholder="Search..." id="searchbar")
           else
             span QuestTrackr
         .nav-container__auth-buttons
