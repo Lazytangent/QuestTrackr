@@ -1,20 +1,23 @@
 const express = require('express');
 const { check, validationResult } = require('express-validator');
-const { Quest, User, UserQuest } = require('../db/models');
+const { Quest, User, UserQuest, Category, QuestCategory } = require('../db/models');
 
 const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
 
 const router = express.Router();
 
-router.get('/new', csrfProtection, (req, res) => {
+router.get('/new', csrfProtection, asyncHandler(async(req, res) => {
     const quest = db.Quest.build();
+    const categories = await Category.findAll();
+    console.log(categories)
     res.render('quest-create', {
         title: 'Create a Quest',
         quest,
+        categories,
         csrfToken: req.csrfToken(),
     });
-});
+}));
 
 const questValidators = [
     check('name')
@@ -40,13 +43,13 @@ router.post('/', csrfProtection, questValidators,
             deadline,
             xpValue,
             solo,
-            description
+            description,
+            category
         } = req.body;
         let { id } = res.locals.user;
         if(solo == undefined){
             solo = false;
         };
-
         const quest = db.Quest.build({
             name,
             startDate,
@@ -60,6 +63,7 @@ router.post('/', csrfProtection, questValidators,
         if (validatorErrors.isEmpty()) {
             await quest.save();
             await UserQuest.create({ userId: id, questId: quest.id })
+            await QuestCategory.create({ questId: quest.id, categoryId: category })
             res.redirect('/');
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
