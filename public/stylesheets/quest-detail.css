@@ -60,6 +60,7 @@ body {
 
 .completed-container--button {
   display: flex;
+  /* flex-direction: row; */
 }
 
 button.completed {
@@ -68,4 +69,15 @@ button.completed {
   padding: 5px;
   margin-left: 100px;
   border-radius: 8px;
+  align-items: center;
+  /* flex: 1; */
+}
+
+.completed:hover {
+  border: 5px solid #14a76c;
+}
+
+.completed-link {
+  display: flex;
+  align-items: center;
 }

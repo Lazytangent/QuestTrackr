@@ -10,8 +10,9 @@ block content
   .quest-container
     .quest-name.quest-data
       h3 Quest: #{quest.name}
-        //- .completed-container--button
-        button.completed Quest Completed
+        .completed-link
+          a(href=`/quests/${quest.id}`)
+            button.completed Complete Quest
     .quest-description.quest-data
       h5 Description:
       p= quest.description
