@@ -10,9 +10,9 @@ block content
   .quest-container
     .quest-name.quest-data
       h3 Quest: #{quest.name}
-        .completed-link
-          a(href=`/quests/${quest.id}`)
-            button.completed Complete Quest
+        .link-container
+          a(href=`api/quests/${quest.id}`)
+          button.edit Edit Quest
     .quest-description.quest-data
       h5 Description:
       p= quest.description
@@ -34,4 +34,11 @@ block content
     if quest.completedDate
       .quest-completedDate.quest-data
         p= quest.completedDate
-
+    .quest-edit-complete.quest-data
+      h5 Update Quest:
+      a(href=`api/quests/${quest.id}`)
+      button(class=`completed complete-quest-button` id=`complete-${quest.id}`) Complete Quest
+      a(href=`api/quests/${quest.id}`)
+      button.delete Delete Quest
+      
+        
