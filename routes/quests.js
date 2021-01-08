@@ -1,5 +1,6 @@
 const express = require('express');
 const { check, validationResult } = require('express-validator');
+const { requireAuth } = require('../authorization');
 const { Quest, User, UserQuest, Category } = require('../db/models');
 
 const db = require('../db/models');
@@ -82,6 +83,13 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const questId = parseInt(req.params.id, 10);
   const quest = await Quest.findByPk(questId, { include: User })
   res.render('quest-detail', { title: `Quest #${questId}`, quest });
+}));
+
+router.post('/join/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+  const questId = parseInt(req.params.id, 10);
+  const userId = res.locals.user.id;
+  await UserQuest.create({ userId, questId });
+  res.redirect('/users');
 }));
 
 

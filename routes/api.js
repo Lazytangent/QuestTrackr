@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { asyncHandler } = require('./utils');
-const { Quest, User, Category } = require('../db/models');
+const { UserQuest, Quest, User, Category } = require('../db/models');
 
 router.put('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
   const questId = parseInt(req.params.id, 10);

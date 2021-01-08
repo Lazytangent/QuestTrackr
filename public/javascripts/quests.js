@@ -63,7 +63,9 @@ async function createQuestDivs(category = 'all') {
     }
 
     buttonDiv.innerHTML = `
-      <button class="join-quest-btn" id="quest-${quest.id}"> Join Quest </button>
+      <form method="post" action="/quests/join/${quest.id}">
+        <button class="join-quest-btn" id="quest-${quest.id}"> Join Quest </button>
+      </form>
     `;
     outerDiv.appendChild(buttonDiv);
 
@@ -80,6 +82,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     const newValue = categorySelect.value;
     await createQuestDivs(newValue);
   });
-
-  const joinQuestButtons = document.querySelectorAll('.join-quest-btn');
 });
