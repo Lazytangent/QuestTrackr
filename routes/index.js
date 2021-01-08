@@ -115,6 +115,7 @@ router.post('/login', csrfProtection, loginValidators,
         }else{
           // Otherwise display an error message to the user.
           errors.push('Login failed for the provided user name and password, quest taker');
+          return;
         }
       }
 

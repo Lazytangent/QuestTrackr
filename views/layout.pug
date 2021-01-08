@@ -9,13 +9,14 @@ html
   body
     .navbar
       .spacer
-      .logo-container
+      a(href='/')
+        .logo-container
       nav
         .nav-container
           if locals.authenticated
             .nav-container__action-buttons
-              a(href="#") Profile
-              a(href="/quest/quest-create") Make a Quest
+              a(href="/users") Profile
+              a(href="/quests/new") Make a Quest
             .nav-container__xp-section
               span(class="level" id="currentLevel") #
               .nav-container__xp-section--container

@@ -1,0 +1,13 @@
+extends layout.pug
+
+append head
+  link(rel="stylesheet" href="/stylesheets/questlist.css")
+
+block content
+  h3 Hello #{locals.user.username} the adventurer. Witness your quests.
+  hr
+  h4 [Active]
+  ul
+    each quest in quests
+      a(href=`/quests/${quest.id}`)
+        li #{quest.name}
