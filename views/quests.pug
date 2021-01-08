@@ -7,22 +7,10 @@ append head
 block content
   .quests-header
     h2 Quests
+  .categories-dropdown
+    h4 Category
+    select(name="category")
+      option(value='all' selected) All
+      each category in categories
+        option(value=category.id)= category.tag
   .quests-container
-    each quest in quests
-      .quests-container__quest-container
-        .quests-container__quest-container--name.quest-container
-          h4 Quest Name
-          p= quest.name
-        .quests-container__quest-container--deadline.quest-container
-          h4 Deadline
-          p= quest.deadline
-        .quests-container__quest-container--xpValue.quest-container
-          h4 XP Value
-          p #{quest.xpValue} Points
-        .quests-container__quest-container--solo.quest-container
-          h4 Solo?
-          p= quest.solo
-        if quest.Category
-          .quests-container__quest-container--category.quest-container
-            h4 Category
-            p= quest.Category.name

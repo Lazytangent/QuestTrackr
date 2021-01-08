@@ -9,6 +9,15 @@
   font-size: 3rem;
 }
 
+.categories-dropdown {
+  width: fit-content;
+  margin: auto;
+}
+
+.categories-dropdown > h4 {
+
+}
+
 .quests-container {
   display: flex;
   flex-wrap: wrap;

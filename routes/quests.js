@@ -8,8 +8,9 @@ const { csrfProtection, asyncHandler } = require('./utils');
 const router = express.Router();
 
 router.get('/', asyncHandler(async (req, res) => {
-  const quests = await Quest.findAll({ include: Category });
-  res.render('quests', { title: 'Quests Home Page', quests });
+  // const quests = await Quest.findAll({ include: Category });
+  const categories = await Category.findAll();
+  res.render('quests', { title: 'Quests Home Page', categories });
 }));
 
 router.get('/new', csrfProtection, (req, res) => {
