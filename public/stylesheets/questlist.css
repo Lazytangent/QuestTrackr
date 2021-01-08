@@ -16,3 +16,12 @@ h3 {
 h4 {
   font-size: 1.5rem;
 }
+
+.complete-quest-button {
+  height: 75%;
+}
+
+.quest-row {
+  display:flex;
+  align-items: center;
+}

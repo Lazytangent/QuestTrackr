@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
+
 body {
   background-color: #272727;
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-family: 'Texturina', serif;
 }
 
 .form-container {
