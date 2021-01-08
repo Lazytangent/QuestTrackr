@@ -10,7 +10,7 @@ function getXPRequiredForLevel(level) {
   return (level * (level-1)) / 2 * 1000;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function updateXPBar() {
   const currLevel = document.querySelector('#currentLevel');
   const nextLevel = document.querySelector('#nextLevel');
   const progressBar = document.querySelector('.nav-container__xp-section--fill');
@@ -24,5 +24,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   currLevel.innerText = actualLevel
   nextLevel.innerText = getNextLevelFromXP(currentXP);
-  progressBar.style.width = `#{progress}%`;
+  progressBar.style.width = `${progress}%`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateXPBar();
+
+  const submitBtn = document.querySelector('#_4');
+
+  submitBtn.addEventListener('click', async event => {
+    const res = await fetch('/api/quests/4', {
+      method: 'PUT',
+    });
+    const { quest, user } = await res.json();
+    console.log(user.totalXp);
+    document.querySelector('#currentXp').innerHTML = user.totalXp;
+    updateXPBar();
+  });
 });
