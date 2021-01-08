@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateXPBar();
 
   const completeButtons = Array.from(document.querySelectorAll('.complete-quest-button'));
-  //console.log(completeButtons)
+
   completeButtons.forEach(completeButton => {
     completeButton.addEventListener('click', async event => {
       const questId = completeButton.id.split('-')[1];
