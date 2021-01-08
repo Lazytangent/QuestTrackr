@@ -39,9 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
         method: 'PUT',
       });
       const { quest, user } = await res.json();
-      console.log(user.totalXp);
       document.querySelector('#currentXp').innerHTML = user.totalXp;
       updateXPBar();
+
+      //Move the quest from the active to the completed.
+      const activeLi = document.querySelector("#active-quests");
+      const completedLi = document.querySelector("#completed-quests");
+
+      const questRow = completeButton.parentElement;
+
+      activeLi.removeChild(questRow);
+      completedLi.appendChild(questRow);
+      completeButton.remove();
     });
   });
 

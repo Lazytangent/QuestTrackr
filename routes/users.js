@@ -14,7 +14,9 @@ router.get('/', asyncHandler(async (req, res) => {
       where: { id }
     }
   });
-  res.render('quest-list', { title: `${username}'s Active Quests`, quests });
+  const completed = quests.filter(quest => quest.completedDate)
+  const active = quests.filter(quest => !quest.completedDate)
+  res.render('quest-list', { title: `${username}'s Active Quests`, completed, active });
 }));
 
 module.exports = router;
