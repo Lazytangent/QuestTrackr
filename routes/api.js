@@ -43,8 +43,13 @@ router.get('/quests/:category([\-\\w]+)', asyncHandler(async (req, res) => {
 
 router.get('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
   const questId = parseInt(req.params.id, 10);
-  const quest = await Quest.findByPk(questId);
-  res.json({ quest });
+  let quest, message;
+  try {
+    quest = await Quest.findByPk(questId);
+  } catch (e) {
+    message = `Quest of ID ${questId} not found.`;
+  }
+  res.json({ quest, message });
 }));
 
 module.exports = router;
