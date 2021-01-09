@@ -29,6 +29,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   button.addEventListener('click',  async () =>{
     const res = await fetch(`/api/quests/${questId}`, {
       method: 'PUT',
+const button = document.querySelector('.completed');
+
+button.addEventListener('click', async () =>{
+    await fetch(`/api/quests/${questId}`, {
+        method: 'PUT',
     });
     button.remove();
   });

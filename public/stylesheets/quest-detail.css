@@ -78,7 +78,7 @@ button.edit {
   border-radius: 8px;
   align-items: center;
   font-weight: bold;
-  /* height: fit-content; */
+  height: 100%;
 }
 
 button.completed {
@@ -104,14 +104,17 @@ button.delete {
 
 .edit:hover {
   border: 10px solid #ebd40c;
+  cursor: pointer;
 }
 
 .completed:hover {
   border: 10px solid #14a76c;
+  cursor: pointer;
 }
 
 .delete:hover {
   border: 10px solid #ff652f;
+  cursor: pointer;
 }
 
 .completed-link {
