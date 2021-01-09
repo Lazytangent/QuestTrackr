@@ -1,3 +1,21 @@
+.main-content {
+  display: flex;
+  justify-content: space-around;
+  height: 400px;
+  flex-direction: column;
+  align-items: center;
+}
+
 h1 {
-    color: #555555;
+  color: whitesmoke;
+  font-size: 5rem;
+}
+
+.main-content__question {
+  
+}
+
+.main-content__question > h3 {
+  color: whitesmoke;
+  font-size: 1.75rem;
 }
