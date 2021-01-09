@@ -4,7 +4,7 @@ async function createQuestDivs(category = 'all') {
   const { quests } = await res.json();
   questsContainer.innerHTML = '';
 
-  if (!quests) {
+  if (!quests.length) {
     questsContainer.innerHTML = `
       <div class="errorDiv">
         <h3>No quests found in this category of ${category}</h3>
