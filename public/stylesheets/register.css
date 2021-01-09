@@ -59,7 +59,7 @@ body {
   border-radius: 5px;
 }
 
-#submit:disabled {
+#reroute-login:disabled {
   background-color: rgb(155, 155, 155);
 }
 
@@ -95,5 +95,3 @@ body {
   padding-left: 25px;
   width: 450px;
 }
-
-
