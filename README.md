@@ -1,5 +1,10 @@
 # QuestTrackr
 
+[![Contributors](https://img.shields.io/github/contributors/Lazytangent/QuestTrackr)](https://www.github.com/Lazytangent/QuestTrackr/contributors)
+[![Open Issues](https://img.shields.io/github/issues/Lazytangent/QuestTrackr)](https://www.github.com/Lazytangent/QuestTrackr/issues)
+[![Forks](https://img.shields.io/github/forks/Lazytangent/QuestTrackr)](https://www.github.com/Lazytangent/QuestTrackr/forks)
+[![Stars](https://img.shields.io/github/stars/Lazytangent/QuestTrackr)](https://www.github.com/Lazytangent/QuestTrackr/stars)
+
 ## What is it?
 
 QuestTrackr is a clone of the popular web app [Remember the Milk](https://www.rememberthemilk.com/) with an RPG twist. Its functionality includes:
@@ -48,6 +53,8 @@ To run this application locally, you'll need to:
 [Here's](https://github.com/Lazytangent/QuestTrackr/wiki/) a link to our Wiki!
 
 ## Features
+
+- 
 
 ## Challenges
 
