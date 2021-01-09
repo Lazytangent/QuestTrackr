@@ -1,0 +1,27 @@
+extends layout.pug
+
+include includes/utils.pug
+include includes/errors-mixin.pug
+
+append head
+  link(rel="stylesheet" href="/stylesheets/quest-create.css")
+  script(src="/javascripts/quest-create.js")
+
+block content
+  .errors-div
+    +errors(errors)
+  .create-quest-title Reassess Your Quest!
+  .form-container
+    .info-container All Fields Required
+    form(action=`/quests/edit/${quest.id}` method="post")
+      input(type="hidden" name="_csrf" value=csrfToken)
+      +formField('text', 'name', 'Name', 'Name', true, quest.name)
+      +formField('datetime-local', 'startDate', 'Start Date', 'Start Date', true, slicedDate)
+      +formField('datetime-local', 'deadline', 'Deadline', 'Deadline', true, slicedEndDate)
+      +formField('number', 'xpValue', 'XP Value', 'XP Value', true, quest.xpValue)
+      +formField('checkbox', 'solo', 'Solo', 'Solo', false, null, checkbox)
+      .form-textarea
+        label(for="description") Description
+        textarea(name="description", cols="30", rows="10", placeholder="Description")=`${quest.description}`      
+      .form-container__field--button
+        button(type="submit" id="submit") Resume My Quest
