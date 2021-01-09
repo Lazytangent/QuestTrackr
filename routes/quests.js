@@ -98,10 +98,11 @@ router.post('/search', asyncHandler(async (req, res) => {
     where: {
       name: {
         [Sequelize.Op.iLike]: `%${search}%`,
-      }
+      },
+      completedDate: null,
     }
   })
-  res.render('search', found);
+  res.render('search', { found });
 }));
 
 
