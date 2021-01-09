@@ -44,9 +44,17 @@
 .quest-container {
   background-color: #272727;
   color: whitesmoke;
-  padding: 0.5rem;
+  padding: 1rem;
   margin: 0.5rem;
   border-radius: 5px;
+}
+
+.quest-container > h4 {
+  font-size: 2rem;
+}
+
+.quest-container > p {
+  /* font-size: 1rem; */
 }
 
 .errorDiv {
@@ -67,5 +75,14 @@
 }
 
 .join-quest-btn {
+  padding: 0.75rem;
+  background-color: #ff652f;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  font-family: 'Texturina', serif;
+  font-weight: bold;
+}
 
+.join-quest-btn:hover {
+  background-color: #c13200;
 }
