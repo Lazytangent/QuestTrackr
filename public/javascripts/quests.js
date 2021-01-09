@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const currentCategory = categorySelect.value;
   categorySelect.addEventListener('change', async () => {
     const newValue = categorySelect.value;
+    console.log(newValue);
     await createQuestDivs(newValue);
   });
 });

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { asyncHandler } = require('./utils');
-const { UserQuest, Quest, User, Category } = require('../db/models');
+const { UserQuest, Quest, User, Category, Sequelize } = require('../db/models');
 
 router.put('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
   const questId = parseInt(req.params.id, 10);
@@ -20,13 +20,13 @@ router.put('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
   }
 }));
 
-router.get('/quests/:category(\\w+)', asyncHandler(async (req, res) => {
+router.get('/quests/:category([\-\\w]+)', asyncHandler(async (req, res) => {
   const category = req.params.category;
   let quests;
   if (category === 'all') {
     quests = await Quest.findAll();
   } else {
-    const quests = await Quest.findAll({ include: { model: Category, where: { tag: category } } });
+    const quests = await Quest.findAll({ include: { model: Category, where: { tag: { [Sequelize.Op.col]: 'Hygiene' } } } });
   }
   res.json({ quests });
 }));
