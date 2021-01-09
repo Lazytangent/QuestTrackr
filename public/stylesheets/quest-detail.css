@@ -99,6 +99,7 @@ button.delete {
   border-radius: 8px;
   align-items: center;
   font-weight: bold;
+  height: 100%;
 }
 
 .edit:hover {

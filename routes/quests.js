@@ -141,14 +141,18 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   res.render('quest-detail', { title: `Quest #${questId}`, quest });
 }));
 
-router.delete('/:id(\\d)', asyncHandler(async (req, res) => {
+router.post('/delete/:id(\\d+)', asyncHandler(async (req, res) => {
     const questId = parseInt(req.params.id, 10);
-    const quest = await Quest.findByPk(questId)
-
-    request.db.get('users').remove({ 'username': username }, function (error, document) {
-        if (error) response.send(error);
-        return response.send("deleted");
+    const quest = await Quest.findByPk(questId);
+    const userId = res.locals.user.id;
+    const association = await UserQuest.findOne({
+        where: { questId, userId}
     });
+    console.log(association);
+    await association.destroy();
+    await quest.destroy();
+
+    res.redirect('/users');
 }))
 
 

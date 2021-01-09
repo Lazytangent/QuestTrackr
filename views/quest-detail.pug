@@ -39,8 +39,9 @@ block content
       .update-container
         if (!quest.completedDate)
           a(href=`api/quests/${quest.id}`)
-          button(class=`completed complete-quest-button` id=`complete-${quest.id}` onClick="window.location.reload();") Complete Quest
-        a(href=`api/quests/${quest.id}`)
-        button.delete Delete Quest
+          button(class=`completed complete-quest-button` id=`complete-${quest.id}` onClick="window.location.reload()") Complete Quest
+        form(action=`/quests/delete/${quest.id}` method='POST')
+          button.delete 
+            a Delete Quest
       
         
