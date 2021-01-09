@@ -141,5 +141,16 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   res.render('quest-detail', { title: `Quest #${questId}`, quest });
 }));
 
+router.delete('/:id(\\d)', asyncHandler(async (req, res) => {
+    const questId = parseInt(req.params.id, 10);
+    const quest = await Quest.findByPk(questId)
+
+    request.db.get('users').remove({ 'username': username }, function (error, document) {
+        if (error) response.send(error);
+        return response.send("deleted");
+    });
+}))
+
+
 
 module.exports = router;

@@ -11,8 +11,8 @@ block content
     .quest-name.quest-data
       h3 Quest: #{quest.name}
         .link-container
-          a(href=`api/quests/${quest.id}`)
-          button.edit Edit Quest
+          button.edit 
+            a(href=`/quests/edit/${quest.id}`) Edit Quest
     .quest-description.quest-data
       h5 Description:
       p= quest.description
@@ -37,8 +37,9 @@ block content
     .quest-edit-complete.quest-data
       h5 Update Quest:
       .update-container
-        a(href=`api/quests/${quest.id}`)
-        button(class=`completed complete-quest-button` id=`complete-${quest.id}`) Complete Quest
+        if (!quest.completedDate)
+          a(href=`api/quests/${quest.id}`)
+          button(class=`completed complete-quest-button` id=`complete-${quest.id}` onClick="window.location.reload();") Complete Quest
         a(href=`api/quests/${quest.id}`)
         button.delete Delete Quest
       
