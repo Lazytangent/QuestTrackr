@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
-body {
-  color: white;
-}
 
 .container {
+  color: white;
   margin-left: 5px;
   margin-right: 5px;
   display: flex;

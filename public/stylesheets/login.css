@@ -55,6 +55,7 @@ body {
 }
 
 #submit {
+  padding: 5px;
   background-color: #ff652f;
   border-radius: 5px;
 }
@@ -66,6 +67,7 @@ body {
 #demo-submit {
   background-color: #009900;
   border-radius: 5px;
+  padding: 5px;
 }
 
 .info-container {
@@ -74,11 +76,7 @@ body {
 }
 
 #rerouteRegister {
-  box-shadow:inset 0px 1px 0px 0px #d49e28;
-	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
-	background-color:#d0451b;
 	border-radius:3px;
-	border:1px solid #942911;
 }
 .asterisk {
   color: red;
@@ -103,3 +101,7 @@ body {
   width: 450px;
 }
 
+input {
+  border-width: 0;
+  padding: 5px;
+}
