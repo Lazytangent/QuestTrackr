@@ -1,7 +1,19 @@
+.container {
+  background-color: #747474;
+  width: 85%;
+  margin: auto;
+  border-radius: 5px;
+}
+
 .quests-header {
   width: fit-content;
   margin: auto;
   margin-bottom: 10px;
+  background-color: #747474;
+  width: 85%;
+  margin: 50px auto 5px;
+  text-align: center;
+  border-radius: 5px;
 }
 
 .quests-header h2 {
@@ -27,11 +39,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  /* padding: 1rem; */
+  padding: 1rem;
 }
 
 .quests-container__quest-container {
   background-color: #747474;
+  border: 1px solid whitesmoke;
   width: fit-content;
   padding: 0.5rem;
   margin: 0.3rem;
@@ -44,17 +57,27 @@
 .quest-container {
   background-color: #272727;
   color: whitesmoke;
-  padding: 1rem;
+  padding: 0.5rem;
   margin: 0.5rem;
   border-radius: 5px;
+}
+
+select#category-select {
+  padding: 0.5rem;
+  border-radius: 0.35rem;
 }
 
 .quest-container > h4 {
   font-size: 2rem;
 }
 
-.quest-container > p {
-  /* font-size: 1rem; */
+.quest-name-link {
+  text-decoration: underline;
+  font-size: 1.5rem;
+}
+
+.quest-name-link:hover {
+  color: #14a76c;
 }
 
 .errorDiv {
@@ -85,4 +108,5 @@
 
 .join-quest-btn:hover {
   background-color: #c13200;
+  cursor: pointer;
 }
