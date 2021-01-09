@@ -22,11 +22,9 @@ router.put('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
 
 router.get('/quests/:category([\-\\w]+)', asyncHandler(async (req, res) => {
   const category = req.params.category;
-  console.log('--------------------');
-  console.log(category);
   let quests;
   if (category === 'all') {
-    quests = await Quest.findAll({ include: Category });
+    quests = await Quest.findAll({ include: Category, where: { completedDate: null } });
   } else {
     quests = await Quest.findAll({
       include: {
@@ -34,6 +32,9 @@ router.get('/quests/:category([\-\\w]+)', asyncHandler(async (req, res) => {
         where: {
           tag: category,
         },
+      },
+      where: {
+        completedDate: null,
       },
     });
   }
