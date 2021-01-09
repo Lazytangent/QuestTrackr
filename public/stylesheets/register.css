@@ -55,6 +55,7 @@ body {
 }
 
 #submit {
+  padding: 5px;
   background-color: #ff652f;
   border-radius: 5px;
 }
@@ -69,6 +70,7 @@ body {
 }
 
 #demo-submit {
+  padding: 5px;
   background-color: #009900;
   border-radius: 5px;
 }
@@ -94,4 +96,9 @@ body {
   margin-bottom: 5px;
   padding-left: 25px;
   width: 450px;
+}
+
+input {
+  border-width: 0;
+  padding: 5px;
 }
