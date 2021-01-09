@@ -26,14 +26,15 @@
 .quests-container {
   display: flex;
   flex-wrap: wrap;
-  padding: 1rem;
+  justify-content: space-around;
+  /* padding: 1rem; */
 }
 
 .quests-container__quest-container {
   background-color: #747474;
   width: fit-content;
   padding: 0.5rem;
-  margin: 3rem;
+  margin: 0.3rem;
   border-radius: 5px;
   margin-bottom: 1rem;
   display: flex;
