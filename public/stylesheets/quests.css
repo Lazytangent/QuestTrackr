@@ -26,14 +26,15 @@
 .quests-container {
   display: flex;
   flex-wrap: wrap;
-  padding: 1rem;
+  justify-content: space-around;
+  /* padding: 1rem; */
 }
 
 .quests-container__quest-container {
   background-color: #747474;
   width: fit-content;
   padding: 0.5rem;
-  margin: 3rem;
+  margin: 0.3rem;
   border-radius: 5px;
   margin-bottom: 1rem;
   display: flex;
@@ -43,9 +44,17 @@
 .quest-container {
   background-color: #272727;
   color: whitesmoke;
-  padding: 0.5rem;
+  padding: 1rem;
   margin: 0.5rem;
   border-radius: 5px;
+}
+
+.quest-container > h4 {
+  font-size: 2rem;
+}
+
+.quest-container > p {
+  /* font-size: 1rem; */
 }
 
 .errorDiv {
@@ -66,5 +75,14 @@
 }
 
 .join-quest-btn {
+  padding: 0.75rem;
+  background-color: #ff652f;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  font-family: 'Texturina', serif;
+  font-weight: bold;
+}
 
+.join-quest-btn:hover {
+  background-color: #c13200;
 }
