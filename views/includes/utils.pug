@@ -1,9 +1,12 @@
-mixin formField(type, name, label, placeholder='', required=false, value)
+mixin formField(type, name, label, placeholder='', required=false, value, checked)
   div.form-container__field
     if required
       label(for=name class="form-container__field--label")= label
         span(class="asterisk")  *
       input(type=type name=name required placeholder=placeholder class="input" value=value)
+    else if checked
+      label(for=name class="form-container__field--label")= label
+      input(type=type name=name placeholder=placeholder class="input" value=value checked)
     else
       label(for=name class="form-container__field--label")= label
       input(type=type name=name placeholder=placeholder class="input" value=value)
