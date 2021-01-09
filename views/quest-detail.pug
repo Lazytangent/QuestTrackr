@@ -31,4 +31,7 @@ block content
     if quest.completedDate
       .quest-completedDate.quest-data
         p= quest.completedDate
+  .movement-buttons
+    button(class="movement-btn" id=`${parseInt(quest.id, 10) - 1}`) Previous
+    button(class="movement-btn" id=`${parseInt(quest.id, 10) + 1}`) Next
 
