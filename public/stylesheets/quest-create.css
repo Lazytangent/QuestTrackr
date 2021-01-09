@@ -53,12 +53,17 @@ body {
   border-radius: 5px;
 }
 
+#submit:hover {
+  cursor: pointer;
+  background-color: #c13200;
+}
+
 #submit:disabled {
   background-color: rgb(155, 155, 155);
 }
 
 .info-container {
-  color: red;
+  color: #5d001e;
   padding-bottom: 10px;
 }
 
