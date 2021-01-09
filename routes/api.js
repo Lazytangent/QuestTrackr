@@ -22,11 +22,20 @@ router.put('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
 
 router.get('/quests/:category([\-\\w]+)', asyncHandler(async (req, res) => {
   const category = req.params.category;
+  console.log('--------------------');
+  console.log(category);
   let quests;
   if (category === 'all') {
-    quests = await Quest.findAll();
+    quests = await Quest.findAll({ include: Category });
   } else {
-    const quests = await Quest.findAll({ include: { model: Category, where: { tag: { [Sequelize.Op.col]: 'Hygiene' } } } });
+    quests = await Quest.findAll({
+      include: {
+        model: Category,
+        where: {
+          tag: category,
+        },
+      },
+    });
   }
   res.json({ quests });
 }));
