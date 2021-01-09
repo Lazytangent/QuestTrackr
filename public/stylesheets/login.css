@@ -73,6 +73,13 @@ body {
   padding-bottom: 10px;
 }
 
+#rerouteRegister {
+  box-shadow:inset 0px 1px 0px 0px #d49e28;
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius:3px;
+	border:1px solid #942911;
+}
 .asterisk {
   color: red;
 }

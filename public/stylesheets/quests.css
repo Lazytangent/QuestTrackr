@@ -1,0 +1,88 @@
+.quests-header {
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.quests-header h2 {
+  color: whitesmoke;
+  font-size: 3rem;
+}
+
+.categories-dropdown {
+  width: fit-content;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.categories-dropdown > h4 {
+  color: whitesmoke;
+  font-size: 2rem;
+}
+
+.quests-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* padding: 1rem; */
+}
+
+.quests-container__quest-container {
+  background-color: #747474;
+  width: fit-content;
+  padding: 0.5rem;
+  margin: 0.3rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.quest-container {
+  background-color: #272727;
+  color: whitesmoke;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+}
+
+.quest-container > h4 {
+  font-size: 2rem;
+}
+
+.quest-container > p {
+  /* font-size: 1rem; */
+}
+
+.errorDiv {
+  background-color: #747474;
+  border-radius: 0.35rem;
+  width: fit-content;
+  margin: auto;
+  padding: 2rem;
+}
+
+.errorDiv > h3 {
+  font-size: 2rem;
+}
+
+.quests-container__quest-container--button {
+  display: flex;
+  justify-content: center;
+}
+
+.join-quest-btn {
+  padding: 0.75rem;
+  background-color: #ff652f;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  font-family: 'Texturina', serif;
+  font-weight: bold;
+}
+
+.join-quest-btn:hover {
+  background-color: #c13200;
+}
