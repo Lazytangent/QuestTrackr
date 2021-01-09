@@ -7,7 +7,9 @@ async function renderPage() {
   const pageHeading = document.querySelector('.page-heading');
 
   if (message) {
-    pageHeading.innerHTML = message;
+    pageHeading.innerHTML = `
+      <h2> ${message} </h2>
+    `;
     return;
   }
 
@@ -21,6 +23,21 @@ async function renderPage() {
   const questCompletedDateDiv = document.querySelector('.quest-completedDate');
   const questEditCompleteDiv = document.querySelector('.quest-edit-complete');
   const updateContainerDiv = document.querySelector('.update-container');
+
+  questNameDiv.innerHTML = `
+    <h3> Quest: ${quest.name} </h3>
+    <div class="link-container">
+      <form method="get" action="/quests/edit/${quest.id}">
+        <button class="edit"> Edit Quest </button>
+      </form>
+    </div>
+  `;
+  questContainer.appendChild(questNameDiv);
+
+  questDescriptionDiv.innerHTML = `
+
+  `
+
 };
 document.addEventListener('DOMContentLoaded', async () => {
 
