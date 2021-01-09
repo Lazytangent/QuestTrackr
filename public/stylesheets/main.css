@@ -94,7 +94,7 @@ body {
 
 .child2 {
   max-width:100%;
-  background-image: url('/images/second-image-png.png');
+  background-image: url('/images/Hound_Master.png');
   background-repeat: no-repeat;
   background-size:contain;
   margin: 20px;
@@ -126,24 +126,8 @@ body {
   flex-basis: 100%;
 }
 
-#reroute-login {
-  /* box-shadow:inset 0px 1px 0px 0px #d49e28;
-	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
-	background-color:#d0451b;
-	border-radius:3px;
-	border:1px solid #942911; */
-}
-
 #reroute-login:disabled {
   background-color: rgb(155, 155, 155);
-}
-
-#reroute-register {
-  /* box-shadow:inset 0px 1px 0px 0px #d49e28;
-	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
-	background-color:#d0451b;
-	border-radius:3px;
-	border:1px solid #942911; */
 }
 
 .nav-container-main__xp-container {
