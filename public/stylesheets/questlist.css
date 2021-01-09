@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
 body {
   color: white;
 }
@@ -26,6 +27,7 @@ li {
   font-size: 1.5rem;
   padding: 0 3px;
   margin-left: 10px;
+  list-style-type: none;
 }
 
 h3 {
@@ -37,10 +39,13 @@ h4 {
 }
 
 .complete-quest-button {
-  height: 75%;
+  padding: .25rem;
+  border-radius: 5px;
+  margin-top: 5px;
 }
 
 .quest-row {
   display:flex;
   align-items: center;
+  justify-content: space-between;
 }

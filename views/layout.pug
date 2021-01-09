@@ -27,8 +27,6 @@ html
               span(class="level" id="nextLevel") #
             form(action="/quests/search" method="post")
               input(name="search" type="text" placeholder="Search..." id="searchbar")
-          else
-            span QuestTrackr
         .nav-container__auth-buttons
           if locals.authenticated
             span Questing as #{user.username}
