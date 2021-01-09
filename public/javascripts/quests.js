@@ -83,7 +83,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   await createQuestDivs();
 
   const categorySelect = document.querySelector('#category-select');
-  const currentCategory = categorySelect.value;
   categorySelect.addEventListener('change', async () => {
     const newValue = categorySelect.value;
     await createQuestDivs(newValue);
