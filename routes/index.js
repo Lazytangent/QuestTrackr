@@ -7,6 +7,7 @@ const { csrfProtection, asyncHandler } = require('./utils');
 const { loginUser, logoutUser } = require('../authorization');
 
 const router = express.Router();
+
 router.get('/', (req, res) => {
   res.render('index', { title: "QuestTrackr" })
 })
@@ -55,11 +56,10 @@ router.post('/register', csrfProtection, userValidators,
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
       await user.save();
-      loginUser(req, res, user, next);
+      loginUser(req, res, user, next, 'register');
       // res.redirect('/');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
-      console.log(errors)
       res.render('register', {
         title: 'Register',
         user,
