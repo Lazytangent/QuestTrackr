@@ -122,7 +122,6 @@ span {
     text-align: center;
     vertical-align: middle;
     color: rgb(255, 255, 255);
-    /* -webkit-text-stroke: 1px black; */
     font-family: sans-serif;
     font-weight: bold;
     font-size: .70rem;
@@ -131,8 +130,12 @@ span {
 #logout {
     padding: .25rem;
     border-radius: 5px;
-    /* margin-top: 5px; */
     margin-right: 5px;
+}
+
+#logout:hover {
+  cursor: pointer;
+  background-color: #950740;
 }
 
 #searchbar {
