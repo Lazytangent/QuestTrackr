@@ -26,6 +26,7 @@ async function createQuestDivs(category = 'all') {
     nameDiv.classList.add('quests-container__quest-container--name', 'quest-container');
     deadlineDiv.classList.add('quests-container__quest-container--deadline', 'quest-container');
     xpValueDiv.classList.add('quests-container__quest-container--xpValue', 'quest-container');
+    categoryDiv.classList.add('quests-container__quest-container--category', 'quest-container');
     soloDiv.classList.add('quests-container__quest-container--solo', 'quest-container');
     buttonDiv.classList.add('quests-container__quest-container--button', 'quest-container');
 
@@ -54,10 +55,15 @@ async function createQuestDivs(category = 'all') {
     outerDiv.appendChild(soloDiv);
 
     if (quest.Category) {
-      categoryDiv.classList.add('quests-container__quest-container--category', 'quest-container');
       categoryDiv.innerHTML = `
         <h4> Category </h4>
         <p>${quest.Category.name}</p>
+      `;
+      outerDiv.appendChild(categoryDiv);
+    } else {
+      categoryDiv.innerHTML = `
+        <h4> Category </h4>
+        <p> None </p>
       `;
       outerDiv.appendChild(categoryDiv);
     }
