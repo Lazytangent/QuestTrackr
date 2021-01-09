@@ -64,6 +64,12 @@ body {
   justify-content: flex-start;
 }
 
+.update-container {
+  width: auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
 
 button.edit {
   color: whitesmoke;
@@ -113,11 +119,11 @@ button.delete {
 
 .quest-edit-complete.quest-data {
   display: flex;
-  justify-content: 
+  justify-content: space-between; 
 }
 
-p.quest.completedDate {
+/* p.quest.completedDate {
   width: auto;
   display: flex;
   justify-content: flex-start;
-}
+} */

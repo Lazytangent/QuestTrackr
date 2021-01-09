@@ -16,6 +16,20 @@ router.get('/new', csrfProtection, (req, res) => {
     });
 });
 
+router.get('/edit/:id', csrfProtection, asyncHandler( async(req, res) => {
+    const questId = parseInt(req.params.id, 10);
+    const quest = await Quest.findByPk(questId)
+    const beginDate = new Date(quest.startDate)
+    const deadDate = new Date(quest.deadline)
+    res.render('quest-edit', {
+        title: 'Reassess Your Quest',
+        quest,
+        beginDate,
+        deadDate,
+        csrfToken: req.csrfToken(),
+    });
+}));
+
 const questValidators = [
     check('name')
         .exists({ checkFalsy: true })

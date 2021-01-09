@@ -36,9 +36,10 @@ block content
         p= quest.completedDate
     .quest-edit-complete.quest-data
       h5 Update Quest:
-      a(href=`api/quests/${quest.id}`)
-      button(class=`completed complete-quest-button` id=`complete-${quest.id}`) Complete Quest
-      a(href=`api/quests/${quest.id}`)
-      button.delete Delete Quest
+      .update-container
+        a(href=`api/quests/${quest.id}`)
+        button(class=`completed complete-quest-button` id=`complete-${quest.id}`) Complete Quest
+        a(href=`api/quests/${quest.id}`)
+        button.delete Delete Quest
       
         
