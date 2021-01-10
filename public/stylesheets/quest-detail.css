@@ -127,3 +127,22 @@ button.delete {
   justify-content: space-between; 
 }
 
+.movement-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.movement-btn {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.movement-btn:hover {
+  background-color: #14a76c;
+  cursor: pointer;
+}
+
+.btn-disabled {
+  pointer-events: none;
+}
