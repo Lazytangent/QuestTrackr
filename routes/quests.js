@@ -48,17 +48,17 @@ router.get('/edit/:id', csrfProtection, asyncHandler( async(req, res) => {
 const questValidators = [
   check('name')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a name for your quest, quest-taker')
+    .withMessage('Please provide a Name for your quest')
     .isLength({ max: 100, min: 1 })
-    .withMessage('Name must not be more than 100 characters long and at least 1 character, quest-taker'),
+    .withMessage('Name must not be more than 100 characters long and at least 1 character'),
   check('xpValue')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide an XP Value for your quest, quest-taker')
+    .withMessage('Please provide an XP Value for your quest')
     .isNumeric()
-    .withMessage('Please provide only numbers for the XP Value, quest-taker'),
+    .withMessage('Please provide only numbers for the XP Value'),
   check('description')
     .isLength({ max: 1000 })
-    .withMessage('Description must not be more than 1000 characters long, quest-taker')
+    .withMessage('Description must not be more than 1000 characters long')
 ];
 
 router.post('/', csrfProtection, questValidators,
