@@ -4,13 +4,6 @@ async function renderPage(questId) {
 
   const pageHeading = document.querySelector('.page-heading');
 
-  if (message) {
-    pageHeading.innerHTML = `
-      <h2> ${message} </h2>
-    `;
-    return;
-  }
-
   const body = document.querySelector('body');
   const questContainer = document.querySelector('.quest-container');
   const questNameDiv = document.querySelector('.quest-name');
@@ -21,6 +14,15 @@ async function renderPage(questId) {
   const questSoloDiv = document.querySelector('.quest-solo');
   const questCompletedDateDiv = document.querySelector('.quest-completedDate');
   const questEditCompleteDiv = document.querySelector('.quest-edit-complete');
+
+  if (message) {
+    pageHeading.innerHTML = `
+      <h2> ${message} </h2>
+    `;
+    questContainer.classList.add('hidden-container');
+    return;
+  }
+  questContainer.classList.remove('hidden-container');
 
   pageHeading.innerHTML = `
     <h2> Quest No. ${quest.id} Details </h2>
@@ -35,31 +37,31 @@ async function renderPage(questId) {
       </div>
     </h3>
   `;
-  questContainer.appendChild(questNameDiv);
+  // questContainer.appendChild(questNameDiv);
 
   questDescriptionDiv.innerHTML = `
     <h5> Description: </h5>
     <p> ${quest.description} </p>
   `;
-  questContainer.appendChild(questDescriptionDiv);
+  // questContainer.appendChild(questDescriptionDiv);
 
   questStartDateDiv.innerHTML = `
     <h5> Started On: </h5>
     <p> ${Date(quest.startDate).toString()} </p>
   `;
-  questContainer.appendChild(questStartDateDiv);
+  // questContainer.appendChild(questStartDateDiv);
 
   questDeadlineDiv.innerHTML = `
     <h5> Deadline: </h5>
     <p> ${Date(quest.deadline).toString()} </h5>
   `;
-  questContainer.appendChild(questDeadlineDiv);
+  // questContainer.appendChild(questDeadlineDiv);
 
   questXpValueDiv.innerHTML = `
     <h5> XP Value: </h5>
     <p> ${quest.xpValue} Points </p>
   `;
-  questContainer.appendChild(questXpValueDiv);
+  // questContainer.appendChild(questXpValueDiv);
 
   if (quest.solo) {
     questSoloDiv.innerHTML = `
@@ -72,7 +74,7 @@ async function renderPage(questId) {
       <p> This quest is meant to be done in a group as a Raid. </p>
     `;
   }
-  questContainer.appendChild(questSoloDiv);
+  // questContainer.appendChild(questSoloDiv);
 
   if (quest.completedDate) {
     questCompletedDateDiv.removeAttribute('hidden');
@@ -80,7 +82,7 @@ async function renderPage(questId) {
       <h5> Completed On: </h5>
       <p> ${Date(quest.completedDate).toString()} </p>
     `;
-    questContainer.appendChild(questCompletedDateDiv);
+    // questContainer.appendChild(questCompletedDateDiv);
   } else {
     questCompletedDateDiv.setAttribute('hidden', '');
   }
@@ -105,9 +107,9 @@ async function renderPage(questId) {
       </div>
     `;
   }
-  questContainer.appendChild(questEditCompleteDiv);
+  // questContainer.appendChild(questEditCompleteDiv);
 
-  body.appendChild(questContainer);
+  // body.appendChild(questContainer);
 
   const movementButtons = document.querySelector('.movement-buttons');
   const previousQuest = document.createElement('button');
