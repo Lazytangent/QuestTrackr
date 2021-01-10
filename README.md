@@ -155,3 +155,27 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 });
 ```
+
+API Route the above code is hitting
+```js
+router.get('/quests/:category([\-\\w]+)', asyncHandler(async (req, res) => {
+  const category = req.params.category;
+  let quests;
+  if (category === 'all') {
+    quests = await Quest.findAll({ include: Category, where: { completedDate: null } });
+  } else {
+    quests = await Quest.findAll({
+      include: {
+        model: Category,
+        where: {
+          tag: category,
+        },
+      },
+      where: {
+        completedDate: null,
+      },
+    });
+  }
+  res.json({ quests });
+}));
+```
