@@ -37,31 +37,26 @@ async function renderPage(questId) {
       </div>
     </h3>
   `;
-  // questContainer.appendChild(questNameDiv);
 
   questDescriptionDiv.innerHTML = `
     <h5> Description: </h5>
     <p> ${quest.description} </p>
   `;
-  // questContainer.appendChild(questDescriptionDiv);
 
   questStartDateDiv.innerHTML = `
     <h5> Started On: </h5>
     <p> ${Date(quest.startDate).toString()} </p>
   `;
-  // questContainer.appendChild(questStartDateDiv);
 
   questDeadlineDiv.innerHTML = `
     <h5> Deadline: </h5>
     <p> ${Date(quest.deadline).toString()} </h5>
   `;
-  // questContainer.appendChild(questDeadlineDiv);
 
   questXpValueDiv.innerHTML = `
     <h5> XP Value: </h5>
     <p> ${quest.xpValue} Points </p>
   `;
-  // questContainer.appendChild(questXpValueDiv);
 
   if (quest.solo) {
     questSoloDiv.innerHTML = `
@@ -74,7 +69,6 @@ async function renderPage(questId) {
       <p> This quest is meant to be done in a group as a Raid. </p>
     `;
   }
-  // questContainer.appendChild(questSoloDiv);
 
   if (quest.completedDate) {
     questCompletedDateDiv.removeAttribute('hidden');
@@ -82,7 +76,6 @@ async function renderPage(questId) {
       <h5> Completed On: </h5>
       <p> ${Date(quest.completedDate).toString()} </p>
     `;
-    // questContainer.appendChild(questCompletedDateDiv);
   } else {
     questCompletedDateDiv.setAttribute('hidden', '');
   }
@@ -107,9 +100,6 @@ async function renderPage(questId) {
       </div>
     `;
   }
-  // questContainer.appendChild(questEditCompleteDiv);
-
-  // body.appendChild(questContainer);
 
   const movementButtons = document.querySelector('.movement-buttons');
   const previousQuest = document.createElement('button');
