@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 const { Quest, User, Category } = require('../db/models');
 
@@ -14,8 +14,8 @@ router.get('/', asyncHandler(async (req, res) => {
       where: { id }
     }
   });
-  const completed = quests.filter(quest => quest.completedDate)
-  const active = quests.filter(quest => !quest.completedDate)
+  const completed = quests.filter(quest => quest.completedDate);
+  const active = quests.filter(quest => !quest.completedDate);
   res.render('quest-list', { title: `${username}'s Active Quests`, completed, active });
 }));
 

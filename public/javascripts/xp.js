@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('#currentXp').innerHTML = user.totalXp;
       updateXPBar();
 
-      //Move the quest from the active to the completed.
+      // Move the quest from the active to the completed.
       const activeLi = document.querySelector("#active-quests");
       const completedLi = document.querySelector("#completed-quests");
 

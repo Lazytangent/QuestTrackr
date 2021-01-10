@@ -1,4 +1,3 @@
-
 const db = require('./db/models');
 
 const loginUser = (req, res, user, next, from) => {
