@@ -49,34 +49,35 @@ const userValidators = [
     .withMessage('Your password confirmation does not match the entered password')
 ];
 
-router.post('/register', csrfProtection, userValidators,
-  asyncHandler(async (req, res, next) => {
-    const {
-      username,
-      password,
-      email //this is in database schema
-    } = req.body;
-    const user = db.User.build({
-      username,
-      email //this is in database schema
-    });
-    const validatorErrors = validationResult(req);
+router.post('/register', csrfProtection, userValidators, asyncHandler(async (req, res, next) => {
+  const {
+    username,
+    password,
+    email
+  } = req.body;
 
-    if (validatorErrors.isEmpty()) {
-      const hashedPassword = await bcrypt.hash(password, 10);
-      user.hashedPassword = hashedPassword;
-      await user.save();
-      loginUser(req, res, user, next, 'register');
-    } else {
-      const errors = validatorErrors.array().map((error) => error.msg);
-      res.render('register', {
-        title: 'Register',
-        user,
-        errors,
-        csrfToken: req.csrfToken(),
-      });
-    }
-  }));
+  const user = db.User.build({
+    username,
+    email
+  });
+
+  const validatorErrors = validationResult(req);
+
+  if (validatorErrors.isEmpty()) {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    user.hashedPassword = hashedPassword;
+    await user.save();
+    loginUser(req, res, user, next, 'register');
+  } else {
+    const errors = validatorErrors.array().map((error) => error.msg);
+    res.render('register', {
+      title: 'Register',
+      user,
+      errors,
+      csrfToken: req.csrfToken(),
+    });
+  }
+}));
 
 router.get('/login', csrfProtection, (req, res) => {
   res.render('login', {
@@ -94,59 +95,50 @@ const loginValidators = [
     .withMessage('Please provide a value for Password'),
 ];
 
-router.post('/login', csrfProtection, loginValidators,
-  asyncHandler(async (req, res, next) => {
-    const {
-      username,
-      password,
-    } = req.body;
+router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, res, next) => {
+  const {
+    username,
+    password,
+  } = req.body;
 
-    let errors = [];
-    const validatorErrors = validationResult(req);
+  let errors = [];
+  const validatorErrors = validationResult(req);
 
-    if (validatorErrors.isEmpty()) {
-      // Attempt to get the user by their user name!
-      const user = await db.User.findOne({ where: { username } });
-
-      if (user !== null) {
-        // If the user exists then compare their password
-        // to the provided password(quest taker)!
-        const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
-
-        if (passwordMatch) {
-          // If the password hashes match, then login the user name!
-          // and redirect them to the home route.
-          loginUser(req, res, user, next);
-          return;
-        }
-      }
-      errors.push('Login failed for the provided Username and Password');
-    } else {
-      errors = validatorErrors.array().map((error) => error.msg);
-    }
-
-    res.render('login', {
-      title: 'Login',
-      username,
-      errors,
-      csrfToken: req.csrfToken(),
-    });
-  }));
-
-router.post('/login-demo', csrfProtection,
-  asyncHandler(async (req, res, next) => {
-    const username = 'Demo';
-    const password = 'Password11235';
-
+  if (validatorErrors.isEmpty()) {
     const user = await db.User.findOne({ where: { username } });
 
-    loginUser(req, res, user, next);
-  }));
+    if (user !== null) {
+      const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
+
+      if (passwordMatch) {
+        loginUser(req, res, user, next);
+        return;
+      }
+    }
+    errors.push('Login failed for the provided Username and Password');
+  } else {
+    errors = validatorErrors.array().map((error) => error.msg);
+  }
+
+  res.render('login', {
+    title: 'Login',
+    username,
+    errors,
+    csrfToken: req.csrfToken(),
+  });
+}));
+
+router.post('/login-demo', csrfProtection, asyncHandler(async (req, res, next) => {
+  const username = 'Demo';
+  const password = 'Password11235';
+
+  const user = await db.User.findOne({ where: { username } });
+
+  loginUser(req, res, user, next);
+}));
 
 router.post('/logout', (req, res) => {
   logoutUser(req, res);
 });
-
-
 
 module.exports = router;

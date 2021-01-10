@@ -22,26 +22,28 @@ router.get('/new', csrfProtection, (req, res) => {
   });
 });
 
-router.get('/edit/:id', csrfProtection, asyncHandler( async(req, res) => {
-    let checkbox;
-    const questId = parseInt(req.params.id, 10);
-    const quest = await Quest.findByPk(questId);
-    if(quest.solo === true){
-        checkbox = 'checked'
-    }
-    const beginDate = quest.startDate.toISOString();
-    const slicedDate = beginDate.slice(0, beginDate.length - 1);
-    const deadDate = quest.deadline.toISOString();
-    const slicedEndDate = deadDate.slice(0, deadDate.length - 1);
+router.get('/edit/:id', csrfProtection, asyncHandler(async (req, res) => {
+  let checkbox;
+  const questId = parseInt(req.params.id, 10);
+  const quest = await Quest.findByPk(questId);
 
-    res.render('quest-edit', {
-        title: 'Reassess Your Quest',
-        quest,
-        slicedDate,
-        slicedEndDate,
-        checkbox,
-        csrfToken: req.csrfToken(),
-    });
+  if (quest.solo === true) {
+    checkbox = 'checked';
+  }
+
+  const beginDate = quest.startDate.toISOString();
+  const slicedDate = beginDate.slice(0, beginDate.length - 1);
+  const deadDate = quest.deadline.toISOString();
+  const slicedEndDate = deadDate.slice(0, deadDate.length - 1);
+
+  res.render('quest-edit', {
+    title: 'Reassess Your Quest',
+    quest,
+    slicedDate,
+    slicedEndDate,
+    checkbox,
+    csrfToken: req.csrfToken(),
+  });
 }));
 
 const questValidators = [
@@ -60,84 +62,89 @@ const questValidators = [
     .withMessage('Description must not be more than 1000 characters long')
 ];
 
-router.post('/', csrfProtection, questValidators,
-  asyncHandler(async (req, res, next) => {
-    let {
-      name,
-      startDate,
-      deadline,
-      xpValue,
-      solo,
-      description
-    } = req.body;
-    let { id } = res.locals.user;
-    if (solo == undefined) {
-      solo = false;
-    };
+router.post('/', csrfProtection, questValidators, asyncHandler(async (req, res, next) => {
+  let {
+    name,
+    startDate,
+    deadline,
+    xpValue,
+    solo,
+    description
+  } = req.body;
 
-    const quest = db.Quest.build({
-      name,
-      startDate,
-      deadline,
-      xpValue,
-      solo,
-      description
+  let { id } = res.locals.user;
+
+  if (solo == undefined) {
+    solo = false;
+  };
+
+  const quest = db.Quest.build({
+    name,
+    startDate,
+    deadline,
+    xpValue,
+    solo,
+    description
+  });
+
+  const validatorErrors = validationResult(req);
+
+  if (validatorErrors.isEmpty()) {
+    await quest.save();
+    await UserQuest.create({ userId: id, questId: quest.id })
+    res.redirect('/');
+  } else {
+    const errors = validatorErrors.array().map((error) => error.msg);
+    res.render('quest-create', {
+      title: 'Create a Quest',
+      quest,
+      errors,
+      csrfToken: req.csrfToken(),
     });
-    const validatorErrors = validationResult(req);
+  }
+}));
 
-    if (validatorErrors.isEmpty()) {
-      await quest.save();
-      await UserQuest.create({ userId: id, questId: quest.id })
-      res.redirect('/');
-    } else {
-      const errors = validatorErrors.array().map((error) => error.msg);
-      res.render('quest-create', {
-        title: 'Create a Quest',
-        quest,
-        errors,
-        csrfToken: req.csrfToken(),
-      });
-    }
-  }));
+router.post('/edit/:id', csrfProtection, questValidators, asyncHandler(async (req, res, next) => {
+  const questId = parseInt(req.params.id, 10)
 
-router.post('/edit/:id', csrfProtection, questValidators,
-    asyncHandler(async (req, res, next) => {
-        const questId = parseInt(req.params.id, 10)
-        let {
-            name,
-            startDate,
-            deadline,
-            xpValue,
-            solo,
-            description
-        } = req.body;
-        let { id } = res.locals.user;
-        if (solo == undefined) {
-            solo = false;
-        };
-        const quest = await Quest.findByPk(questId);
-        quest.name = name
-        quest.startDate = startDate;
-        quest.deadline = deadline;
-        quest.xpValue = xpValue;
-        quest.solo = solo;
-        quest.description = description;
-        const validatorErrors = validationResult(req);
+  let {
+      name,
+      startDate,
+      deadline,
+      xpValue,
+      solo,
+      description
+  } = req.body;
 
-        if (validatorErrors.isEmpty()) {
-            await quest.save();
-            await UserQuest.create({ userId: id, questId: quest.id })
-            res.redirect('/');
-        } else {
-            const errors = validatorErrors.array().map((error) => error.msg);
-            res.render('quest-edit', {
-                title: 'Reassess Your Quest',
-                quest,
-                errors,
-                csrfToken: req.csrfToken(),
-            });
-        }
-    }));
+  let { id } = res.locals.user;
+
+  if (solo == undefined) {
+      solo = false;
+  };
+
+  const quest = await Quest.findByPk(questId);
+  quest.name = name
+  quest.startDate = startDate;
+  quest.deadline = deadline;
+  quest.xpValue = xpValue;
+  quest.solo = solo;
+  quest.description = description;
+  const validatorErrors = validationResult(req);
+
+  if (validatorErrors.isEmpty()) {
+    await quest.save();
+    await UserQuest.create({ userId: id, questId: quest.id })
+    res.redirect('/');
+  } else {
+    const errors = validatorErrors.array().map((error) => error.msg);
+    res.render('quest-edit', {
+      title: 'Reassess Your Quest',
+      quest,
+      errors,
+      csrfToken: req.csrfToken(),
+    });
+  }
+}));
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const questId = parseInt(req.params.id, 10);
@@ -146,17 +153,18 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 }));
 
 router.post('/delete/:id(\\d+)', asyncHandler(async (req, res) => {
-    const questId = parseInt(req.params.id, 10);
-    const quest = await Quest.findByPk(questId);
-    const userId = res.locals.user.id;
-    const association = await UserQuest.findOne({
-        where: { questId, userId}
-    });
-    await association.destroy();
-    await quest.destroy();
+  const questId = parseInt(req.params.id, 10);
+  const quest = await Quest.findByPk(questId);
+  const userId = res.locals.user.id;
+  const association = await UserQuest.findOne({
+      where: { questId, userId}
+  });
 
-    res.redirect('/users');
-}))
+  await association.destroy();
+  await quest.destroy();
+
+  res.redirect('/users');
+}));
 
 router.post('/join/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   const questId = parseInt(req.params.id, 10);
