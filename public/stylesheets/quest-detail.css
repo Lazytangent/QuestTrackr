@@ -65,9 +65,8 @@ button.back {
   border-radius: 8px;
   align-items: center;
   font-weight: bold;
-  height: 12%;
-  position: absolute;
-  margin-left: 34px;
+  height: 10%;
+  margin-left: 28px;
 }
 
 .back:hover {
