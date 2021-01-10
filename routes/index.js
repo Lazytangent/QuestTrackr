@@ -9,7 +9,11 @@ const { loginUser, logoutUser, requireAuth } = require('../authorization');
 const router = express.Router();
 
 router.get('/', requireAuth, (req, res) => {
-  res.render('index', { title: "QuestTrackr" })
+  if (req.session.auth) {
+    res.render('index', { title: "QuestTrackr" })
+  } else {
+    res.redirect('/main');
+  }
 })
 
 router.get('/main', (req, res) => {

@@ -15,7 +15,7 @@ block content
         ul#active-quests
           each quest in active
             .quest-row
-              a(href=`/quests/${quest.id}`)
+              a(href=`/quests/${quest.id}` class="quest-a")
                 li #{quest.name}
               button(class=`complete-quest-button` id=`complete-${quest.id}`) Mark as Complete
       .spacer-questlist
@@ -25,5 +25,5 @@ block content
         ul#completed-quests
           each quest in completed
             .quest-row
-              a(href=`/quests/${quest.id}`)
+              a(href=`/quests/${quest.id}` class="quest-a")
                 li #{quest.name}
