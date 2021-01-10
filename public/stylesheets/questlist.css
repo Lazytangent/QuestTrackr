@@ -39,10 +39,19 @@ h4 {
   font-size: 1.5rem;
 }
 
+.quest-a:hover {
+  text-decoration: underline;
+}
+
 .complete-quest-button {
   padding: .25rem;
   border-radius: 5px;
   margin-top: 5px;
+}
+
+.complete-quest-button:hover {
+  background-color: #b0b0b0;
+  cursor: pointer;
 }
 
 .quest-row {
