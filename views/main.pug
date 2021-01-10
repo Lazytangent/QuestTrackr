@@ -11,11 +11,8 @@ block content
       .gray-container
         .container-1
           .adolescent
-            .top-right-adolescent
-              button(class="the-adolescent-1" href="/register" type="submit" id="reroute-register") new in town?
-            .top-left-adolescent
-              button(class="the-adolescent-3" href="/login" type="submit" id="reroute-login") existing Adventurer?
-          .adolescent
+            button(class="the-adolescent-1 big-button" type="submit" id="reroute-register" onclick="window.location.href='/register'") New in town?
+            button(class="the-adolescent-3 big-button" type="submit" id="reroute-login" onclick="window.location.href='/login'") Existing adventurer?
             .the-adolescent-2 Places to go - Things to do - People to meet
 
 
@@ -34,6 +31,7 @@ block content
 
 
       .container-3
-        .juvenile Create your quests and conquer your responsibilities.
+        .juvenile
+          .bottom-text Create your quests and conquer your responsibilities.
           .nav-container-main__xp-container
             .nav-container-main__xp-fill
