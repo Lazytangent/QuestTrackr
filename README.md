@@ -7,7 +7,7 @@
 
 ## What is it?
 
-QuestTrackr is a clone of the popular web app [Remember the Milk](https://www.rememberthemilk.com/) with an RPG twist. 
+[QuestTrackr](https://quest-trackr.herokuapp.com/) is a clone of the popular web app [Remember the Milk](https://www.rememberthemilk.com/) with an RPG twist.
 
 ## Developing
 
