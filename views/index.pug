@@ -13,13 +13,16 @@ block content
   .main-content-container
     .main-content-container__quests
       h3 To see all open quests:
-      form(method="get" action="/quests")
-        button.main-page-btn.quests-btn Browse the Quests
+      .form-container
+        form(method="get" action="/quests")
+          button.main-page-btn.quests-btn Browse the Quests
     .main-content-container__profile
       h3 To see what you've done and have yet to do:
-      form(method="get" action="/users")
-        button.main-page-btn.profile-btn See your Profile
+      .form-container
+        form(method="get" action="/users")
+          button.main-page-btn.profile-btn See your Profile
     .main-content-container__create
       h3 To create a new quest
-      form(method="get" action="/quests/new")
-        button.main-page-btn.create-btn Create a Quest
+      .form-container
+        form(method="get" action="/quests/new")
+          button.main-page-btn.create-btn Create a Quest

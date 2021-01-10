@@ -114,7 +114,6 @@ p {
 .container-3 {
   align-items: center;
   justify-content: center;
-  margin: 1%;
   display: flex;
   background-color: gray;
   width: 100%;
@@ -158,16 +157,14 @@ p {
   height: 48%;
   width: 48%;
 }
+
 .big-button {
   font-size: 50px;
   font-family: 'Texturina', serif;
 }
 
-
-
-
 .big-button:hover {
-  font-size: 52px;
+  font-size: 48px;
   background-color: #f5a141;
   background: #d17a17;
   cursor: pointer;

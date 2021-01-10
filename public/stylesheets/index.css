@@ -41,7 +41,7 @@ h3 {
   border-radius: 0.35rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 33%;
   text-align: center;
 }
@@ -65,7 +65,6 @@ h3 {
 .profile-btn {
   background-color: #14a76c;
   position: relative;
-  bottom: 13px;
 }
 
 .profile-btn:hover {
@@ -80,4 +79,8 @@ h3 {
 .create-btn:hover {
   background-color: #bd3100;
   cursor: pointer;
+}
+
+.form-container {
+  align-self: bottom;
 }
