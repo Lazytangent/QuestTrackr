@@ -9,12 +9,6 @@
   margin-bottom: 10px;
 }
 
-/* .footer-div__github-link {
-  background-color: rgb(31, 31, 31);
-  border-radius: 0.5rem;
-  height: 25px;
-} */
-
 .github-repo:hover {
   text-decoration: underline;
 }
@@ -39,8 +33,7 @@
   color: rgba(0,0,0,0);
 }
 
-
- .github-link {
+.github-link {
   font-weight: bold;
   font-size: 25px;
 }

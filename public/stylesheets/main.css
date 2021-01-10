@@ -1,9 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
 
 .page-container {
   display: flex;
   align-items: center;
   flex-direction: column;
-
 }
 
 .big-container {
@@ -16,21 +16,9 @@
 }
 
 
-
-
-@import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
-
- body {
+body {
   font-family: 'Texturina', serif;
 }
-
-/* .big-container {
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  width: 65%;
-  margin: 5%;
-} */
 
 .gray-container {
   margin: 0;
@@ -61,7 +49,6 @@
 }
 
 .container-2 {
-
   justify-content: space-between;
   margin: 1%;
   flex-direction: row;
