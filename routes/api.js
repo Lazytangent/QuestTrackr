@@ -20,13 +20,47 @@ router.put('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
   }
 }));
 
+router.get('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
+  const questId = parseInt(req.params.id, 10);
+  let quest, message, prev = 'asdf', next;
+  try {
+    quest = await Quest.findByPk(questId);
+    try {
+      prev = await Quest.max('id', {
+        where: {
+          id: {
+            [Sequelize.Op.lt]: questId,
+          },
+        },
+      });
+    } catch (e) {
+      prev = null;
+    }
+
+    try {
+      next = await Quest.min('id', {
+        where: {
+          id: {
+            [Sequelize.Op.gt]: questId,
+          },
+        },
+      });
+    } catch (e) {
+      next = null;
+    }
+  } catch (e) {
+    message = `Quest of ID ${questId} not found.`;
+
+  }
+  const bigObj = { quest, message, prev, next };
+  res.json(bigObj);
+}));
+
 router.get('/quests/:category([\-\\w]+)', asyncHandler(async (req, res) => {
   const category = req.params.category;
-  console.log('--------------------');
-  console.log(category);
   let quests;
   if (category === 'all') {
-    quests = await Quest.findAll({ include: Category });
+    quests = await Quest.findAll({ include: Category, where: { completedDate: null } });
   } else {
     quests = await Quest.findAll({
       include: {
@@ -35,15 +69,12 @@ router.get('/quests/:category([\-\\w]+)', asyncHandler(async (req, res) => {
           tag: category,
         },
       },
+      where: {
+        completedDate: null,
+      },
     });
   }
   res.json({ quests });
-}));
-
-router.get('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
-  const questId = parseInt(req.params.id, 10);
-  const quest = await Quest.findByPk(questId);
-  res.json({ quest });
 }));
 
 module.exports = router;

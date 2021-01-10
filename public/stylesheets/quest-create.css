@@ -1,5 +1,8 @@
 body {
   background-color: #272727;
+}
+
+.container {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -19,7 +22,7 @@ body {
 .create-quest-title {
   text-align: center;
   vertical-align: middle;
-  line-height: 90px; 
+  line-height: 90px;
   font-size: xx-large;
 }
 
@@ -34,6 +37,7 @@ body {
 }
 
 .form-container__field--button {
+  padding: 5px;
   padding-top: 10px;
   display: flex;
   justify-content: center;
@@ -44,8 +48,14 @@ body {
 }
 
 #submit {
+  padding: 5px;
   background-color: #ff652f;
   border-radius: 5px;
+}
+
+#submit:hover {
+  cursor: pointer;
+  background-color: #c13200;
 }
 
 #submit:disabled {
@@ -53,6 +63,12 @@ body {
 }
 
 .info-container {
-  color: red;
+  color: #950740;
   padding-bottom: 10px;
+}
+
+input, textarea {
+  border-width: 0;
+  padding: 5px;
+  border-radius: 3px;
 }

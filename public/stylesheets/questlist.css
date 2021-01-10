@@ -1,8 +1,7 @@
-body {
-  color: white;
-}
+@import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
 
 .container {
+  color: white;
   margin-left: 5px;
   margin-right: 5px;
   display: flex;
@@ -19,6 +18,9 @@ body {
   width: 85%;
   background-color: #747474;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 li {
@@ -26,6 +28,7 @@ li {
   font-size: 1.5rem;
   padding: 0 3px;
   margin-left: 10px;
+  list-style-type: none;
 }
 
 h3 {
@@ -37,10 +40,32 @@ h4 {
 }
 
 .complete-quest-button {
-  height: 75%;
+  padding: .25rem;
+  border-radius: 5px;
+  margin-top: 5px;
 }
 
 .quest-row {
   display:flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.title-box {
+  margin-top: 20px;
+  background-color: #747474;
+  border-radius: 3px;
+}
+
+.content-box {
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.spacer-questlist {
+  width: 100%;
+  background-color: #272727;
+  height: 5px;
+  padding: 0;
+  margin: 0;
 }
