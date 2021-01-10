@@ -4,11 +4,11 @@ const bcrypt = require('bcryptjs');
 
 const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
-const { loginUser, logoutUser } = require('../authorization');
+const { loginUser, logoutUser, requireAuth } = require('../authorization');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', requireAuth, (req, res) => {
   res.render('index', { title: "QuestTrackr" })
 })
 

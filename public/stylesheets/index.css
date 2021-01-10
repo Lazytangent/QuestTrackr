@@ -53,7 +53,31 @@ h3 {
   border-radius: 0.35rem;
 }
 
+.quests-btn {
+  background-color: #ffe400;
+}
+
+.quests-btn:hover {
+  background-color: #9d8d00;
+  cursor: pointer;
+}
+
 .profile-btn {
+  background-color: #14a76c;
   position: relative;
   bottom: 13px;
+}
+
+.profile-btn:hover {
+  background-color: #0e784e;
+  cursor: pointer;
+}
+
+.create-btn {
+  background-color: #ff652f;
+}
+
+.create-btn:hover {
+  background-color: #bd3100;
+  cursor: pointer;
 }
