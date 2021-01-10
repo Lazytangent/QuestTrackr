@@ -27,7 +27,8 @@ body {
   margin-bottom: 5px;
   width: 332px;
   font-size: 2em;
-  background: no-repeat url('../images/first-png.jpg') 50% / 100%;
+  background: no-repeat url('../images/QT_transparent_black_ettering.png') 50% / 100%;
+  background-size: contain;
   height: 140px;
 }
 
