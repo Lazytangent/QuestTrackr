@@ -55,3 +55,13 @@ body {
 .quest-data h5 {
   font-size: 2rem;
 }
+
+button.back {
+  color: whitesmoke;
+  background-color: #747474;
+  padding: 5px;
+  border-radius: 8px;
+  align-items: center;
+  font-weight: bold;
+  /* height: fit-content; */
+}
