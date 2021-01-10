@@ -8,12 +8,12 @@ const { csrfProtection, asyncHandler } = require('./utils');
 
 const router = express.Router();
 
-router.get('/', asyncHandler(async (req, res) => {
+router.get('/', requireAuth, asyncHandler(async (req, res) => {
   const categories = await Category.findAll();
   res.render('quests', { title: 'Quests Home Page', categories });
 }));
 
-router.get('/new', csrfProtection, (req, res) => {
+router.get('/new', requireAuth, csrfProtection, (req, res) => {
   const quest = db.Quest.build();
   res.render('quest-create', {
     title: 'Create a Quest',
@@ -22,7 +22,7 @@ router.get('/new', csrfProtection, (req, res) => {
   });
 });
 
-router.get('/edit/:id', csrfProtection, asyncHandler(async (req, res) => {
+router.get('/edit/:id', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
   let checkbox;
   const questId = parseInt(req.params.id, 10);
   const quest = await Quest.findByPk(questId);
@@ -62,7 +62,7 @@ const questValidators = [
     .withMessage('Description must not be more than 1000 characters long')
 ];
 
-router.post('/', csrfProtection, questValidators, asyncHandler(async (req, res, next) => {
+router.post('/', requireAuth, csrfProtection, questValidators, asyncHandler(async (req, res, next) => {
   let {
     name,
     startDate,
@@ -104,7 +104,7 @@ router.post('/', csrfProtection, questValidators, asyncHandler(async (req, res, 
   }
 }));
 
-router.post('/edit/:id', csrfProtection, questValidators, asyncHandler(async (req, res, next) => {
+router.post('/edit/:id', requireAuth, csrfProtection, questValidators, asyncHandler(async (req, res, next) => {
   const questId = parseInt(req.params.id, 10)
 
   let {
@@ -146,7 +146,7 @@ router.post('/edit/:id', csrfProtection, questValidators, asyncHandler(async (re
   }
 }));
 
-router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   const questId = parseInt(req.params.id, 10);
   const quest = await Quest.findByPk(questId, { include: User })
   res.render('quest-detail', { title: `Quest #${questId}`, quest });
@@ -173,7 +173,7 @@ router.post('/join/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   res.redirect('/users');
 }));
 
-router.post('/search', asyncHandler(async (req, res) => {
+router.post('/search', requireAuth, asyncHandler(async (req, res) => {
   const search = req.body.search;
   const found = await Quest.findAll({
     where: {
