@@ -60,12 +60,17 @@ body {
   border-radius: 5px;
 }
 
-#reroute-login:disabled {
-  background-color: rgb(155, 155, 155);
+#submit:hover {
+  cursor: pointer;
+  background-color: #c13200;
+}
+
+#rerouteLogin:hover {
+  color: #006b00;
 }
 
 .info-container {
-  color: red;
+  color: #950740;
   padding-bottom: 10px;
 }
 
@@ -75,8 +80,13 @@ body {
   border-radius: 5px;
 }
 
+#demo-submit:hover {
+  cursor: pointer;
+  background-color: #006b00;
+}
+
 .asterisk {
-  color: red;
+  color: #950740;
 }
 
 .input {

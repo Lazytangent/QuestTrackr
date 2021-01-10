@@ -32,7 +32,7 @@ async function createQuestDivs(category = 'all') {
 
     nameDiv.innerHTML = `
       <h4> Quest Name </h4>
-      <a href="/quests/${quest.id}"><p>${quest.name}</p></a>
+      <a href="/quests/${quest.id}" class="quest-name-link"><p>${quest.name}</p></a>
     `;
     outerDiv.appendChild(nameDiv);
 
@@ -83,7 +83,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   await createQuestDivs();
 
   const categorySelect = document.querySelector('#category-select');
-  const currentCategory = categorySelect.value;
   categorySelect.addEventListener('change', async () => {
     const newValue = categorySelect.value;
     await createQuestDivs(newValue);

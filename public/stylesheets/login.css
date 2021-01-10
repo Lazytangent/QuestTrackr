@@ -60,6 +60,11 @@ body {
   border-radius: 5px;
 }
 
+#submit:hover {
+  cursor: pointer;
+  background-color: #c13200;
+}
+
 #submit:disabled {
   background-color: rgb(155, 155, 155);
 }
@@ -70,16 +75,22 @@ body {
   padding: 5px;
 }
 
-.info-container {
-  color: red;
-  padding-bottom: 10px;
+#demo-submit:hover {
+  cursor: pointer;
+  background-color: #006b00;
 }
 
-#rerouteRegister {
-	border-radius:3px;
+.info-container {
+  padding-bottom: 10px;
+  color: #950740;
 }
+
+#rerouteRegister:hover {
+  color: #006b00;
+}
+
 .asterisk {
-  color: red;
+  color: #950740;
 }
 
 .input {
