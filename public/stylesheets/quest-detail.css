@@ -58,10 +58,16 @@ body {
 
 button.back {
   color: whitesmoke;
-  background-color: #747474;
+  background-color: #272727;
   padding: 5px;
   border-radius: 8px;
   align-items: center;
   font-weight: bold;
-  /* height: fit-content; */
+  height: 12%;
+  position: absolute;
+  margin-left: 34px;
+}
+
+.back:hover {
+  border: 10px solid #272727;
 }
