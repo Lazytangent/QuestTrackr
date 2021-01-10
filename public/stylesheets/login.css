@@ -55,8 +55,14 @@ body {
 }
 
 #submit {
+  padding: 5px;
   background-color: #ff652f;
   border-radius: 5px;
+}
+
+#submit:hover {
+  cursor: pointer;
+  background-color: #c13200;
 }
 
 #submit:disabled {
@@ -66,15 +72,25 @@ body {
 #demo-submit {
   background-color: #009900;
   border-radius: 5px;
+  padding: 5px;
+}
+
+#demo-submit:hover {
+  cursor: pointer;
+  background-color: #006b00;
 }
 
 .info-container {
-  color: red;
   padding-bottom: 10px;
+  color: #950740;
+}
+
+#rerouteRegister:hover {
+  color: #006b00;
 }
 
 .asterisk {
-  color: red;
+  color: #950740;
 }
 
 .input {
@@ -96,3 +112,7 @@ body {
   width: 450px;
 }
 
+input {
+  border-width: 0;
+  padding: 5px;
+}

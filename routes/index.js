@@ -4,12 +4,23 @@ const bcrypt = require('bcryptjs');
 
 const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
-const { loginUser, logoutUser } = require('../authorization');
+const { loginUser, logoutUser, requireAuth } = require('../authorization');
 
 const router = express.Router();
+
 router.get('/', (req, res) => {
-  res.render('index', { title: "QuestTrackr" })
-})
+  if (req.session.auth) {
+    res.render('index', { title: "QuestTrackr" })
+  } else {
+    res.redirect('/main');
+  }
+});
+
+router.get('/main', (req, res) => {
+  res.render('main', {
+    title: 'main',
+  });
+});
 
 router.get('/register', csrfProtection, (req, res) => {
   const user = db.User.build();
@@ -23,19 +34,19 @@ router.get('/register', csrfProtection, (req, res) => {
 const userValidators = [
   check('username')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for First Name, quest-taker')
+    .withMessage('Please provide a value for First Name')
     .isLength({ max: 30, min: 2 })
     .withMessage('First Name must not be more than 20 characters long'),
   check('password')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Password, quest-taker')
+    .withMessage('Please provide a value for Password')
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/, 'g')
-    .withMessage('Password must contain at least 1 lowercase letter, uppercase letter and a number, quest-taker'),
+    .withMessage('Password must contain at least 1 lowercase letter, uppercase letter and a number'),
   check('confirmedPassword')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Confirm Password, quest-taker')
+    .withMessage('Please provide a value for Confirm Password')
     .custom((value, { req }) => value === req.body.password)
-    .withMessage('Your password confirmation does not match the entered password, quest-taker')
+    .withMessage('Your password confirmation does not match the entered password')
 ];
 
 router.post('/register', csrfProtection, userValidators,
@@ -55,11 +66,9 @@ router.post('/register', csrfProtection, userValidators,
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
       await user.save();
-      loginUser(req, res, user, next);
-      // res.redirect('/');
+      loginUser(req, res, user, next, 'register');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
-      console.log(errors)
       res.render('register', {
         title: 'Register',
         user,
@@ -79,10 +88,10 @@ router.get('/login', csrfProtection, (req, res) => {
 const loginValidators = [
   check('username')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for a username, quest-taker'),
+    .withMessage('Please provide a value for Username'),
   check('password')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Password, quest-taker'),
+    .withMessage('Please provide a value for Password'),
 ];
 
 router.post('/login', csrfProtection, loginValidators,
@@ -111,7 +120,7 @@ router.post('/login', csrfProtection, loginValidators,
           return;
         }
       }
-      errors.push('Login failed for the provided user name and password, quest-taker');
+      errors.push('Login failed for the provided Username and Password');
     } else {
       errors = validatorErrors.array().map((error) => error.msg);
     }

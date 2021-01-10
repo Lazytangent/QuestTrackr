@@ -19,6 +19,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: #747474;
+    white-space: nowrap;
 }
 
 .logo-container {
@@ -54,6 +55,18 @@ nav {
     overflow: hidden;
 }
 
+@media only screen and (max-width: 1200px) {
+    .nav-container__xp-section--container {
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .nav-container__xp-section--container {
+        width: 50px;
+    }
+}
+
 .nav-container__xp-section--fill {
     background-color: #ffd034;
     width: 75%;
@@ -64,7 +77,8 @@ nav {
 }
 
 .nav-container__xp-section--fill:hover {
-    background-color: #af8f27;
+    background-color: #bd971b;
+    cursor: pointer;
 }
 
 .nav-container__xp-section--fill:hover #currentXp {
@@ -79,6 +93,10 @@ nav {
 a {
     text-decoration: none;
     color: #ffffff;
+}
+
+a.action-button:hover {
+  text-decoration: underline;
 }
 
 .nav-container__action-buttons {
@@ -120,16 +138,26 @@ span {
     height: 100%;
     text-align: center;
     vertical-align: middle;
-    color: black;
+    color: rgb(255, 255, 255);
     font-family: sans-serif;
     font-weight: bold;
-    font-size: .8rem;
+    font-size: .70rem;
 }
 
 #logout {
-    margin-left: 5px;
+    padding: .25rem;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+#logout:hover {
+  cursor: pointer;
+  background-color: #b0b0b0;
 }
 
 #searchbar {
     justify-self: flex-end;
+    border-radius: 15px;
+    border-width: 0;
+    padding: 5px;
 }
