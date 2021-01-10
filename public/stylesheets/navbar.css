@@ -19,6 +19,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: #747474;
+    white-space: nowrap;
 }
 
 .logo-container {
@@ -52,6 +53,18 @@ nav {
     height: 12px;
     border-radius: 10px;
     overflow: hidden;
+}
+
+@media only screen and (max-width: 1200px) {
+    .nav-container__xp-section--container {
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .nav-container__xp-section--container {
+        width: 50px;
+    }
 }
 
 .nav-container__xp-section--fill {
