@@ -95,6 +95,10 @@ a {
     color: #ffffff;
 }
 
+a.action-button:hover {
+  text-decoration: underline;
+}
+
 .nav-container__action-buttons {
     display: flex;
     justify-content: space-between;
@@ -148,7 +152,7 @@ span {
 
 #logout:hover {
   cursor: pointer;
-  background-color: #950740;
+  background-color: #b0b0b0;
 }
 
 #searchbar {

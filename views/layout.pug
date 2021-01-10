@@ -16,9 +16,9 @@ html
         .nav-container
           if locals.authenticated
             .nav-container__action-buttons
-              a(href='/quests') Quests
-              a(href="/users") Profile
-              a(href="/quests/new") Make a Quest
+              a(class="action-button" href='/quests') Quests
+              a(class="action-button" href="/users") Profile
+              a(class="action-button" href="/quests/new") Make a Quest
             .nav-container__xp-section
               span(class="level" id="currentLevel") #
               .nav-container__xp-section--container
