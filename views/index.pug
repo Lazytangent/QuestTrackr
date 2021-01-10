@@ -7,14 +7,19 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  .main-content
-    h1 Welcome to QuestTrackr
-    .main-content__question
-      h3 What would you like to do?
-    .main-content__response#quests
-      button(class="main-content__response--btn" id="quests") Browse the Quests
-    .main-content__response#create
-      button(class="main-content__response--btn" id="create") Create a Quest
-    .main-content__response#profile
-      button(class="main-content__response--btn" id="profile") Go to my Profile
-
+  .heading-container
+    h1 Welcome to QuestTrackr!
+    h3 What would you like to do?
+  .main-content-container
+    .main-content-container__quests
+      h3 To see all open quests:
+      form(method="get" action="/quests")
+        button.main-page-btn.quests-btn Browse the Quests
+    .main-content-container__profile
+      h3 To see what you've done and have yet to do:
+      form(method="get" action="/users")
+        button.main-page-btn.profile-btn See your Profile
+    .main-content-container__create
+      h3 To create a new quest
+      form(method="get" action="/quests/new")
+        button.main-page-btn.create-btn Create a Quest

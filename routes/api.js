@@ -50,8 +50,8 @@ router.get('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
     }
   } catch (e) {
     message = `Quest of ID ${questId} not found.`;
-
   }
+  if (!quest) message = `Quest of ID ${questId} not found.`;
   const bigObj = { quest, message, prev, next };
   res.json(bigObj);
 }));
