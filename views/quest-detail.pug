@@ -6,40 +6,13 @@ append head
 
 block content
   .page-heading
-    h2 Quest No. #{quest.id} Details
   .quest-container
     .quest-name.quest-data
-      h3 Quest: #{quest.name}
-        .link-container
-          form(method="get" action=`/quests/edit/${quest.id}`)
-            button.edit Edit Quest
     .quest-description.quest-data
-      h5 Description:
-      p= quest.description
     .quest-startDate.quest-data
-      h5 Started On:
-      p= quest.startDate
     .quest-deadline.quest-data
-      h5 Deadline:
-      p= quest.deadline
     .quest-xpValue.quest-data
-      h5 XP Value:
-      p #{quest.xpValue} Points
     .quest-solo.quest-data
-      h5 Solo or group?
-      if quest.solo
-        p This quest is meant to be done solo.
-      else
-        p This quest is meant to be done in a group as a Raid.
-    if quest.completedDate
-      .quest-completedDate.quest-data
-        p= quest.completedDate
+    .quest-completedDate.quest-data
     .quest-edit-complete.quest-data
-      h5 Update Quest:
-      .update-container
-        if (!quest.completedDate)
-          button(class=`completed complete-quest-button` id=`complete-${quest.id}` onClick="window.location.reload()") Complete Quest
-        form(action=`/quests/delete/${quest.id}` method='POST')
-          button.delete 
-            a Delete Quest
     .movement-buttons

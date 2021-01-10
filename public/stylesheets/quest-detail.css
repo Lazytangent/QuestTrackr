@@ -142,3 +142,7 @@ button.delete {
   background-color: #14a76c;
   cursor: pointer;
 }
+
+.btn-disabled {
+  pointer-events: none;
+}

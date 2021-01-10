@@ -45,13 +45,13 @@ async function renderPage(questId) {
 
   questStartDateDiv.innerHTML = `
     <h5> Started On: </h5>
-    <p> ${quest.startDate} </p>
+    <p> ${Date(quest.startDate).toString()} </p>
   `;
   questContainer.appendChild(questStartDateDiv);
 
   questDeadlineDiv.innerHTML = `
     <h5> Deadline: </h5>
-    <p> ${quest.deadline} </h5>
+    <p> ${Date(quest.deadline).toString()} </h5>
   `;
   questContainer.appendChild(questDeadlineDiv);
 
@@ -75,11 +75,14 @@ async function renderPage(questId) {
   questContainer.appendChild(questSoloDiv);
 
   if (quest.completedDate) {
+    questCompletedDateDiv.removeAttribute('hidden');
     questCompletedDateDiv.innerHTML = `
       <h5> Completed On: </h5>
-      <p> ${quest.completedDate} </p>
+      <p> ${Date(quest.completedDate).toString()} </p>
     `;
     questContainer.appendChild(questCompletedDateDiv);
+  } else {
+    questCompletedDateDiv.setAttribute('hidden', '');
   }
 
   if (!quest.completedDate) {
@@ -107,25 +110,55 @@ async function renderPage(questId) {
   body.appendChild(questContainer);
 
   const movementButtons = document.querySelector('.movement-buttons');
+  const previousQuest = document.createElement('button');
+  const nextQuest = document.createElement('button');
   movementButtons.innerHTML = '';
 
+  previousQuest.classList.add('movement-btn');
+  previousQuest.innerHTML = `Previous`;
+
+  nextQuest.classList.add('movement-btn');
+  nextQuest.innerHTML = `Next`;
+
   if (prev) {
-    const previousQuest = document.createElement('button');
-    previousQuest.classList.add('movement-btn');
     previousQuest.id = `quest-id-${prev}`;
-    previousQuest.innerHTML = `Previous`;
-    movementButtons.appendChild(previousQuest);
+  } else {
+    previousQuest.setAttribute('disabled', '');
+    previousQuest.classList.add('btn-disabled');
   }
 
   if (next) {
-    const nextQuest = document.createElement('button');
-    nextQuest.classList.add('movement-btn');
     nextQuest.id = `quest-id-${next}`;
-    nextQuest.innerHTML = `Next`;
-    movementButtons.appendChild(nextQuest);
+  } else {
+    nextQuest.setAttribute('disabled', '');
+    nextQuest.classList.add('btn-disabled');
   }
 
+  movementButtons.appendChild(previousQuest);
+  movementButtons.appendChild(nextQuest);
+
   body.appendChild(movementButtons);
+
+  const button = document.querySelector('.completed');
+  if (button) {
+    button.addEventListener('click', async () =>{
+      await fetch(`/api/quests/${questId}`, {
+          method: 'PUT',
+      });
+      button.remove();
+    });
+  }
+
+  const mvmtBtns = document.querySelectorAll('.movement-btn');
+  mvmtBtns.forEach(btn => {
+    btn.addEventListener('click', async event => {
+      const btnId = event.target.id;
+      const questId = btnId.slice(9);
+      window.history.pushState({}, '', `/quests/${questId}`);
+      document.title = `Quest #${questId}`;
+      await renderPage(questId);
+    });
+  });
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -133,22 +166,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   const questId = parseInt(path.slice(8), 10);
   await renderPage(questId);
 
-  const button = document.querySelector('.completed');
-
-  button.addEventListener('click', async () =>{
-    await fetch(`/api/quests/${questId}`, {
-        method: 'PUT',
-    });
-    button.remove();
-  });
-
-  const mvmtBtns = document.querySelectorAll('.movement-btn');
-  mvmtBtns.forEach(btn => {
-    btn.addEventListener('click', async event => {
-      const btnId = event.target.id;
-      const questId = btnId.slice(9);
-      await renderPage(questId);
-    });
-  });
 });
 
