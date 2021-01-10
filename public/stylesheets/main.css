@@ -1,35 +1,137 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
+.page-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
-body {
-  font-family: 'Texturina', serif;
 }
 
 .big-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  margin: 3%;
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
+
+ body {
+  font-family: 'Texturina', serif;
+}
+
+/* .big-container {
   flex-direction: column;
   display: flex;
   align-items: center;
+  width: 65%;
+  margin: 5%;
+} */
+
+.gray-container {
+  margin: 0;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
-.container1 {
-  margin: 10px;
+.container-1 {
+  margin: 1%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #EDE8E7;
+  width: 100%;
+  height: 200px;
+}
+
+.child {
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+  flex-basis: 30%;
+  height:20rem;
+  background-color: #EDE8E7;
+}
+
+.container-2 {
+
+  justify-content: space-between;
+  margin: 1%;
+  flex-direction: row;
   display: flex;
   background-color: gray;
-  width: 1000px;
-  height: 350px;
+  width: 100%;
+  height: 50%;
+}
+
+.child1-picture-container {
+  align-self: center;
+  background-image: url('/images/crusader-updated.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 1%;
+  height: 11rem;
+  width: 6rem;
+}
+
+p {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.child2-picture-container {
+  align-self: center;
+  background-image: url('/images/gold png 1.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 1%;
+  height: 10rem;
+  width: 5rem;
+  vertical-align: bottom;
+  display: table-cell;
+  height: 80%;
+  width: 80%;
+}
+
+.child3-picture-container {
+  align-self: center;
+  background-image: url('/images/box3.png');
+  background-repeat: no-repeat;
+  background-size: 125%;
+  margin: 1%;
+  height: 80%;
+  width: 80%;
+}
+
+.container-3 {
+  align-items: center;
+  justify-content: center;
+  margin: 1%;
+  display: flex;
+  background-color: gray;
+  width: 100%;
+  height: 300px;
 }
 
 .adolescent {
-  display: flex;
+  padding: 5px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  margin: 20px;
-  background-color: #EDE8E7;
-  flex-basis: 100%;
 }
 
-.topRightAdolescent {
+.top-right-adolescent {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,7 +145,7 @@ body {
   height: 48%
 }
 
-.topLeftAdolescent {
+.top-left-adolescent {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,74 +158,78 @@ body {
   height: 48%;
   width: 48%;
 }
-
-.theAdolescent1 {
-  width: 100%;
-  margin: 20px;
+.big-button {
+  font-size: 50px;
+  font-family: 'Texturina', serif;
 }
 
-.theAdolescent2 {
-  margin: 20px;
+
+
+
+.big-button:hover {
+  font-size: 52px;
+  background-color: #f5a141;
+  background: #d17a17;
+  cursor: pointer;
+  font-family: 'Texturina', serif;
+}
+
+.the-adolescent-1 {
+  color: white;
+  box-sizing: border-box;
+  margin: 1px;
+  box-shadow:inset 0px 1px 0px 0px #d49e28;
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius:3px;
+  border:1px solid #942911;
+  height: 66%;
+  width: 48%;
+}
+
+.the-adolescent-2 {
+  font-size: 38px;
+  font-family: 'Texturina', serif;
+  box-sizing: border-box;
+  margin: 1px;
+  color: white;
   background-color: #669900;
-  flex-basis: 50%;
-  width: 95%;
+  width: 98%;
+  box-shadow:inset 0px 1px 0px 0px #04834e;
+	background:linear-gradient(to bottom, #578007 5%, #669900 100%);
+	border-radius:3px;
+  border:1px solid #669900;
+  height: 33%;
 }
 
-.theAdolescent3 {
-  width: 100%;
-  margin: 20px;
+.the-adolescent-3 {
+  color: white;
+  box-sizing: border-box;
+  margin: 1px;
+  box-shadow:inset 0px 1px 0px 0px #d49e28;
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius:3px;
+  border:1px solid #942911;
+  height: 66%;
+  width: 48%;
 }
 
-.container2 {
-  margin: 10px;
-  display: flex;
-  background-color: gray;
-  width: 1000px;
-  height: 450px;
-}
-
-.child1 {
-  max-width:100%;
-  background-image: url('/images/crusader-updated.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 20px;
-  background-color: #EDE8E7;
-  flex-basis: 33%;
-}
-
-.child2 {
-  max-width:100%;
-  background-image: url('/images/Hound_Master.png');
-  background-repeat: no-repeat;
-  background-size:contain;
-  margin: 20px;
-  flex-basis: 33%;
-  background-color: #EDE8E7;
-}
-
-.child3 {
-  max-width:100%;
-  background-image: url('/images/leper complete.png');
-  background-repeat: no-repeat;
-  background-size:contain;
-  margin: 20px;
-  flex-basis: 33%;
-  background-color: #EDE8E7;
-}
-
-.container3 {
-  margin: 10px;
-  display: flex;
-  background-color: gray;
-  width: 1000px;
-  height: 350px;
+.bottom-text {
+  font-size: 40px;
 }
 
 .juvenile {
-  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 95%;
+  width: 98%;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin: 1%;
   background-color: #EDE8E7;
-  flex-basis: 100%;
 }
 
 #reroute-login:disabled {
@@ -131,18 +237,18 @@ body {
 }
 
 .nav-container-main__xp-container {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 1% 0 rgba(0, 0, 0, 0.19);
   box-sizing: border-box;
   border: solid black;
   background-color: whitesmoke;
-  width: 800px;
+  width: 100%;
   height: 70px;
   border-radius: 10px;
   overflow: hidden;
 }
 
 .nav-container-main__xp-fill {
-  background-color: #ffd034;
+  background-color:  #ffd034;
   width: 75%;
   height: 100%;
 }
