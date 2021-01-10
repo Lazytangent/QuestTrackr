@@ -6,25 +6,34 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  .big-container
-    .container1
-      .adolescent
-        .topRightAdolescent
-          a.theAdolescent1(href="/register" type="submit" id="reroute-register") new in town?
-        .topLeftAdolescent
-          a.theAdolescent3(href="/login" type="submit" id="reroute-login" ) existing Adventurer?
-        .theAdolescent2 places to go things to see
+  .page-container
+    .big-container
+      .gray-container
+        .container-1
+          .adolescent
+            .top-right-adolescent
+              button(class="the-adolescent-1" href="/register" type="submit" id="reroute-register") new in town?
+            .top-left-adolescent
+              button(class="the-adolescent-3" href="/login" type="submit" id="reroute-login") existing Adventurer?
+          .adolescent
+            .the-adolescent-2 Places to go - Things to do - People to meet
 
 
-    .container2
-      .child1
-        p complete tasks
-      .child2
-        p reap the rewards
-      .child3
-        p continue onward
+      .container-2
+        .child
+          p Complete tasks
+          .child1-picture-container
 
-    .container3
-      .juvenile create earn experience
-        .nav-container-main__xp-container
-          .nav-container-main__xp-fill
+        .child
+          p Reap the rewards
+          .child2-picture-container
+
+        .child
+          p Continue onward
+          .child3-picture-container
+
+
+      .container-3
+        .juvenile Create your quests and conquer your responsibilities.
+          .nav-container-main__xp-container
+            .nav-container-main__xp-fill
