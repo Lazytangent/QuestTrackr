@@ -4,6 +4,7 @@ const router = express.Router();
 const { Quest, User, Category } = require('../db/models');
 
 const db = require('../db/models');
+const { requireAuth } = require('../authorization');
 const { csrfProtection, asyncHandler } = require('./utils');
 
 router.get('/', requireAuth, asyncHandler(async (req, res) => {
