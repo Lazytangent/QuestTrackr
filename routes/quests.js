@@ -9,7 +9,6 @@ const { csrfProtection, asyncHandler } = require('./utils');
 const router = express.Router();
 
 router.get('/', asyncHandler(async (req, res) => {
-  // const quests = await Quest.findAll({ include: Category });
   const categories = await Category.findAll();
   res.render('quests', { title: 'Quests Home Page', categories });
 }));
@@ -131,7 +130,6 @@ router.post('/edit/:id', csrfProtection, questValidators,
             res.redirect('/');
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
-            console.log(errors)
             res.render('quest-edit', {
                 title: 'Reassess Your Quest',
                 quest,
@@ -154,7 +152,6 @@ router.post('/delete/:id(\\d+)', asyncHandler(async (req, res) => {
     const association = await UserQuest.findOne({
         where: { questId, userId}
     });
-    console.log(association);
     await association.destroy();
     await quest.destroy();
 

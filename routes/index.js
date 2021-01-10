@@ -63,7 +63,6 @@ router.post('/register', csrfProtection, userValidators,
       user.hashedPassword = hashedPassword;
       await user.save();
       loginUser(req, res, user, next, 'register');
-      // res.redirect('/');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render('register', {
