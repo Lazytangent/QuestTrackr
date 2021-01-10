@@ -4,6 +4,10 @@
   margin: auto;
   margin-top: 1rem;
   justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #3a3838;
 }
 
 .footer-div__github-link {
@@ -21,4 +25,9 @@
   padding: 0.5rem;
   padding-bottom: 0.75rem;
   text-align: center;
+}
+
+.github-link:hover {
+  text-decoration: underline;
+  color: #14a76c;
 }
