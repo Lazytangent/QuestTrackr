@@ -1,0 +1,6 @@
+mixin errors(errors)
+  if errors
+    .error Please fix the following errors:
+      ul
+        each error in errors
+          li #{error}

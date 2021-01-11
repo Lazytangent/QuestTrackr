@@ -1,135 +1,168 @@
 @import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
 
 body {
-    background-color: #272727;
-    font-family: 'Texturina', serif;
+  background-color: #272727;
+  font-family: 'Texturina', serif;
 }
 
 nav {
-    display: flex;
-    width: 100%;
-
+  display: flex;
+  width: 100%;
 }
 
 .nav-container {
-    margin-top: 10px;
-    width: 100%;
-    height: 50%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #747474;
+  margin-top: 10px;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #747474;
+  white-space: nowrap;
 }
 
 .logo-container {
-    width: 200px;
-    height: 80px;
-    background-position: center;
-    background-size: 100%;
-    background-image: url('../images/first-png.jpg');
+  width: 200px;
+  height: 80px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* background-size: 100% 100%; */
+  background-color: #858585;
+  background-image: url('../images/QT_transparent_black_ettering.png');
+  border-radius: 5px;
 }
 
 .navbar {
-    display: flex;
-    height: 4rem;
+  display: flex;
+  height: 4rem;
 }
 
 .user_auth {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-container__xp-section {
-    display: flex;
-    align-items:center;
+  display: flex;
+  align-items:center;
 }
 
 .nav-container__xp-section--container {
-    background-color: whitesmoke;
-    width: 300px;
-    height: 12px;
-    border-radius: 10px;
-    overflow: hidden;
+  background-color: whitesmoke;
+  width: 300px;
+  height: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 1200px) {
+  .nav-container__xp-section--container {
+    width: 100px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .nav-container__xp-section--container {
+    width: 50px;
+  }
 }
 
 .nav-container__xp-section--fill {
-    background-color: #ffd034;
-    width: 75%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: #ffd034;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-container__xp-section--fill:hover {
-    background-color: #af8f27;
+  background-color: #bd971b;
+  cursor: pointer;
 }
 
 .nav-container__xp-section--fill:hover #currentXp {
-    visibility: visible;
+  visibility: visible;
 }
 
 .level {
-    font-weight: bold;
-    margin: 0 2px;
+  font-weight: bold;
+  margin: 0 2px;
 }
 
 a {
-    text-decoration: none;
-    color: #ffffff;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a.action-button:hover {
+  text-decoration: underline;
 }
 
 .nav-container__action-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 5px;
 }
+
 .nav-container__auth-buttons {
-    display: flex;
-    align-items: center;
-    background-color: #747474;
-    height: 50%;
-    width: fit-content;
-    margin-top: 10px;
-    padding-left: 5px;
+  display: flex;
+  align-items: center;
+  background-color: #747474;
+  height: 50%;
+  width: fit-content;
+  margin-top: 10px;
+  padding-left: 5px;
 }
 
 .spacer {
-    width: 40px;
-    height: 50%;
-    margin-top: 10px;
-    background-color: #747474;
+  width: 40px;
+  height: 50%;
+  margin-top: 10px;
+  background-color: #747474;
 }
+
 span {
-    white-space: pre;
+  white-space: pre;
 }
 
 .nav-container__action-buttons a {
-    padding: 0 3px;
+  padding: 0 3px;
 }
 
 .nav-container__auth-buttons--links {
-    padding-right: 8px;
+  padding-right: 8px;
 }
 
 #currentXp {
-    visibility: hidden;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    vertical-align: middle;
-    color: black;
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: .8rem;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  color: rgb(255, 255, 255);
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: .70rem;
 }
 
 #logout {
-    margin-left: 5px;
+  padding: .25rem;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+#logout:hover {
+  cursor: pointer;
+  background-color: #b0b0b0;
 }
 
 #searchbar {
-    justify-self: flex-end;
+  justify-self: flex-end;
+  border-radius: 15px;
+  border-width: 0;
+  padding: 5px;
 }

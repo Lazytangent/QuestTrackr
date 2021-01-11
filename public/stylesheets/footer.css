@@ -1,0 +1,39 @@
+.footer-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #1a1a1a;
+  padding: 0 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.github-repo:hover {
+  text-decoration: underline;
+}
+
+.footer-div__person {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #272727;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-div__person:hover {
+  background-position: center;
+  background-size: 100%;
+  background-image: url("../images/github-logo.png");
+}
+
+.footer-div__person:hover .github-link {
+  color: rgba(0,0,0,0);
+}
+
+.github-link {
+  font-weight: bold;
+  font-size: 25px;
+}

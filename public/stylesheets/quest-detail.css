@@ -43,6 +43,8 @@ body {
 .quest-name h3 {
   font-size: 3rem;
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
 }
 
 .quest-description {
@@ -54,4 +56,113 @@ body {
 
 .quest-data h5 {
   font-size: 2rem;
+}
+
+.back {
+  color: whitesmoke;
+  background-color: #747474;
+  padding: 5px;
+  border-radius: 8px;
+  align-items: center;
+  font-weight: bold;
+  height: 10%;
+  margin-left: 28px;
+}
+
+.back:hover {
+  background-color: #464646;
+  cursor: pointer;
+}
+
+.link-container {
+  width: auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.update-container {
+  width: auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+button.edit {
+  color: whitesmoke;
+  background-color: #ebd40c;
+  padding: 5px;
+  border-radius: 8px;
+  align-items: center;
+  font-weight: bold;
+  height: 100%;
+}
+
+button.completed {
+  color: whitesmoke;
+  background-color: #14a76c;
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 8px;
+  align-items: center;
+  font-weight: bold;
+}
+
+button.delete {
+  color: whitesmoke;
+  background-color: #ff652f;
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 8px;
+  align-items: center;
+  font-weight: bold;
+  height: 100%;
+}
+
+.edit:hover {
+  border: 10px solid #ebd40c;
+  cursor: pointer;
+}
+
+.completed:hover {
+  border: 10px solid #14a76c;
+  cursor: pointer;
+}
+
+.delete:hover {
+  border: 10px solid #ff652f;
+  cursor: pointer;
+}
+
+.completed-link {
+  display: flex;
+  align-items: center;
+}
+
+.quest-edit-complete.quest-data {
+  display: flex;
+  justify-content: space-between; 
+}
+
+.movement-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.movement-btn {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.movement-btn:hover {
+  background-color: #14a76c;
+  cursor: pointer;
+}
+
+.btn-disabled {
+  pointer-events: none;
+}
+
+.hidden-container {
+  display: none;
 }

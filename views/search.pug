@@ -1,0 +1,26 @@
+extends layout.pug
+
+append head
+  link(rel="stylesheet" href="/stylesheets/quests.css")
+
+block content
+  .quests-header
+    h2 Quests
+  .quests-container
+    each quest in found
+      .quests-container__quest-container
+        .quests-container__quest-container--name.quest-container
+          h4 Quest Name
+          p #{quest.name}
+        .quests-container__quest-container--deadline.quest-container
+          h4 Deadline
+          p #{quest.deadline}
+        .quests-container__quest-container--xpValue.quest-container
+          h4 XP Value
+          p #{quest.xpValue}
+        .quests-container__quest-container--solo.quest-container
+          h4 Solo?
+          p #{quest.solo}
+        .quests-container__quest-container--button.quest-container
+          form(action=`/quests/join/${quest.id}` method="post")
+            button(class=`join-quest-btn` id=`quest-${quest.id}` type='submit') Join Quest

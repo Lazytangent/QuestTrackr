@@ -1,0 +1,38 @@
+extends layout.pug
+
+append head
+  link(rel="stylesheet" href="/stylesheets/main.css")
+  script(src="/javascripts/index.js" type="module" defer)
+
+block content
+  .page-container
+    .big-container
+      .gray-container
+        .container-1
+          .adolescent
+            button(class="the-adolescent-1 big-button" type="submit" id="reroute-register" onclick="window.location.href='/register'") New in town?
+            button(class="the-adolescent-3 big-button" type="submit" id="reroute-login" onclick="window.location.href='/login'") Existing adventurer?
+            .the-adolescent-2 Places to go - Things to do - People to meet
+
+
+      .container-2
+        .child
+          p Complete tasks
+          .child1-picture-container
+
+        .child
+          p Reap the rewards
+          .child2-picture-container
+
+        .child
+          p Continue onward
+          .child3-picture-container
+
+
+      .container-3
+        .juvenile
+          .bottom-text Create your quests and conquer your responsibilities.
+          .nav-container-main__xp-container
+            .nav-container-main__xp-fill
+
+  include includes/footer.pug

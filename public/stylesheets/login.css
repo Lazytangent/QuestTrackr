@@ -27,7 +27,9 @@ body {
   margin-bottom: 5px;
   width: 332px;
   font-size: 2em;
-  background: no-repeat url('../images/first-png.jpg') 50% / 100%;
+  /* background: no-repeat url('../images/first-png.jpg') 50% / 100%; */
+  background: no-repeat url('../images/QT_transparent_black_ettering.png') 50% / 100%;
+  background-size: contain;
   height: 140px;
 }
 
@@ -54,13 +56,15 @@ body {
   justify-content: center;
 }
 
-.errors-div {
-  display: none;
-}
-
 #submit {
+  padding: 5px;
   background-color: #ff652f;
   border-radius: 5px;
+}
+
+#submit:hover {
+  cursor: pointer;
+  background-color: #c13200;
 }
 
 #submit:disabled {
@@ -70,15 +74,25 @@ body {
 #demo-submit {
   background-color: #009900;
   border-radius: 5px;
+  padding: 5px;
+}
+
+#demo-submit:hover {
+  cursor: pointer;
+  background-color: #006b00;
 }
 
 .info-container {
-  color: red;
   padding-bottom: 10px;
+  color: #950740;
+}
+
+#rerouteRegister:hover {
+  color: #006b00;
 }
 
 .asterisk {
-  color: red;
+  color: #950740;
 }
 
 .input {
@@ -87,3 +101,20 @@ body {
   border-radius: 0.25rem;
 }
 
+.error {
+  font-size: 1rem;
+  position: relative;
+  top: 150px;
+  background-color: #747474;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding-left: 25px;
+  width: 450px;
+}
+
+input {
+  border-width: 0;
+  padding: 5px;
+}

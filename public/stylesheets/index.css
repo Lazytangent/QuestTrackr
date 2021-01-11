@@ -1,3 +1,86 @@
-h1 {
-    color: #555555;
+.heading-container {
+  width: fit-content;
+  margin: auto;
+  color: whitesmoke;
+  background-color: #747474;
+  border-radius: 0.35rem;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.heading-container h1 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+.main-content-container {
+  background-color: #747474;
+  width: 85%;
+  height: 50rem;
+  margin: auto;
+  margin-top: 5px;
+  padding: 1rem;
+  border-radius: 0.35rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-content-container h3 {
+  color: whitesmoke;
+}
+
+.main-content-container__quests,
+.main-content-container__profile,
+.main-content-container__create {
+  background-color: #272727;
+  padding: 1rem;
+  border-radius: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 33%;
+  text-align: center;
+}
+
+.main-page-btn {
+  padding: 1rem;
+  font-size: 2rem;
+  font-family: 'Texturina', serif;
+  border-radius: 0.35rem;
+}
+
+.quests-btn {
+  background-color: #ffe400;
+}
+
+.quests-btn:hover {
+  background-color: #9d8d00;
+  cursor: pointer;
+}
+
+.profile-btn {
+  background-color: #14a76c;
+  position: relative;
+}
+
+.profile-btn:hover {
+  background-color: #0e784e;
+  cursor: pointer;
+}
+
+.create-btn {
+  background-color: #ff652f;
+}
+
+.create-btn:hover {
+  background-color: #bd3100;
+  cursor: pointer;
+}
+
+.form-container {
+  align-self: bottom;
 }

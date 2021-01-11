@@ -1,7 +1,6 @@
-
 const db = require('./db/models');
 
-const loginUser = (req, res, user, next) => {
+const loginUser = (req, res, user, next, from) => {
   req.session.auth = {
     userId: user.id,
   };
@@ -9,7 +8,8 @@ const loginUser = (req, res, user, next) => {
     if (error) {
       next(error);
     } else {
-     return res.redirect('/');
+      if (from === 'register') res.redirect('/quests/new');
+      else res.redirect('/quests');
     }
   });
 };
@@ -47,7 +47,7 @@ const logoutUser = (req, res, next) => {
 
 const requireAuth = (req, res, next) => {
   if (!res.locals.authenticated) {
-    return res.redirect('/user/login');
+    return res.redirect('/login');
   }
   return next();
 };
