@@ -28,6 +28,7 @@ router.get('/edit/:id', requireAuth, csrfProtection, asyncHandler(async (req, re
   let checkbox;
   const questId = parseInt(req.params.id, 10);
   const quest = await Quest.findByPk(questId);
+  const categories = await Category.findAll();
 
   if (quest.solo === true) {
     checkbox = 'checked';
@@ -44,6 +45,7 @@ router.get('/edit/:id', requireAuth, csrfProtection, asyncHandler(async (req, re
     slicedDate,
     slicedEndDate,
     checkbox,
+    categories,
     csrfToken: req.csrfToken(),
   });
 }));
