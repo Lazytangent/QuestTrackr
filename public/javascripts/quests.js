@@ -63,14 +63,13 @@ async function createQuestDivs(category = 'all') {
         categoryDiv.innerHTML += `<li class="category-list-item">${category.tag}</li>`;
       }
       categoryDiv.innerHTML += `</ul>`;
-      outerDiv.appendChild(categoryDiv);
     } else {
       categoryDiv.innerHTML = `
         <h4> Category </h4>
         <p> None </p>
       `;
-      outerDiv.appendChild(categoryDiv);
     }
+    outerDiv.appendChild(categoryDiv);
 
     buttonDiv.innerHTML = `
       <form method="post" action="/quests/join/${quest.id}">
