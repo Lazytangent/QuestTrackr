@@ -1,7 +1,7 @@
 const express = require('express');
 const { check, validationResult } = require('express-validator');
 const { requireAuth } = require('../authorization');
-const { Quest, User, UserQuest, Category, Sequelize } = require('../db/models');
+const { Quest, User, UserQuest, Category, Sequelize, QuestCategory } = require('../db/models');
 
 const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
@@ -13,14 +13,16 @@ router.get('/', requireAuth, asyncHandler(async (req, res) => {
   res.render('quests', { title: 'Quests Home Page', categories });
 }));
 
-router.get('/new', requireAuth, csrfProtection, (req, res) => {
+router.get('/new', csrfProtection, asyncHandler(async(req, res) => {
   const quest = db.Quest.build();
+  const categories = await Category.findAll();
   res.render('quest-create', {
-    title: 'Create a Quest',
-    quest,
-    csrfToken: req.csrfToken(),
+      title: 'Create a Quest',
+      quest,
+      categories,
+      csrfToken: req.csrfToken(),
   });
-});
+}));
 
 router.get('/edit/:id', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
   let checkbox;
@@ -69,7 +71,8 @@ router.post('/', requireAuth, csrfProtection, questValidators, asyncHandler(asyn
     deadline,
     xpValue,
     solo,
-    description
+    description,
+    category
   } = req.body;
 
   let { id } = res.locals.user;
@@ -92,6 +95,7 @@ router.post('/', requireAuth, csrfProtection, questValidators, asyncHandler(asyn
   if (validatorErrors.isEmpty()) {
     await quest.save();
     await UserQuest.create({ userId: id, questId: quest.id })
+    await QuestCategory.create({ questId: quest.id, categoryId: category })
     res.redirect('/');
   } else {
     const errors = validatorErrors.array().map((error) => error.msg);
@@ -113,7 +117,7 @@ router.post('/edit/:id', requireAuth, csrfProtection, questValidators, asyncHand
       deadline,
       xpValue,
       solo,
-      description
+      description,
   } = req.body;
 
   let { id } = res.locals.user;
@@ -123,6 +127,7 @@ router.post('/edit/:id', requireAuth, csrfProtection, questValidators, asyncHand
   };
 
   const quest = await Quest.findByPk(questId);
+
   quest.name = name
   quest.startDate = startDate;
   quest.deadline = deadline;

@@ -8,7 +8,7 @@ body {
   flex-direction: column;
 }
 
-.form-container, .create-quest-title {
+.form-container, .create-quest-title{
   position: relative;
   top: 150px;
   background-color: #747474;
@@ -26,7 +26,7 @@ body {
   font-size: xx-large;
 }
 
-.form-container__field, .form-textarea {
+.form-container__field, .form-textarea, .category-selector {
   padding-bottom: 10px;
   display: flex;
   justify-content: space-between;

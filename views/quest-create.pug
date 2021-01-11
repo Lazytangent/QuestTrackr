@@ -20,6 +20,10 @@ block content
         +formField('datetime-local', 'startDate', 'Start Date', 'Start Date', true)
         +formField('datetime-local', 'deadline', 'Deadline', 'Deadline', true)
         +formField('number', 'xpValue', 'XP Value', 'XP Value', true)
+        label.category-selector(for='category') Category
+        select(name='category')
+          each category in categories
+            option(value=category.id)= category.tag
         +formField('checkbox', 'solo', 'Solo', 'Solo', false)
         .form-textarea
           label(for="description") Description
