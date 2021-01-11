@@ -58,9 +58,9 @@ body {
   font-size: 2rem;
 }
 
-button.back {
+.back {
   color: whitesmoke;
-  background-color: #272727;
+  background-color: #747474;
   padding: 5px;
   border-radius: 8px;
   align-items: center;
@@ -70,8 +70,10 @@ button.back {
 }
 
 .back:hover {
-  border: 10px solid #272727;
+  background-color: #464646;
+  cursor: pointer;
 }
+
 .link-container {
   width: auto;
   display: flex;
