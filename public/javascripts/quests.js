@@ -1,7 +1,7 @@
 async function createQuestDivs(category = 'all') {
   const questsContainer = document.querySelector('.quests-container');
   const res = await fetch(`/api/quests/${category}`);
-  const { quests } = await res.json();
+  const { quests, user } = await res.json();
   questsContainer.innerHTML = '';
 
   if (!quests.length) {
@@ -71,11 +71,22 @@ async function createQuestDivs(category = 'all') {
     }
     outerDiv.appendChild(categoryDiv);
 
-    buttonDiv.innerHTML = `
-      <form method="post" action="/quests/join/${quest.id}">
-        <button class="join-quest-btn" id="quest-${quest.id}"> Join Quest </button>
-      </form>
-    `;
+    buttonDiv.innerHTML = '';
+    for (let userQuest of user.Quests) {
+      if (userQuest.id === quest.id) {
+        buttonDiv.innerHTML = `
+          <p> You've already signed up for this quest. </p>
+        `;
+        break;
+      }
+    }
+    if (!buttonDiv.innerHTML) {
+      buttonDiv.innerHTML = `
+        <form method="post" action="/quests/join/${quest.id}">
+          <button class="join-quest-btn" id="quest-${quest.id}"> Join Quest </button>
+        </form>
+      `;
+    }
     outerDiv.appendChild(buttonDiv);
 
     questsContainer.appendChild(outerDiv);
