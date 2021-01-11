@@ -53,12 +53,15 @@ async function createQuestDivs(category = 'all') {
       <p>${quest.solo}</p>
     `;
     outerDiv.appendChild(soloDiv);
+    console.log(quest.Categories);
 
-    if (quest.Category) {
+    if (quest.Categories.length) {
       categoryDiv.innerHTML = `
         <h4> Category </h4>
-        <p>${quest.Category.tag}</p>
       `;
+      for (let category of quest.Categories) {
+        categoryDiv.innerHTML += `<p>${category}</p>`;
+      }
       outerDiv.appendChild(categoryDiv);
     } else {
       categoryDiv.innerHTML = `
