@@ -64,51 +64,6 @@ const questValidators = [
     .withMessage('Description must not be more than 1000 characters long')
 ];
 
-<<<<<<< HEAD
-router.post('/', csrfProtection, questValidators,
-    asyncHandler(async (req, res, next) => {
-        let {
-            name,
-            startDate,
-            deadline,
-            xpValue,
-            solo,
-            description,
-            category
-        } = req.body;
-        let { id } = res.locals.user;
-        if(solo == undefined){
-            solo = false;
-        };
-        const quest = db.Quest.build({
-            name,
-            startDate,
-            deadline,
-            xpValue,
-            solo,
-            description
-        });
-        const validatorErrors = validationResult(req);
-
-        if (validatorErrors.isEmpty()) {
-            await quest.save();
-            await UserQuest.create({ userId: id, questId: quest.id })
-            await QuestCategory.create({ questId: quest.id, categoryId: category })
-            res.redirect('/');
-        } else {
-            const errors = validatorErrors.array().map((error) => error.msg);
-            console.log(errors)
-            res.render('quest-create', {
-                title: 'Create a Quest',
-                quest,
-                errors,
-                csrfToken: req.csrfToken(),
-            });
-        }
-    }));
-
-router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
-=======
 router.post('/', requireAuth, csrfProtection, questValidators, asyncHandler(async (req, res, next) => {
   let {
     name,
@@ -116,7 +71,8 @@ router.post('/', requireAuth, csrfProtection, questValidators, asyncHandler(asyn
     deadline,
     xpValue,
     solo,
-    description
+    description,
+    category
   } = req.body;
 
   let { id } = res.locals.user;
@@ -139,6 +95,7 @@ router.post('/', requireAuth, csrfProtection, questValidators, asyncHandler(asyn
   if (validatorErrors.isEmpty()) {
     await quest.save();
     await UserQuest.create({ userId: id, questId: quest.id })
+    await QuestCategory.create({ questId: quest.id, categoryId: category })
     res.redirect('/');
   } else {
     const errors = validatorErrors.array().map((error) => error.msg);
@@ -160,7 +117,7 @@ router.post('/edit/:id', requireAuth, csrfProtection, questValidators, asyncHand
       deadline,
       xpValue,
       solo,
-      description
+      description,
   } = req.body;
 
   let { id } = res.locals.user;
@@ -170,6 +127,7 @@ router.post('/edit/:id', requireAuth, csrfProtection, questValidators, asyncHand
   };
 
   const quest = await Quest.findByPk(questId);
+
   quest.name = name
   quest.startDate = startDate;
   quest.deadline = deadline;
@@ -194,7 +152,6 @@ router.post('/edit/:id', requireAuth, csrfProtection, questValidators, asyncHand
 }));
 
 router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
->>>>>>> master
   const questId = parseInt(req.params.id, 10);
   const quest = await Quest.findByPk(questId, { include: User })
   res.render('quest-detail', { title: `Quest #${questId}`, quest });
