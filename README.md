@@ -1,5 +1,9 @@
 # QuestTrackr
 
+<p align="center">
+    <img src="./public/images/QT_transparent_black_ettering.png">
+</p>
+
 [![Contributors](https://img.shields.io/github/contributors/Lazytangent/QuestTrackr)](https://www.github.com/Lazytangent/QuestTrackr/contributors)
 [![Open Issues](https://img.shields.io/github/issues/Lazytangent/QuestTrackr)](https://www.github.com/Lazytangent/QuestTrackr/issues)
 [![Forks](https://img.shields.io/github/forks/Lazytangent/QuestTrackr)](https://www.github.com/Lazytangent/QuestTrackr/forks)
@@ -7,7 +11,7 @@
 
 ## What is it?
 
-QuestTrackr is a clone of the popular web app [Remember the Milk](https://www.rememberthemilk.com/) with an RPG twist. 
+[QuestTrackr](https://quest-trackr.herokuapp.com/) is a clone of the popular web app [Remember the Milk](https://www.rememberthemilk.com/) with an RPG twist.
 
 ## Developing
 
@@ -154,4 +158,28 @@ document.addEventListener('DOMContentLoaded', async () => {
     await createQuestDivs(newValue);
   });
 });
+```
+
+API Route the above code is hitting
+```js
+router.get('/quests/:category([\-\\w]+)', asyncHandler(async (req, res) => {
+  const category = req.params.category;
+  let quests;
+  if (category === 'all') {
+    quests = await Quest.findAll({ include: Category, where: { completedDate: null } });
+  } else {
+    quests = await Quest.findAll({
+      include: {
+        model: Category,
+        where: {
+          tag: category,
+        },
+      },
+      where: {
+        completedDate: null,
+      },
+    });
+  }
+  res.json({ quests });
+}));
 ```
