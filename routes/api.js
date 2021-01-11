@@ -22,7 +22,14 @@ router.put('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
 
 router.get('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
   const questId = parseInt(req.params.id, 10);
-  let quest, message, prev = 'asdf', next;
+  const userId = res.locals.user.id;
+  let quest, message, prev, next, joined = false;
+
+  const user = await User.findByPk(userId, { include: Quest });
+  for (let quest of user.Quests) {
+    if (quest.id === questId) joined = true;
+  }
+
   try {
     quest = await Quest.findByPk(questId);
     try {
@@ -52,7 +59,7 @@ router.get('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
     message = `Quest of ID ${questId} not found.`;
   }
   if (!quest) message = `Quest of ID ${questId} not found.`;
-  const bigObj = { quest, message, prev, next };
+  const bigObj = { quest, message, prev, next, joined };
   res.json(bigObj);
 }));
 
