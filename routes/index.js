@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 
 router.get('/main', (req, res) => {
   res.render('main', {
-    title: 'main',
+    title: 'QuestTrackr',
   });
 });
 
