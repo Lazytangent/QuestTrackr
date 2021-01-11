@@ -157,6 +157,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   const path = window.location.pathname.toString();
   const questId = parseInt(path.slice(8), 10);
   await renderPage(questId);
-
 });
 

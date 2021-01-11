@@ -57,7 +57,7 @@ async function createQuestDivs(category = 'all') {
     if (quest.Category) {
       categoryDiv.innerHTML = `
         <h4> Category </h4>
-        <p>${quest.Category.name}</p>
+        <p>${quest.Category.tag}</p>
       `;
       outerDiv.appendChild(categoryDiv);
     } else {

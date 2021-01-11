@@ -4,9 +4,10 @@ const router = express.Router();
 const { Quest, User, Category } = require('../db/models');
 
 const db = require('../db/models');
+const { requireAuth } = require('../authorization');
 const { csrfProtection, asyncHandler } = require('./utils');
 
-router.get('/', asyncHandler(async (req, res) => {
+router.get('/', requireAuth, asyncHandler(async (req, res) => {
   const { id, username } = res.locals.user;
   const quests = await Quest.findAll({
     include: {
