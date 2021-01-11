@@ -58,6 +58,8 @@ router.get('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
 
 router.get('/quests/:category([\-\\w]+)', asyncHandler(async (req, res) => {
   const category = req.params.category;
+  const userId = res.locals.user.id;
+  const user = await User.findByPk(userId, { include: [ Quest ] });
   let quests;
   if (category === 'all') {
     quests = await Quest.findAll({ include: Category, where: { completedDate: null } });
@@ -74,7 +76,8 @@ router.get('/quests/:category([\-\\w]+)', asyncHandler(async (req, res) => {
       },
     });
   }
-  res.json({ quests });
+  const bigObj = { quests, user };
+  res.json(bigObj);
 }));
 
 module.exports = router;

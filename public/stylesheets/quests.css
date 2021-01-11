@@ -110,3 +110,11 @@ select#category-select {
   background-color: #c13200;
   cursor: pointer;
 }
+
+ul.category-list {
+  list-style-type: none;
+}
+
+.category-list-item {
+  list-style-type: none;
+}
