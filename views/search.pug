@@ -11,7 +11,7 @@ block content
       .quests-container__quest-container
         .quests-container__quest-container--name.quest-container
           h4 Quest Name
-          p #{quest.name}
+          a(href=`/quests/${quest.id}` class="quest-name-link") #{quest.name}
         .quests-container__quest-container--deadline.quest-container
           h4 Deadline
           p #{quest.deadline}
