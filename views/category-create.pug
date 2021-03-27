@@ -1,0 +1,20 @@
+extends user-layout.pug
+
+include includes/utils.pug
+include includes/errors-mixin.pug
+
+block content
+  .container
+    .errors-div
+      +errors(errors)
+    .create-category-title Create a New Category
+    .form-container
+      form(action="/api/categories" method="post")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        +formField("text", "tag", "Tag", "Tag", true)
+        .form-textarea
+          label(for="description") Description
+          textarea(name="description" cols="30" rows="10" placeholder="Description")
+        .form-container__field--button
+          button(type="submit" id="submit") Create Category
+
