@@ -9,6 +9,7 @@ block content
       +errors(errors)
     .create-category-title Create a New Category
     .form-container
+      .info-container Required *
       form(action="/api/categories" method="post")
         input(type="hidden" name="_csrf" value=csrfToken)
         +formField("text", "tag", "Tag", "Tag", true)
