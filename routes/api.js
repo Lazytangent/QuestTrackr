@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const { asyncHandler } = require('./utils');
 const { UserQuest, Quest, User, Category, Sequelize } = require('../db/models');
+const categoriesRouter = require("./categories");
+
+router.use("/categories", categoriesRouter);
 
 router.put('/quests/:id(\\d+)', asyncHandler(async (req, res) => {
   const questId = parseInt(req.params.id, 10);
