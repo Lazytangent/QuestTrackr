@@ -7,11 +7,6 @@ const { Category } = require("../db/models");
 
 const router = express.Router();
 
-router.get('', asyncHandler(async (_, res) => {
-  const categories = await Category.findAll();
-  return res.json({ categories });
-}));
-
 const categoryValidtors = [
   check("tag")
     .exists({ checkFalsy: true })
