@@ -127,6 +127,7 @@ a.action-button:hover {
 
 span {
   white-space: pre;
+  margin-left: .4rem;
 }
 
 .nav-container__action-buttons a {
@@ -150,7 +151,8 @@ span {
 }
 
 #logout {
-  padding: .25rem;
+  margin-left: .5rem;
+  padding: .3rem;
   border-radius: 5px;
   margin-right: 5px;
 }
