@@ -1,5 +1,5 @@
 .footer-div {
-  position: static;
+  position: sticky;
   display: flex;
   justify-content: space-between;
   align-items: center;

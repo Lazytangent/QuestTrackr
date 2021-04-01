@@ -18,16 +18,15 @@
 
 body {
   background-color: #272727;
-  /* display: flex;
-  align-items: center;
-  flex-direction: column; */
   font-family: 'Texturina', serif;
 }
 
 .big-page-container {
+  position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: 85vh;
 }
 
 .gray-container {
@@ -260,7 +259,6 @@ p {
 
 .form-container__field {
   align-items: center;
-  /* margin-left: 10px; */
   padding-bottom: 10px;
   display: flex;
   justify-content: space-between;
