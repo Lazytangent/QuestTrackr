@@ -8,8 +8,8 @@ append head
   script(src="/javascripts/login.js")
 
 block content
-  +errors(errors)
   .big-page-container
+    +errors(errors)
     .form-container
       .info-container Required *
       form(action="/login" method="post")
