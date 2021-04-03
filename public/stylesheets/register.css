@@ -7,6 +7,13 @@ body {
   flex-direction: column;
   font-family: 'Texturina', serif;
 }
+.big-page-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 85vh;
+}
 
 .form-container {
   position: relative;
