@@ -129,10 +129,6 @@ span {
   margin-left: .4rem;
 }
 
-.nav-container__action-buttons a {
-  padding: 0 3px;
-}
-
 .nav-container__auth-buttons--links {
   margin-left: .5rem;
   padding: .3rem;
