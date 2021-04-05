@@ -8,8 +8,6 @@ append head
   script(src="/javascripts/register.js")
 
 block content
-  //- .logo-container
-  //-   a(href="/"): img(src="/images/first-png.jpg")
   .big-page-container
     +errors(errors)
     .form-container
@@ -28,3 +26,4 @@ block content
           button(type='submit' id='demo-submit') Login as Demo
       .form-container__field--button
         a( href="/login" type="submit" id="rerouteLogin" ) Existing Adventurer?
+  include includes/footer.pug
