@@ -18,6 +18,9 @@
 
 body {
   font-family: 'Texturina', serif;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 2rem;
 }
 
 .gray-container {

@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
 
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 5rem;
+}
+
 .container {
   color: white;
   margin-left: 5px;
@@ -15,7 +21,7 @@
   padding-right: 5px;
   padding-bottom: 5px;
   margin-top: 50px;
-  width: 85%;
+  width: 65%;
   background-color: #747474;
   border-radius: 5px;
   display: flex;

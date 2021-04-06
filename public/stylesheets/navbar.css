@@ -27,7 +27,6 @@ nav {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  /* background-size: 100% 100%; */
   background-color: #858585;
   background-image: url('../images/QT_transparent_black_ettering.png');
   border-radius: 5px;
@@ -98,6 +97,10 @@ a {
   color: #ffffff;
 }
 
+a.action-button {
+  padding: 0 5px;
+}
+
 a.action-button:hover {
   text-decoration: underline;
 }
@@ -127,14 +130,19 @@ a.action-button:hover {
 
 span {
   white-space: pre;
-}
-
-.nav-container__action-buttons a {
-  padding: 0 3px;
+  margin-left: .4rem;
 }
 
 .nav-container__auth-buttons--links {
-  padding-right: 8px;
+  margin-left: .5rem;
+  padding: .3rem;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.nav-container__auth-buttons--links:hover {
+  cursor: pointer;
+  background-color: #b0b0b0;
 }
 
 #currentXp {
@@ -150,7 +158,8 @@ span {
 }
 
 #logout {
-  padding: .25rem;
+  margin-left: .5rem;
+  padding: .3rem;
   border-radius: 5px;
   margin-right: 5px;
 }

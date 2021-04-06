@@ -1,3 +1,8 @@
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
 .heading-container {
   width: fit-content;
   margin: auto;
@@ -20,13 +25,14 @@ h3 {
 .main-content-container {
   background-color: #747474;
   width: 85%;
-  height: 50rem;
+  height: 30rem;
   margin: auto;
   margin-top: 5px;
   padding: 1rem;
   border-radius: 0.35rem;
   display: flex;
   justify-content: space-around;
+  padding-bottom: 5rem;
 }
 
 .main-content-container h3 {

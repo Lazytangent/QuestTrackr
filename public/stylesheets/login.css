@@ -1,11 +1,249 @@
 @import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
 
-body {
-  background-color: #272727;
+.page-container {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.big-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  margin: 3%;
+}
+
+
+body {
+  background-color: #272727;
   font-family: 'Texturina', serif;
+}
+
+.big-page-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 85vh;
+}
+
+.gray-container {
+  margin: 0;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.container-1 {
+  margin: 1%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #EDE8E7;
+  width: 100%;
+  height: 200px;
+}
+
+.child {
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+  flex-basis: 30%;
+  height:20rem;
+  background-color: #EDE8E7;
+}
+
+.container-2 {
+  justify-content: space-between;
+  margin: 1%;
+  flex-direction: row;
+  display: flex;
+  background-color: gray;
+  width: 100%;
+  height: 50%;
+}
+
+.child1-picture-container {
+  align-self: center;
+  background-image: url('/images/crusader-updated.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 1%;
+  height: 11rem;
+  width: 6rem;
+}
+
+p {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.child2-picture-container {
+  align-self: center;
+  background-image: url('/images/gold png 1.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 1%;
+  height: 10rem;
+  width: 5rem;
+  vertical-align: bottom;
+  display: table-cell;
+  height: 80%;
+  width: 80%;
+}
+
+.child3-picture-container {
+  align-self: center;
+  background-image: url('/images/box3.png');
+  background-repeat: no-repeat;
+  background-size: 125%;
+  margin: 1%;
+  height: 80%;
+  width: 80%;
+}
+
+.container-3 {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-color: gray;
+  width: 100%;
+  height: 300px;
+}
+
+.adolescent {
+  padding: 5px;
+  flex-wrap: wrap;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.top-right-adolescent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  box-shadow:inset 0px 1px 0px 0px #d49e28;
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius:3px;
+	border:1px solid #942911;
+  width: 48%;
+  height: 48%
+}
+
+.top-left-adolescent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  box-shadow:inset 0px 1px 0px 0px #d49e28;
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius:3px;
+  border:1px solid #942911;
+  height: 48%;
+  width: 48%;
+}
+
+.big-button {
+  font-size: 50px;
+  font-family: 'Texturina', serif;
+}
+
+.big-button:hover {
+  font-size: 48px;
+  background-color: #f5a141;
+  background: #d17a17;
+  cursor: pointer;
+  font-family: 'Texturina', serif;
+}
+
+.the-adolescent-1 {
+  color: white;
+  box-sizing: border-box;
+  margin: 1px;
+  box-shadow:inset 0px 1px 0px 0px #d49e28;
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius:3px;
+  border:1px solid #942911;
+  height: 66%;
+  width: 48%;
+}
+
+.the-adolescent-2 {
+  font-size: 38px;
+  font-family: 'Texturina', serif;
+  box-sizing: border-box;
+  margin: 1px;
+  color: white;
+  background-color: #669900;
+  width: 98%;
+  box-shadow:inset 0px 1px 0px 0px #04834e;
+	background:linear-gradient(to bottom, #578007 5%, #669900 100%);
+	border-radius:3px;
+  border:1px solid #669900;
+  height: 33%;
+}
+
+.the-adolescent-3 {
+  color: white;
+  box-sizing: border-box;
+  margin: 1px;
+  box-shadow:inset 0px 1px 0px 0px #d49e28;
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius:3px;
+  border:1px solid #942911;
+  height: 66%;
+  width: 48%;
+}
+
+.bottom-text {
+  font-size: 40px;
+}
+
+.juvenile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 95%;
+  width: 98%;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin: 1%;
+  background-color: #EDE8E7;
+}
+
+#reroute-login:disabled {
+  background-color: rgb(155, 155, 155);
+}
+
+.nav-container-main__xp-container {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 1% 0 rgba(0, 0, 0, 0.19);
+  box-sizing: border-box;
+  border: solid black;
+  background-color: whitesmoke;
+  width: 100%;
+  height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.nav-container-main__xp-fill {
+  background-color:  #ffd034;
+  width: 75%;
+  height: 100%;
 }
 
 .form-container {
@@ -16,27 +254,7 @@ body {
   padding: 20px;
   border-radius: 5px;
   margin-bottom: 5px;
-  width: 450px;
-}
-
-.logo-container {
-  position: relative;
-  top: 150px;
-  padding: 20px;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  width: 332px;
-  font-size: 2em;
-  /* background: no-repeat url('../images/first-png.jpg') 50% / 100%; */
-  background: no-repeat url('../images/QT_transparent_black_ettering.png') 50% / 100%;
-  background-size: contain;
-  height: 140px;
-}
-
-.logo-container img {
-  vertical-align: top;
-  width: 100%;
-  opacity: 0;
+  width: 350px;
 }
 
 .form-container__field {
@@ -57,9 +275,9 @@ body {
 }
 
 #submit {
-  padding: 5px;
+  padding: 10px;
   background-color: #ff652f;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 #submit:hover {
@@ -73,8 +291,8 @@ body {
 
 #demo-submit {
   background-color: #009900;
-  border-radius: 5px;
-  padding: 5px;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 #demo-submit:hover {
@@ -96,9 +314,9 @@ body {
 }
 
 .input {
-  padding: 0.5rem;
+  padding: .75rem;
   border: 1px solid black;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
 }
 
 .error {
@@ -118,3 +336,5 @@ input {
   border-width: 0;
   padding: 5px;
 }
+
+

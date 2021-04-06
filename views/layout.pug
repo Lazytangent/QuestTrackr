@@ -2,6 +2,15 @@ doctype html
 html
   head
       block head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='description', property="og:description", content='QuestTrackr is clone of the popular web app Remember the Milk!')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(property='og:title', content="QuestTrackr")
+        meta(property='og:website', content='website')
+        meta(property="og:url" content="https://quest-trackr.herokuapp.com/main")
+        meta(name='image', property='og:image', content='https://pairyopet.s3-us-west-1.amazonaws.com/Screen+Shot+2021-04-06+at+9.00.50+AM.png')
+        meta(name='author', content="Peter Mai, Clinton Hill, Mark Valdez, Jamie Zrust")
         title= title
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href="/stylesheets/navbar.css")
@@ -35,7 +44,21 @@ html
               button(type="submit" id="logout") Logout
           else
             div.user_auth
-              a(href="/login" class="nav-container__auth-buttons--links") Login
-              a(href="/register" class="nav-container__auth-buttons--links") Register
+              <button onclick="location.href = '/login';" id="loginButton" class="nav-container__auth-buttons--links">Login</button>
+              <button onclick="location.href = '/register';" id="registerButton" class="nav-container__auth-buttons--links">Register</button>
 
     block content
+    block foot 
+      footer
+        .footer-div
+          .footer-div__person.footer-div__person-1
+            a(class="github-link" href="https://www.github.com/clintonhill") CH
+          .footer-div__person.footer-div__person-2
+            a(class="github-link" href="https://www.github.com/Jamiezz") JZ
+          .footer-div__github-link
+            a(class="github-link github-repo" href="https://www.github.com/Lazytangent/QuestTrackr") GitHub Repo
+          .footer-div__person.footer-div__person-3
+            a(class="github-link" href="https://www.github.com/markhv-code") MV
+          .footer-div__person.footer-div__person-4
+            a(class="github-link" href="https://www.github.com/Lazytangent") PM
+

@@ -1,4 +1,4 @@
-extends user-layout.pug
+extends layout.pug
 
 include includes/utils.pug
 include includes/errors-mixin.pug
@@ -8,20 +8,20 @@ append head
   script(src="/javascripts/login.js")
 
 block content
-  .logo-container
-    a(href="/"): img(src="/images/first-png.jpg")
-  +errors(errors)
-  .form-container
-    .info-container Required *
-    form(action="/login" method="post")
-      input(type="hidden" name="_csrf" value=csrfToken)
-      +formField('text', 'username', 'Username', 'Username', true)
-      +formField('password', 'password', 'Password', 'Password', true)
+  .big-page-container
+    +errors(errors)
+    .form-container
+      .info-container Required *
+      form(action="/login" method="post")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        +formField('text', 'username', 'Username', 'Username', true)
+        +formField('password', 'password', 'Password', 'Password', true)
+        .form-container__field--button
+          button(type="submit" id="submit") Resume My Adventure
+      form(action="/login-demo" method="post")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        .form-container__field--button
+          button(type='submit' id='demo-submit') Login as Demo
       .form-container__field--button
-        button(type="submit" id="submit") Resume My Adventure
-    form(action="/login-demo" method="post")
-      input(type="hidden" name="_csrf" value=csrfToken)
-      .form-container__field--button
-        button(type='submit' id='demo-submit') Login as Demo
-    .form-container__field--button
-      a(href="/register" type="submit" id="rerouteRegister") New in town?
+        a(href="/register" type="submit" id="rerouteRegister") New in town?
+
