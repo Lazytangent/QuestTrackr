@@ -148,6 +148,7 @@ button.delete {
 
 .movement-buttons {
   margin-top: 20px;
+  padding-top: 1rem;
   display: flex;
   justify-content: space-around;
 }
