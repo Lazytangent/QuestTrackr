@@ -3,10 +3,10 @@ body {
 }
 
 .container {
+  position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 90vh;
 }
 
 .form-container, .create-quest-title{

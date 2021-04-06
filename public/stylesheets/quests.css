@@ -1,3 +1,8 @@
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
 .container {
   background-color: #3a3838;
   width: 85%;
@@ -39,7 +44,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 1rem;
+  padding-bottom: 5rem;
 }
 
 .quests-container__quest-container {
