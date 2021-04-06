@@ -1,5 +1,4 @@
 .footer-div {
-  /* position: sticky; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,7 +6,6 @@
   background-color: #1a1a1a;
   padding: 0 50px;
   margin-top: 10px;
-  /* margin-bottom: 10px; */
   position: absolute;
   bottom: 0;
   width: 100%;
