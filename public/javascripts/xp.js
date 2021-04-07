@@ -28,7 +28,7 @@ function updateXPBar() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  if(currentXP){
+  if(document.querySelector('#currentXp')){
     updateXPBar();
   }
 
