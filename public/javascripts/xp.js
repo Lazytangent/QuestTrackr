@@ -28,7 +28,9 @@ function updateXPBar() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  updateXPBar();
+  if(document.querySelector('#currentXp')){
+    updateXPBar();
+  }
 
   const completeButtons = Array.from(document.querySelectorAll('.complete-quest-button'));
 
